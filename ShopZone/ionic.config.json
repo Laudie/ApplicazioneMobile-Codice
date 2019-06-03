@@ -1,0 +1,7 @@
+{
+  "name": "ShopZone",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
