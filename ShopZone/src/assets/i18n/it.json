@@ -56,5 +56,7 @@
   "APPELLO_TIPOLOGIA_ESAME": "Tipologia",
   "APPELLO_TIPOLOGIA_ESAME_REQUIRED": "Tipologia Esame obbligatorio",
   "APPELLO_DELETE_TITLE": "Appello",
-  "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?"
+  "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?",
+  "PREFERITI_TAB": "Preferiti",
+  "IMPOSTAZIONI_TAB": "Impostazioni"
 }

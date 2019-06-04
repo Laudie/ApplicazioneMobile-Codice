@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.navController.navigateRoot('tabs');
+    this.navController.navigateRoot('tabs/notizie');
   }
 
   initializeApp() {

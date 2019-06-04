@@ -54,5 +54,8 @@
   "APPELLO_TIPOLOGIA_ESAME": "Type",
   "APPELLO_TIPOLOGIA_ESAME_REQUIRED": "Exam Type mandatory",
   "APPELLO_DELETE_TITLE": "Exam session",
-  "APPELLO_DELETE_MESSAGE": "Do you want to delete the exam session?"
+  "APPELLO_DELETE_MESSAGE": "Do you want to delete the exam session?",
+
+  "PREFERITI_TAB": "Favorite",
+  "IMPOSTAZIONI_TAB": "Settings"
 }

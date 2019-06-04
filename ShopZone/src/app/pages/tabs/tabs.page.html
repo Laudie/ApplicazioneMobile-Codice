@@ -1,16 +1,38 @@
 <ion-header>
   <ion-toolbar color="primary" text-center>
-    <ion-title>My Univaq</ion-title>
+    <ion-title>ShopZone</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="notizie">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>{{'NOTIZIE_TAB' | translate}}</ion-label>
+
+
+      <ion-tab-button tab="preferiti">
+        <ion-icon size="large" name="star-outline"></ion-icon>
+        <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
       </ion-tab-button>
+
+
+        <ion-tab-button>
+        </ion-tab-button>
+
+      <ion-tab-button tab="impostazioni">
+        <ion-icon size="large" name="settings"></ion-icon>
+        <ion-label>{{'IMPOSTAZIONI_TAB' | translate}}</ion-label>
+      </ion-tab-button>
+
+
     </ion-tab-bar>
   </ion-tabs>
+
+    <ion-fab horizontal="center" vertical="bottom">
+    <ion-fab-button color="tertiary" href="notizie" >
+      <ion-icon size="large" name="search"></ion-icon>
+    </ion-fab-button>
+   <br>
+
+    </ion-fab>
+
 </ion-content>

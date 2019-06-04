@@ -23,6 +23,25 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'preferiti',
+        children: [
+          {
+            path: '',
+            loadChildren: '../preferiti/preferiti.module#PreferitiPageModule'
+
+          }
+        ]
+      },
+      {
+        path: 'impostazioni',
+        children: [
+          {
+            path: '',
+            loadChildren: '../impostazioni/impostazioni.module#ImpostazioniPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/notizie',
         pathMatch: 'full'

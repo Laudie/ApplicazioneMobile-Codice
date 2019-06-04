@@ -106,6 +106,7 @@ ion-toolbar.user-profile {
     width: 68px;
     height: 68px;
   }
+
   .item-inner {
     border-width: 0;
   }
@@ -114,14 +115,14 @@ ion-toolbar.user-profile {
 // Custom toolbar (overriding Shadow DOM)
 ion-toolbar {
   &.ion-color-primary {
-    --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+    --ion-color-base: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-primary)) !important;
   }
 }
 
 // Android card shadow
 ion-card {
   &.sc-ion-card-md-h {
-    box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb),.24);
+    box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb), .24);
   }
 }
 
@@ -131,6 +132,7 @@ ion-card {
 
   .grid {
     padding: 0;
+
     .col {
       padding: 0;
     }
@@ -140,9 +142,11 @@ ion-card {
     .button-ios,
     .button-md {
       border-radius: 0;
+
       &:first-of-type {
         border-radius: 2px 0 0 2px;
       }
+
       &:last-of-type {
         border-radius: 0 2px 2px 0;
       }
@@ -189,4 +193,14 @@ ion-card {
     }
   }
 
+
+  ion-fab {
+
+    bottom: 28px;
+
+    ion-fab-button {
+      --box-shadow: none;
+    }
+
+  }
 }
