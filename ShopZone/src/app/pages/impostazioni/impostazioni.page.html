@@ -1,8 +1,32 @@
 <ion-header>
-
-    <ion-title>{{'impostazioni' | translate}}</ion-title>
-
+    <ion-toolbar color="primary" text-center>
+        <ion-title>{{'IMPOSTAZIONI_TAB' | translate}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
+    <ion-list>
 
+        <ion-button id="aggiunginegozio" color="tertiary" size="large" expand="block">
+            <ion-icon slot="start" size="large" name="add-circle-outline"></ion-icon>
+            <ion-label>Aggiungi Negozio</ion-label>
+        </ion-button>
+
+        <ion-button id="logout" size="large" expand="block">
+            <ion-icon size="large" name="log-out"></ion-icon>
+            <ion-label>Logout</ion-label>
+        </ion-button>
+
+        <ion-item>
+            <ion-label>The Legend of Zelda</ion-label>
+            <ion-toggle [(ngModel)]="The_Legend_of_Zelda" color="success"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Pac-Man</ion-label>
+            <ion-toggle [(ngModel)]="Pac-Man" color="success"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Super Mario World</ion-label>
+            <ion-toggle [(ngModel)]="Super_Mario_World" color="success"></ion-toggle>
+        </ion-item>
+    </ion-list>
 </ion-content>
