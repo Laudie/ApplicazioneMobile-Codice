@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-    {path: '', loadChildren: 'tabs/notizie', pathMatch: 'full'},
+    {path: '', loadChildren: './pages/tabs/notizie', pathMatch: 'full'},
     {path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
     {path: 'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule'},
     {path: 'notizie', loadChildren: './pages/tabs/tabs.module#NotiziePageModule'},
