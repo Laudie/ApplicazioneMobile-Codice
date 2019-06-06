@@ -1,34 +1,27 @@
 {
-  "BACK_BUTTON_TEXT":  "Indietro",
-
+  "BACK_BUTTON_TEXT": "Indietro",
   "LOGIN_BUTTON": "Accedi",
   "DONE_BUTTON": "Fatto",
   "SAVE_BUTTON": "Salva",
   "CANCEL_BUTTON": "Annulla",
   "DELETE_BUTTON": "Elimina",
   "UPDATE_BUTTON": "Modifica",
-
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",
   "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
-
   "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
-
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "TELEFONO": "Telefono",
   "USERNAME_REQUIRED": "Username obbligatorio",
   "PASSWORD_REQUIRED": "Password obbligatorio",
-
   "PIANO_STUDI_MENU": "Piano di Studi",
   "TASSE_MENU": "Tasse",
   "LIBRETTO_MENU": "Libretto",
   "MIE_NOTIZIE_MENU": "Mie Notizie",
-
   "APPROVAZIONE_PIANI_MENU": "Approvazione piani",
   "DIARIO_MENU": "Diario",
   "QUESTIONARIO_MENU": "Questionari",
-
   "PROFILO_MENU": "Profilo",
   "LOGOUT_MENU": "Esci",
   "NOTIZIE_TAB": "Notizie",
@@ -36,15 +29,12 @@
   "APPELLI_TAB": "Appelli",
   "ESAMI_TAB": "Esami",
   "LEZIONI_TAB": "Lezioni",
-
   "PROFILO_TITOLO": "Profilo",
   "MATRICOLA": "Matricola",
   "EMAIL": "Email",
   "LANGUAGE": "Lingua",
   "EMAIL_REQUIRED": "Email obbligatoria",
-
   "DETTAGLIO_NOTIZIA_TITOLO": "Dettaglio Notizia",
-
   "INSEGNAMENTI_TITOLO": "Insegnamenti",
   "DETTAGLIO_INSEGNAMENTO_TITOLO": "Dettaglio",
   "APPELLI_TITOLO": "Appelli",
@@ -58,5 +48,6 @@
   "APPELLO_DELETE_TITLE": "Appello",
   "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?",
   "PREFERITI_TAB": "Preferiti",
-  "IMPOSTAZIONI_TAB": "Impostazioni"
+  "IMPOSTAZIONI_TAB": "Impostazioni",
+  "NOTIZIE_TAB": "Notizie"
 }

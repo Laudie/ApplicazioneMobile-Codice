@@ -6,7 +6,10 @@
                 <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
-            <ion-item class="baseTab"></ion-item>
+            <ion-tab-button tab="notizie">
+                <ion-icon size="large" name="search"></ion-icon>
+                <ion-label>{{'NOTIZIE_TAB' | translate}}</ion-label>
+            </ion-tab-button>
 
             <ion-tab-button tab="impostazioni">
                 <ion-icon size="large" name="settings"></ion-icon>
@@ -14,11 +17,5 @@
             </ion-tab-button>
         </ion-tab-bar>
     </ion-tabs>
-
-    <ion-fab horizontal="center" vertical="bottom">
-        <ion-fab-button color="tertiary" href="notizie">
-            <ion-icon size="large" name="search"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
 
 </ion-content>
