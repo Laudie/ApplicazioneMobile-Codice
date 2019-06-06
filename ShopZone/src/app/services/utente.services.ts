@@ -73,7 +73,7 @@ export class UtenteService {
     isLogged(): Observable<boolean> {
         return this.loggedIn$.asObservable();
     }
-
+/*
     updateProfilo(nuovoUtente: Utente): Observable<Utente> {
         return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
@@ -85,6 +85,6 @@ export class UtenteService {
                 this.utente$.next(resp.body);
                 return resp.body;
             }));
-    }
+    }*/
 
 }

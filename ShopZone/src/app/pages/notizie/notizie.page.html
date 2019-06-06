@@ -8,7 +8,7 @@
                 <ion-searchbar mode="ios" value="Cerca un negozio o un luogo"></ion-searchbar>
             </ion-col>
             <ion-col>
-                <ion-buttons>
+                <ion-buttons id="icon-map">
                     <ion-icon size="large" name="pin"></ion-icon>
                 </ion-buttons>
             </ion-col>
@@ -19,6 +19,7 @@
 <ion-content>
     <ion-card>
         <h1> post</h1>
+        <ion-button [routerLink]= "['/dettaglio']"></ion-button>
     </ion-card>
     <ion-card>
         <h1> negozio</h1>

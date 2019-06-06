@@ -205,6 +205,9 @@ ion-fab {
 #aggiunginegozio, #logout{
   margin-top: 5%;
 }
+#icon-map{
+  padding: 15% 5% 15% 5%;
+}
 
 ion-list{
   ion-item{
@@ -213,14 +216,12 @@ ion-list{
   }
 }
 
-ion-header{
+ion-header {
   background-color: var(--ion-color-primary);
   border: transparent;
-    ion-searchbar{
-      color: white;
-  }
-  ion-buttons{
-    padding: 15% 5% 15% 5%;
+
+  ion-searchbar {
+    color: white;
   }
 }
 
