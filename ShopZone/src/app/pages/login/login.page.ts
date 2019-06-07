@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, NavController} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
+import {Account, UtenteService} from '../../services/utente.services';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private alertController: AlertController,
               private translateService: TranslateService,
-              private navController: NavController) {
+              private navController: NavController,
+              private utenteService: UtenteService) {
   }
 
   ngOnInit() {
@@ -33,9 +35,13 @@ export class LoginPage implements OnInit {
   }
 
   onLogin() {
-    this.navController.navigateRoot('tabs');
+    const account: Account = this.loginFormModel.value;
+    if (this.utenteService.login(account)) {
+      this.navController.navigateRoot('tabs/preferiti');
+    } else {
+      this.navController.navigateRoot('login');
+    }
   }
-
   async showLoginError() {
     const alert = await this.alertController.create({
       header: this.loginTitle,
