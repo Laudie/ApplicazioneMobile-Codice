@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, NavController} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
-import {Account, UtenteService} from '../../services/utente.services';
+import {Account, UtenteService} from '../../services/utente.service';
 
 @Component({
   selector: 'app-login',

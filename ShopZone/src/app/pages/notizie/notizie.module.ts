@@ -6,7 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { NotiziePage } from './notizie.page';
+
 import {TranslateModule} from '@ngx-translate/core';
+import {DettaglioPage} from '../dettaglio/dettaglio.page';
 
 const routes: Routes = [
   {
