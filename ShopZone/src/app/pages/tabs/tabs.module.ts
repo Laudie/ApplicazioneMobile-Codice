@@ -33,7 +33,8 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: '../preferiti/preferiti.module#PreferitiPageModule'
-                    }]
+                    }
+                    ]
             },
             {
                 path: 'impostazioni',
@@ -42,6 +43,15 @@ const routes: Routes = [
                         path: '',
                         loadChildren: '../impostazioni/impostazioni.module#ImpostazioniPageModule'
                     }]
+            },
+            {
+                path: 'negozio',
+                children: [
+                    {
+                        path: ':id',
+                        loadChildren: '../dettaglio-negozio/dettaglio-negozio.module#DettaglioNegozioPageModule'
+                    }
+                ]
             },
             {
                 path: '',

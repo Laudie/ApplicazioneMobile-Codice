@@ -18,7 +18,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <h1> negozio</h1>
+    <ion-card [routerLink]="['/tabs/notizie','55']" routerDirection="backward">
+<h1>Card</h1>
     </ion-card>
+    <ion-button [routerLink]="['/tabs/negozio','1111']" routerDirection="backward"> negozio</ion-button>
 </ion-content>
