@@ -14,6 +14,24 @@
 ion-item {
   --ion-item-background: transparent;
 }
+ion-thumbnail{
+  &.ion-radius-circle {
+    --border-radius: 100% !important;
+    border: 2px solid grey;
+  }
+  &.ion-radius-squared{
+    border-radius: 10%;
+    border: 2px solid grey;
+    overflow: hidden;
+  }
+}
+ion-img{
+  &.ion-border-radius{
+    border-radius: 5%;
+    border: 1px solid grey;
+    overflow: hidden;
+  }
+}
 
 // backgrounds //
 .bg-white {
@@ -216,25 +234,6 @@ ion-list{
   }
 }
 
-.icon-square{
-  border-radius: 15px;
-  border: 2px solid grey;
-  width: 20%;
-  height: 20%;
-  img{
-    border-radius: 10px;
-  }
-}
-
-.icon-circle{
-  border-radius: 50%;
-  border: 2px solid grey;
-  width: 20%;
-  height: 20%;
-  img{
-    border-radius: 30%;
-  }
-}
 
 ion-header {
   background-color: var(--ion-color-primary);

@@ -3,6 +3,7 @@
 
 /** Ionic CSS Variables **/
 :root {
+  --ion-font-family: 'Roboto';
   --ion-color-primary: #52a4a8;
   --ion-color-primary-rgb: 82,164,168;
   --ion-color-primary-contrast: #000000;
@@ -65,4 +66,23 @@
   --ion-color-light-contrast-rgb: 0,0,0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  ion-title {
+    color: #f4f5f8;
+    font-family: 'font-6', serif;
+    font-size: 1.6rem;
+  }
+
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'font-6';
+  src: url('../assets/fonts/font6-clean.otf');
+  font-weight: normal;
+  font-style: normal;
 }
