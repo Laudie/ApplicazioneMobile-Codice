@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Notizia} from '../../model/notizia.model';
+import {NotiziaService} from '../../services/notizia.service';
 
 @Component({
   selector: 'app-dettaglio',
@@ -7,11 +9,13 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./dettaglio.page.scss'],
 })
 export class DettaglioPage implements OnInit {
-  id;
-  constructor(private route: ActivatedRoute) { }
+  private notizia: Notizia;
 
-  ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
+  constructor(private route: ActivatedRoute,
+              private notiziaService: NotiziaService) {
   }
 
+  ngOnInit() {
+    this.notizia = this.notiziaService.findById(parseInt(this.route.snapshot.paramMap.get('id'), 0));
+  }
 }
