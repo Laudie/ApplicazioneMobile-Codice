@@ -1,10 +1,12 @@
-import {Utente} from './utente.model';
+// import {Utente} from './utente.model';
 
 export class Notizia {
     id: number;
     nome: string;
+    immagine: string;
     descrizione: string;
-    dataPubblicazione: Date;
-    pubblicatoDa: Utente;
+    dataPubblicazione: string;
+    pubblicatoDa: string;
+    // pubblicatoDa: Utente;
 
 }

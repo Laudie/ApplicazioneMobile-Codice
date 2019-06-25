@@ -38,12 +38,13 @@ export class UtenteService {
     }
 
     login(account: Account): boolean {
-       if (account.username === 'amleto') {
+     /*  if (account.username === 'amleto') {
            if (account.password === 'amleto') {
                return true;
            }
        }
-       return false;
+       return false;*/
+     return true;
     }
 
     logout() {

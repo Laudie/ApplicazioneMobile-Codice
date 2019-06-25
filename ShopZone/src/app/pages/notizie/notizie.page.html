@@ -17,7 +17,6 @@
 </ion-header>
 
 <ion-content>
-
     <ion-card >
         <ion-item>
             <ion-thumbnail slot="start">
@@ -29,10 +28,19 @@
             <ion-icon name="heart" slot="end"></ion-icon>
         </ion-item>
 
-        <ion-card-content text-wrap [routerLink]= "['/tabs/notizie','5555']">
+        <ion-card-content text-wrap [routerLink]= "['/tabs/notizie','123']">
             Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
             Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
         </ion-card-content>
     </ion-card>
+    
+    <ion-card>
+        <h1> post</h1>
+        <ion-button [routerLink]= "['/tabs/notizie','5555']"></ion-button>
+        <ion-button [routerLink]= "['/tabs/notizie','1111']"></ion-button>
+    </ion-card>
+    <ion-card>
+        <h1> negozio</h1>
+    </ion-card>
 
-</ion-content>
+
