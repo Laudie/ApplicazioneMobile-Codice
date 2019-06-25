@@ -20,6 +20,7 @@ export class UtenteService {
     private authToken: string;
     private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private utente$: BehaviorSubject<Utente> = new BehaviorSubject<Utente>({} as Utente);
+    private account: any;
 
     constructor(private http: HttpClient, private storage: Storage) {
 
@@ -63,8 +64,8 @@ export class UtenteService {
         return this.authToken;
     }
 
-    isLogged(): boolean  {if (account.username === 'amleto') {
-        if (account.password === 'amleto') {
+    isLogged(): boolean  {if (this.account.username === 'amleto') {
+        if (this.account.password === 'amleto') {
             return true;
         }
         return false;

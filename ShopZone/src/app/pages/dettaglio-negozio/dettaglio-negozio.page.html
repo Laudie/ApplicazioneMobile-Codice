@@ -12,9 +12,23 @@
 <h1>dettaglio negozio {{id}}</h1>
   <hr>
 
-  <ion-card>
-    <ion-button [routerLink]="['/tabs/notizie','id']">dettaglio notizia</ion-button>
+  <ion-card >
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/Immagine.jpg">
+      </ion-thumbnail>
+      <a [routerLink]="['/tabs/negozio','pagina negozio 1']">
+        Nome notizia
+      </a>
+      <ion-icon name="heart" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-card-content text-wrap [routerLink]= "['/tabs/notizie','5555']">
+      Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
+      Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
+    </ion-card-content>
   </ion-card>
+
 
 
 </ion-content>

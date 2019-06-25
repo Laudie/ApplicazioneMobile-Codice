@@ -216,6 +216,14 @@ ion-list{
   }
 }
 
+ion-thumbnail{
+  border-radius: 15px;
+  border: 2px solid grey;
+  img{
+    border-radius: 10px;
+  }
+}
+
 ion-header {
   background-color: var(--ion-color-primary);
   border: transparent;
@@ -224,6 +232,7 @@ ion-header {
     color: white;
   }
 }
+
 
 .baseTab{
   margin-left: 12%;
