@@ -7,7 +7,16 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./dettaglio-negozio.page.scss'],
 })
 export class DettaglioNegozioPage implements OnInit {
+  public number: number = null;
 id;
+
+call() {
+  if ( this.number !== null ) {
+    this.number = null;
+  } else {
+    this.number = 3478902938;
+  }
+}
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
