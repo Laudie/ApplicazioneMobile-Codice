@@ -1,34 +1,135 @@
 <ion-header>
-  <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
-  </ion-buttons>
-  <ion-toolbar>
-    <ion-title>dettaglioNegozio</ion-title>
-  </ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-toolbar color="primary">
+        <ion-title color="light" align="center">{{id}}</ion-title>
+    </ion-toolbar>
 </ion-header>
+
+
+<div class="bg-light">
+
+    <ion-item>
+        <ion-thumbnail slot="start">
+            <img src="../../../assets/images/Logofreeway.jpg">
+        </ion-thumbnail>
+        <div class="ion-justify-content-center">
+            <p class="ion-text-center text-dark">
+                Aperti : Lun-Sab
+                Ore: 9:00-12:00 / 15:00-19:00
+                Email : admin@freeway.com
+            </p>
+
+        </div>
+        <a [routerLink]="['/login']" slot="end">
+            <ion-icon size="large" slot="top" name="star-outline"></ion-icon>
+        </a>
+
+    </ion-item>
+    <ion-item >
+        <ion-icon name="map" slot="end" size="large" [routerLink]="['/dummy']"></ion-icon>
+        <ion-icon name="call" slot="end" size="large" (click)="call()"></ion-icon>
+        <p>{{number}}</p>
+    </ion-item>
+
+</div>
+
+
+<ion-item>
+    <ion-icon name="more" slot="start" size="large" ></ion-icon>
+    <ion-icon name="grid" slot="end" size="large"></ion-icon>
+
+</ion-item>
 
 <ion-content>
 
-<h1>dettaglio negozio {{id}}</h1>
-  <hr>
 
-  <ion-card >
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/images/Immagine.jpg">
-      </ion-thumbnail>
-      <a [routerLink]="['/tabs/negozio','pagina negozio 1']">
-        Nome notizia
-      </a>
-      <ion-icon name="heart" slot="end"></ion-icon>
-    </ion-item>
 
-    <ion-card-content text-wrap [routerLink]= "['/tabs/notizie','5555']">
-      Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
-      Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img src="../../../assets/images/Immagine.jpg">
+            </ion-thumbnail>
+            <a [routerLink]="['/tabs/negozio','Freeway']">
+                Nome notizia
+            </a>
+            <ion-icon name="heart-empty" slot="end"></ion-icon>
+        </ion-item>
 
+        <ion-card-content text-wrap [routerLink]="['/tabs/notizie','5555']">
+            Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
+            Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img src="../../../assets/images/Immagine.jpg">
+            </ion-thumbnail>
+            <a [routerLink]="['/tabs/negozio','Freeway']">
+                Nome notizia
+            </a>
+            <ion-icon name="heart" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-card-content text-wrap [routerLink]="['/tabs/notizie','5555']">
+            Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
+            Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img src="../../../assets/images/Immagine.jpg">
+            </ion-thumbnail>
+            <a [routerLink]="['/tabs/negozio','Freeway']">
+                Nome notizia
+            </a>
+            <ion-icon name="heart-empty" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-card-content text-wrap [routerLink]="['/tabs/notizie','5555']">
+            Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
+            Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img src="../../../assets/images/Immagine.jpg">
+            </ion-thumbnail>
+            <a [routerLink]="['/tabs/negozio','Freeway']">
+                Nome notizia
+            </a>
+            <ion-icon name="heart-empty" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-card-content text-wrap [routerLink]="['/tabs/notizie','5555']">
+            Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
+            Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img src="../../../assets/images/Immagine.jpg">
+            </ion-thumbnail>
+            <a [routerLink]="['/tabs/negozio','Freeway']">
+                Nome notizia
+            </a>
+            <ion-icon name="heart-empty" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-card-content text-wrap [routerLink]="['/tabs/notizie','5555']">
+            Descrizione dell notizia, Descrizione dell notizia Descrizione dell notiziaDescrizione dell notizia
+            Descrizione dell notiziaDescrizione dell notiziaDescrizione dell notiziaDescrizione dell notizia
+        </ion-card-content>
+    </ion-card>
 
 
 </ion-content>

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preferiti.page.scss'],
 })
 export class PreferitiPage implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
