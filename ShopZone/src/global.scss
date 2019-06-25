@@ -216,11 +216,23 @@ ion-list{
   }
 }
 
-ion-thumbnail{
+.icon-square{
   border-radius: 15px;
   border: 2px solid grey;
+  width: 20%;
+  height: 20%;
   img{
     border-radius: 10px;
+  }
+}
+
+.icon-circle{
+  border-radius: 50%;
+  border: 2px solid grey;
+  width: 20%;
+  height: 20%;
+  img{
+    border-radius: 30%;
   }
 }
 

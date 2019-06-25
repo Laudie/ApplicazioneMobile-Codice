@@ -4,9 +4,7 @@
     <list default="true" id="1819bfbf-b1ac-44c3-9983-786eddb79730" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopZone/src/app/pages/dettaglio-negozio/dettaglio-negozio.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopZone/src/app/pages/dettaglio-negozio/dettaglio-negozio.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShopZone/src/app/pages/notizie/notizie.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopZone/src/app/pages/notizie/notizie.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopZone/src/app/services/utente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ShopZone/src/app/services/utente.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShopZone/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ShopZone/src/global.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/ShopZone/node_modules/" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShopZone/src/app/services/utente.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+            <state relative-caret-position="782">
+              <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -36,8 +34,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShopZone/src/app/pages/notizie/notizie.page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="104">
+              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ShopZone/src/global.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="232" column="14" lean-forward="true" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -47,15 +54,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
               <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShopZone/src/global.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="224" column="1" lean-forward="true" selection-start-line="224" selection-start-column="1" selection-end-line="224" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -102,13 +100,13 @@
         <option value="$PROJECT_DIR$/ShopZone/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/ShopZone/src/app/pages/impostazioni/impostazioni.page.html" />
         <option value="$PROJECT_DIR$/ShopZone/src/app/pages/dettaglio-negozio/dettaglio-negozio.page.html" />
-        <option value="$PROJECT_DIR$/ShopZone/src/global.scss" />
-        <option value="$PROJECT_DIR$/ShopZone/src/app/pages/notizie/notizie.page.html" />
         <option value="$PROJECT_DIR$/ShopZone/src/app/services/utente.service.ts" />
+        <option value="$PROJECT_DIR$/ShopZone/src/app/pages/notizie/notizie.page.html" />
+        <option value="$PROJECT_DIR$/ShopZone/src/global.scss" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="1240" />
     <option name="height" value="745" />
@@ -236,18 +234,18 @@
       <workItem from="1559910241710" duration="45000" />
       <workItem from="1559910381514" duration="6113000" />
       <workItem from="1561209245884" duration="314000" />
-      <workItem from="1561363488991" duration="11026000" />
+      <workItem from="1561363488991" duration="17224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48410000" />
+    <option name="totallyTimeSpent" value="54608000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19642857" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19642857" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -562,27 +560,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShopZone/src/global.scss">
+    <entry file="file://$PROJECT_DIR$/ShopZone/src/app/services/utente.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="224" column="1" lean-forward="true" selection-start-line="224" selection-start-column="1" selection-end-line="224" selection-end-column="1" />
+        <state relative-caret-position="782">
+          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShopZone/src/app/pages/notizie/notizie.page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="104">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShopZone/src/app/services/utente.service.ts">
+    <entry file="file://$PROJECT_DIR$/ShopZone/src/global.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="376">
+          <caret line="232" column="14" lean-forward="true" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
         </state>
       </provider>
     </entry>
