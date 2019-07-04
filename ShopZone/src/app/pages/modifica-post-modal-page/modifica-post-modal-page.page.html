@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="light" align="center">Modifica Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="none">
+    <ion-icon name="arrow-back" size="large" slot="start" (click)="close()"></ion-icon>
+  </ion-item>
+
+  <form [formGroup]="modificaPostFormModel" class="modificaPostform">
+    <ion-grid>
+      <ion-row class="text">
+        <ion-col size="12">
+          <ion-textarea maxlength="400" rows="10" autoGrow="true" autofocus="true" type="text" placeholder="Aggiungi descrizione"></ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="8"> <ion-icon name="images" size="large"> </ion-icon></ion-col>
+        <ion-col> <ion-icon name="camera" size="large"></ion-icon> </ion-col>
+      </ion-row>
+      <ion-row class="button-bottom">
+        <ion-col size="6"> <ion-button  color="danger">Elimina post</ion-button> </ion-col>
+        <ion-col size="6"> <ion-button  color="success">Pubblica post</ion-button> </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

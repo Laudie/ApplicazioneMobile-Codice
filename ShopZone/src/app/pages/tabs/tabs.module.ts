@@ -42,7 +42,12 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: '../impostazioni/impostazioni.module#ImpostazioniPageModule'
-                    }]
+                    },
+                    {
+                        path: 'negoziante-home',
+                        loadChildren: '../negoziante-home/negoziante-home.module#NegozianteHomePageModule'
+                    }
+                ]
             },
             {
                 path: 'negozio',

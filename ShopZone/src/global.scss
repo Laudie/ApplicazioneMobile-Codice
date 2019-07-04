@@ -10,6 +10,47 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+form{
+  &.modificaPostform{
+    padding: 0 3% 2% 3%;
+    height: 90%;
+    ion-grid{
+      box-shadow: 0 4px 8px rgba(var(--ion-color-dark-rgb), 0.50);
+      padding: 2% 2% 2% 2%;
+      border-radius: 5%;
+      height: 90%;
+      border: 1px solid grey;
+      ion-row {
+        &.text{
+          padding: 2% 0 2% 0;
+          border: 1px solid grey;
+          height:50%;
+          margin: 2% 2% 0 2%;
+          ion-col{
+            ion-textarea[type="text"]{
+              text-align: justify;
+            }
+          }
+        }
+        &.button-bottom{
+          border: none;
+          height: 25%;
+          padding: 10% 0 2% 0;
+          margin: 0 2% 0 2%;
+          ion-button{
+            box-shadow:0 5px 8px rgba(var(--ion-color-dark-rgb), 0.25);
+          }
+        }
+      }
+      ion-row{
+        padding: 2% 0 2% 0;
+        margin: 0 2% 0 2%;
+        text-align: center;
+        border: 1px solid grey;
+      }
+    }
+  }
+}
 
 ion-item {
   --ion-item-background: transparent;
@@ -18,11 +59,23 @@ ion-thumbnail{
   &.ion-radius-circle {
     --border-radius: 100% !important;
     border: 2px solid grey;
+    min-width: 5rem;
+    min-height: 5rem;
+    img {
+      max-width: 5rem;
+      min-width: 5rem;
+    }
   }
   &.ion-radius-squared{
     border-radius: 10%;
     border: 2px solid grey;
     overflow: hidden;
+    min-width: 5rem;
+    min-height: 5rem;
+    img {
+      max-width: 5rem;
+      min-width: 5rem;
+    }
   }
 }
 ion-img{
@@ -140,7 +193,37 @@ ion-toolbar {
 // Android card shadow
 ion-card {
   &.sc-ion-card-md-h {
-    box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb), .24);
+    box-shadow: 0 4px 8px rgba(var(--ion-color-dark-rgb), 0.50);
+    ion-label{
+      &.text-description{
+        text-align: justify;
+        color: var(--ion-color-primary);
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    }
+    ion-item{
+      a{
+        color: #3880ff;
+      }
+      ion-grid, ion-col, ion-row{
+        text-align: center;
+        align-items: center;
+        padding: 0 0 2% 0;
+        &.header-card{
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        &.icon-heart-card{
+          text-align: right;
+          font-size: 1.6em;
+        }
+        &.icon-setting-card{
+          text-align: left;
+          font-size: 1.6em;
+        }
+      }
+    }
   }
 }
 
@@ -179,7 +262,7 @@ ion-card {
       height: 200px;
       margin: 20px auto 8px;
       border-radius: 10%;
-      background: url("/assets/images/univaq.png") no-repeat;
+      background: url("assets/images/Immagine.jpg") no-repeat;
       background-size: 100%;
     }
 
@@ -224,7 +307,7 @@ ion-fab {
   margin-top: 5%;
 }
 #icon-map{
-  padding: 15% 5% 15% 5%;
+  padding: 5% 5%;
 }
 
 ion-list{

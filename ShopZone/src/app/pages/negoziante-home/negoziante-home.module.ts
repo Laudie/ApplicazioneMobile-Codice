@@ -1,29 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
+import { NegozianteHomePage } from './negoziante-home.page';
 import {TranslateModule} from '@ngx-translate/core';
+import {ModificaPostModalPagePageModule} from '../modifica-post-modal-page/modifica-post-modal-page.module';
+
 
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: NegozianteHomePage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    FormsModule,
     IonicModule,
+    ModificaPostModalPagePageModule,
     TranslateModule.forChild(),
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage]
+  declarations: [NegozianteHomePage]
 })
-export class LoginPageModule {}
+export class NegozianteHomePageModule {}
