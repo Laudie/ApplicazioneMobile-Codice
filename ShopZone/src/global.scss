@@ -20,6 +20,11 @@ form{
       border-radius: 5%;
       height: 90%;
       border: 1px solid grey;
+
+      .font-6{
+        font-family: 'font-6', serif;
+      }
+
       ion-row {
         &.text{
           padding: 2% 0 2% 0;

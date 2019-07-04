@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-title>Aggiungi Negozio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="negozioFormModel">
+    <ion-list no-lines>
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">Aggiungi Nome</ion-label>
+        <ion-input type="email" formControlName="descrizione"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('nome').touched && negozioFormModel.get('descrizione').invalid">
+        <ion-text color="danger">Nome Richiesto</ion-text>
+      </p>
+    </ion-list>
+    <div margin-top="30px" align="center">
+
+  <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
+    Aggiungi
+  </ion-button>
+  <ion-button size="medium" shape="round" color="primary" (click)="cancel()" tappable>
+    Cancella
+  </ion-button>
+    </div>
+  </form>
+</ion-content>

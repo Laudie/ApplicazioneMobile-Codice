@@ -14,7 +14,10 @@ export class DettaglioPage implements OnInit {
   constructor(private route: ActivatedRoute,
               private notiziaService: NotiziaService) {
   }
-
+  visible = false;
+  onLike() {
+    this.visible = !this.visible;
+  }
   ngOnInit() {
     this.notizia = this.notiziaService.findById(parseInt(this.route.snapshot.paramMap.get('id'), 0));
   }

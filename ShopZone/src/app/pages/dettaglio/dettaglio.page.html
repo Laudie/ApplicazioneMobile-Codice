@@ -16,8 +16,10 @@
         <ion-text class="text12 text-dark font-6">
             <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.pubblicatoDa}}</a>
         </ion-text>
-        <ion-item lines="none" href="#" class="activated" slot="end">
-            <ion-icon name="heart-empty" color="danger"></ion-icon>
+        <ion-item lines="none" (click)="onLike()" class="activated" slot="end">
+            <ion-icon color="danger" size="large"
+                             [name]="visible ? 'heart-empty' :'heart'">
+        </ion-icon>
         </ion-item>
     </ion-item>
 
