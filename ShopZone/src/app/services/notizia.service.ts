@@ -23,19 +23,19 @@ export class NotiziaService {
         const n: Notizia = new Notizia();
         if (notiziaId === 5555) {
             n.id = 5555;
-            n.nome = 'Sconto 50%!!!';
+            n.titolo = 'Sconto 50%!!!';
             n.immagine = 'assets/images/Modello.jpg';
             n.descrizione = 'Sconto del 50% su tutta la collezione primavera estate!! Affrettatevi';
             n.dataPubblicazione = '05/05/19';
-            n.pubblicatoDa = 'Freeway SRL';
+            // n.pubblicatoDa = 'Freeway SRL';
             return n;
         } else {
             n.id = 1111;
-            n.nome = 'Nuovi Arrivi';
+            n.titolo = 'Nuovi Arrivi';
             n.immagine = 'assets/images/Modello2.jpg';
             n.descrizione = 'Collezione Levis, appena arrivata in negozio. Vi ricordiamo che sabato e domenica saremo aperti';
             n.dataPubblicazione = '05/07/19';
-            n.pubblicatoDa = 'Sotto Sopra';
+            // n.pubblicatoDa = 'Sotto Sopra';
             return n;
         }
     }
