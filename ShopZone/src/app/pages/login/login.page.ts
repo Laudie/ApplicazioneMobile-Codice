@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, NavController} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
 import {Account, UtenteService} from '../../services/utente.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Utente} from '../../model/utente.model';
 
 @Component({
   selector: 'app-login',
@@ -36,12 +38,18 @@ export class LoginPage implements OnInit {
 
   onLogin() {
     const account: Account = this.loginFormModel.value;
-    if (this.utenteService.login(account)) {
-      this.navController.navigateRoot('tabs/preferiti');
-    } else {
-      this.navController.navigateRoot('login');
-    }
+    this.utenteService.login(account).subscribe((utente: Utente) => {
+          this.loginFormModel.reset();
+          this.navController.navigateRoot('tabs');
+        },
+        (err: HttpErrorResponse) => {
+          if (err.status === 401) {
+            console.error('login request error: ' + err.status);
+            this.showLoginError();
+          }
+        });
   }
+
   async showLoginError() {
     const alert = await this.alertController.create({
       header: this.loginTitle,

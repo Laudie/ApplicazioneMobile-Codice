@@ -5,6 +5,7 @@ import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {TranslateService} from '@ngx-translate/core';
 import {LinguaService} from './services/lingua.service';
+import {UtenteService} from './services/utente.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private platform: Platform,
               private splashScreen: SplashScreen,
               private statusBar: StatusBar,
+              private utenteService: UtenteService,
               private translate: TranslateService,
               private navController: NavController,
               private linguaService: LinguaService

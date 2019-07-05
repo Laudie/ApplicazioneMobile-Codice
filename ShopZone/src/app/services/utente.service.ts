@@ -20,7 +20,6 @@ export class UtenteService {
     private authToken: string;
     private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private utente$: BehaviorSubject<Utente> = new BehaviorSubject<Utente>({} as Utente);
-    private account: any;
 
     constructor(private http: HttpClient, private storage: Storage) {
 
@@ -37,14 +36,20 @@ export class UtenteService {
 
     }
 
-    login(account: Account): boolean {
-     /*  if (account.username === 'amleto') {
-           if (account.password === 'amleto') {
-               return true;
-           }
-       }
-       return false;*/
-     return true;
+    login(account: Account): Observable<Utente> {
+        return this.http.post<Utente>(URL.LOGIN, account, {observe: 'response'}).pipe(
+            map((resp: HttpResponse<Utente>) => {
+                const token = resp.headers.get(X_AUTH);
+                this.storage.set(AUTH_TOKEN, token);
+                this.authToken = token;
+                // Utente memorizzato nello storage in modo tale che se si vuole cambiare il
+                // profilo dell'utente stesso non si fa una chiamata REST.
+                this.storage.set(UTENTE_STORAGE, resp.body);
+                // update dell'observable dell'utente
+                this.utente$.next(resp.body);
+                this.loggedIn$.next(true);
+                return resp.body;
+            }));
     }
 
     logout() {
@@ -65,16 +70,11 @@ export class UtenteService {
         return this.authToken;
     }
 
-    isLogged(): boolean  {if (this.account.username === 'amleto') {
-        if (this.account.password === 'amleto') {
-            return true;
-        }
-        return false;
+    isLogged(): Observable<boolean> {
+        return this.loggedIn$.asObservable();
     }
-                          return false;
-    }
-/*
-    updateProfilo(nuovoUtente: Utente): Observable<Utente> {
+
+   /* updateProfilo(nuovoUtente: Utente): Observable<Utente> {
         return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 // Aggiornamento dell'utente nello storage.

@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {TabsPage} from './tabs.page';
 import {TranslateModule} from '@ngx-translate/core';
+import {AuthGuard} from '../../guard/auth.guard';
 
 const routes: Routes = [
     {
@@ -60,8 +61,9 @@ const routes: Routes = [
             },
             {
                 path: '',
-                redirectTo: '/tabs/notizie',
-                pathMatch: 'full'
+                loadChildren: '../notizie/notizie.module#NotiziePageModule',
+                pathMatch: 'full',
+                canActivate: [AuthGuard]
             }
         ]
     }

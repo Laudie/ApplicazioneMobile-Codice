@@ -12,10 +12,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     constructor(private utenteService: UtenteService, private navController: NavController) {
     }
 
-    canActivate(): boolean {
+    canActivate(): Observable<boolean> {
 
-        return this.utenteService.isLogged();
-           /* .pipe(
+        return this.utenteService.isLogged()
+            .pipe(
                 take(1),
                 map((isLoggedIn: boolean) => {
                     console.log(isLoggedIn);
@@ -25,10 +25,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                     }
                     return true;
                 })
-            );*/
+            );
     }
 
-    canActivateChild(): boolean {
+    canActivateChild(): Observable<boolean> {
         return this.canActivate();
     }
 

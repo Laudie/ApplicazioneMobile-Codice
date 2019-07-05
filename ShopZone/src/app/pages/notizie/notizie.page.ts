@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Notizia} from '../../model/notizia.model';
+import {NotiziaService} from '../../services/notizia.service';
 
 @Component({
   selector: 'app-notizie',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notizie.page.scss'],
 })
 export class NotiziePage implements OnInit {
-
-  constructor() { }
+private notizie$: Observable<Notizia[]>;
+  constructor(private notiziaService: NotiziaService) { }
 
   ngOnInit() {
+    this.notizie$ = this.notiziaService.list();
   }
 
 }
