@@ -1,3 +1,4 @@
+import {Negozio} from './negozio.model';
 import {Utente} from './utente.model';
 
 export class Notizia {
@@ -6,6 +7,7 @@ export class Notizia {
     immagine: string;
     descrizione: string;
     dataPubblicazione: string;
-    pubblicatoDa: Utente;
+    pubblicatoDa: Negozio;
+    utentepiace: Set<Utente>;
 
 }

@@ -25,14 +25,14 @@
             <ion-grid >
                 <ion-row>
                     <ion-col size="8">
-                        <a  [routerLink]="['/tabs/negozio','pagina negozio 1']">
+                        <a  [routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]">
                             <h5>{{notizia.pubblicatoDa.nome}}</h5>
                         </a>
                     </ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col size="11">
-                        <ion-label  class="text-description" text-wrap [routerLink]= "['/tabs/notizie','123']">
+                        <ion-label  class="text-description" text-wrap [routerLink]= "['/tabs/notizie', notizia.id]">
                           {{notizia.titolo}}
                         </ion-label>
                     </ion-col>
@@ -47,7 +47,7 @@
     <ion-card class="sc-ion-card-md-h">
         <ion-item>
             <ion-thumbnail class="ion-radius-circle" slot="start">
-                <img src="../../../assets/images/Logofreeway.jpg">
+                <img src="../../../assets/images/Negozio0.jpg">
             </ion-thumbnail>
             <ion-grid >
                 <ion-row>

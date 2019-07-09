@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {Negozio} from '../../model/negozio.model';
+import {NegozioService} from '../../services/negozio.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-dettaglio-negozio',
@@ -7,20 +10,14 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./dettaglio-negozio.page.scss'],
 })
 export class DettaglioNegozioPage implements OnInit {
-  public number: number = null;
-id;
+  private negozio$: Observable<Negozio>;
 
-call() {
-  if ( this.number !== null ) {
-    this.number = null;
-  } else {
-    this.number = 3478902938;
-  }
-}
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private negozioService: NegozioService) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.negozio$ = this.negozioService.findById(parseInt(params.get('id'), 0));
+    });
   }
 
 }

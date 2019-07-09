@@ -5,7 +5,8 @@ export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost:8080/myunivaq/api'
 export const URL = {
     LOGIN: URL_BASE + '/login',
     LOGOUT: URL_BASE + '/logout',
-    NOTIZIE: URL_BASE + '/notizie'
+    NOTIZIE: URL_BASE + '/notizie',
+    NEGOZIO: URL_BASE + '/negozio'
 };
 
 export const X_AUTH = 'X-Auth';

@@ -7,14 +7,14 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="(notizia$ | async) as notizia">
     <ion-item lines="none">
 
         <ion-thumbnail class="ion-radius-circle" slot="start">
-            <ion-img src="{{notizia.immagine}}"></ion-img>
+            <ion-img src="../../../assets/images/{{notizia.pubblicatoDa.immagineprofilo}}"></ion-img>
         </ion-thumbnail>
         <ion-text class="text12 text-dark font-6">
-            <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.pubblicatoDa}}</a>
+            <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.pubblicatoDa.nome}}</a>
         </ion-text>
         <ion-item lines="none" (click)="onLike()" class="activated" slot="end">
             <ion-icon color="danger" size="large"
@@ -23,12 +23,21 @@
         </ion-item>
     </ion-item>
 
+    <ion-slides>
+        <!--*ngFor="let slide of notizia.immagine"-->
+        <ion-slide>
+            <img src="../../../assets/images/{{notizia.immagine}}">
+        </ion-slide>
+    </ion-slides>
 
-    <ion-img src="{{notizia.immagine}}"></ion-img>
+    <!-- <ion-img src="../../../assets/images/{{notizia.immagine}}"></ion-img>-->
+
+
+
     <ion-item lines="none">
     <ion-text class="text1 text-dark" >
 
-        <h5><strong>{{notizia.pubblicatoDa}}</strong> {{notizia.nome}}</h5>
+        <h5><strong>{{notizia.pubblicatoDa.nome}}</strong> {{notizia.titolo}}, {{notizia.utentepiace}}</h5>
         <h5 class="text08 text-secondary">{{notizia.descrizione}}</h5>
     </ion-text>
     </ion-item>
