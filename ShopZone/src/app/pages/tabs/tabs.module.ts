@@ -26,7 +26,7 @@ const routes: Routes = [
                         loadChildren: '../notizie/notizie.module#NotiziePageModule',
                         pathMatch: 'full'
                     }
-                    ]
+                ]
             },
             {
                 path: 'preferiti',
@@ -35,7 +35,8 @@ const routes: Routes = [
                         path: '',
                         loadChildren: '../preferiti/preferiti.module#PreferitiPageModule'
                     }
-                    ]
+                ],
+                canActivateChild: [AuthGuard]
             },
             {
                 path: 'impostazioni',

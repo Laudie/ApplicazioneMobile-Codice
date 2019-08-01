@@ -54,7 +54,7 @@ export class UtenteService {
 
     logout() {
         this.authToken = null;
-        this.loggedIn$.next(true);
+        this.loggedIn$.next(false);
         this.storage.remove(AUTH_TOKEN);
         this.storage.remove(UTENTE_STORAGE);
 
@@ -65,7 +65,6 @@ export class UtenteService {
     getUtente(): BehaviorSubject<Utente> {
         return this.utente$;
     }
-
     getAuthToken(): string {
         return this.authToken;
     }
@@ -74,17 +73,20 @@ export class UtenteService {
         return this.loggedIn$.asObservable();
     }
 
-   /* updateProfilo(nuovoUtente: Utente): Observable<Utente> {
-        return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, {observe: 'response'}).pipe(
-            map((resp: HttpResponse<Utente>) => {
-                // Aggiornamento dell'utente nello storage.
-                // Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
-                // e se l'utente chiude la app e la riapre i dati sono gia' presenti
-                this.storage.set(UTENTE_STORAGE, resp.body);
-                // update dell'observable dell'utente
-                this.utente$.next(resp.body);
-                return resp.body;
-            }));
-    }*/
+    /* updateProfilo(nuovoUtente: Utente): Observable<Utente> {
+         return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, {observe: 'response'}).pipe(
+             map((resp: HttpResponse<Utente>) => {
+                 // Aggiornamento dell'utente nello storage.
+                 // Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
+                 // e se l'utente chiude la app e la riapre i dati sono gia' presenti
+                 this.storage.set(UTENTE_STORAGE, resp.body);
+                 // update dell'observable dell'utente
+                 this.utente$.next(resp.body);
+                 return resp.body;
+             }));
+     }*/
 
+    getUtenteBase(){
+  
+    }
 }

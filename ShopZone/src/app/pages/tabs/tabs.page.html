@@ -1,7 +1,7 @@
 <ion-content>
-    <ion-tabs>
+    <ion-tabs *ngIf="(utente$ | async) as utente">
         <ion-tab-bar slot="bottom" color="primary">
-            <ion-tab-button [routerLink]="['/login']">
+            <ion-tab-button tab="preferiti">
                 <ion-icon size="large" name="star-outline"></ion-icon>
                 <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
             </ion-tab-button>
@@ -15,6 +15,18 @@
                 <ion-icon size="large" name="settings"></ion-icon>
                 <ion-label>{{'IMPOSTAZIONI_TAB' | translate}}</ion-label>
             </ion-tab-button>
+
+
+
+        <ion-tab-button tab="preferiti" [hidden]="!(utente.ruolo==='negoziante')">
+            <ion-icon size="large" name="star-outline"></ion-icon>
+            <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="preferiti"  [hidden]="!(utente.ruolo==='negoziante')">
+            <ion-icon size="large" name="star-outline"></ion-icon>
+            <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
+        </ion-tab-button>
         </ion-tab-bar>
     </ion-tabs>
 

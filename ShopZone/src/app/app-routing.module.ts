@@ -14,8 +14,14 @@ const routes: Routes = [
                 loadChildren: './pages/registrazione/registrazione.module#RegistrazionePageModule'
             }]
     },
-    {path: '', loadChildren: './pages/tabs/tabs.module#TabsPageModule'},
-    {path: 'dummy', loadChildren: './pages/dummy/dummy.module#DummyPageModule'}
+    {
+        path: '',
+        loadChildren: './pages/tabs/tabs.module#TabsPageModule'
+    },
+    {
+        path: 'dummy',
+        loadChildren: './pages/dummy/dummy.module#DummyPageModule'
+    }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {AggiungiNegozioPage} from '../aggiungi-negozio/aggiungi-negozio.page';
+import {UtenteService} from '../../services/utente.service';
 
 @Component({
   selector: 'app-impostazioni',
@@ -9,7 +10,8 @@ import {AggiungiNegozioPage} from '../aggiungi-negozio/aggiungi-negozio.page';
 })
 export class ImpostazioniPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,
+              private utenteService: UtenteService) { }
 
   ngOnInit() {
   }
@@ -18,25 +20,9 @@ export class ImpostazioniPage implements OnInit {
       component: AggiungiNegozioPage
     });
     await myModal.present();
-    /* const negozio = new Negozio();
-    negozio.categoria = TIPOLOGIA_CATEGORIA_STREETWEAR;
-    appello.tipologiaEsame = TIPOLOGIA_ESAME_SCRITTO;
-    appello.insegnamento = new Insegnamento();
-    appello.insegnamento.id = this.idInsegnamento;
-    const modal = await this.modalController.create({
-      component: AggiungiNegozioPage,
-      componentProps: {appParam: negozio}
-    });
-    modal.onDidDismiss().then((detail: OverlayEventDetail) => {
-      if (detail !== null && detail.data !== undefined) {
-       /* this.insegnamentoService.createAppello(detail.data).subscribe(() => {
-          this.listAppelli();
-        });
-        console.log('ok button pressed');
-      } else {
-        console.log('cancel button pressed');
-      }
-    });
-    await modal.present();*/
+  }
+
+  logout() {
+    this.utenteService.logout();
   }
 }
