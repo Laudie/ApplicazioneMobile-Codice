@@ -10,16 +10,18 @@ import {Utente} from '../../model/utente.model';
 })
 export class TabsPage implements OnInit {
     private utente$: BehaviorSubject<Utente>;
-
+    private negoziante: boolean;
     constructor(private utenteService: UtenteService) {
     }
 
     ngOnInit() {
         if (this.utenteService.isLogged()) {
             this.utente$ = this.utenteService.getUtente();
+            this.negoziante = true;
+            console.log(this.negoziante);
         } else {
-            this.utente$ = this.utenteService.getUtenteBase();
+            this.negoziante = false;
+            console.log(this.negoziante);
         }
     }
-
 }

@@ -8,6 +8,6 @@ export class Notizia {
     descrizione: string;
     dataPubblicazione: string;
     pubblicatoDa: Negozio;
-    utentepiace: Set<Utente>;
-
+    piace: boolean;
+    numeroPiace: number;
 }

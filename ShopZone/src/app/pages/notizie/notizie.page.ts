@@ -16,4 +16,6 @@ private notizie$: Observable<Notizia[]>;
     this.notizie$ = this.notiziaService.list();
   }
 
+
+
 }

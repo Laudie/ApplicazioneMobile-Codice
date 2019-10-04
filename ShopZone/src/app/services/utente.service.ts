@@ -20,7 +20,6 @@ export class UtenteService {
     private authToken: string;
     private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private utente$: BehaviorSubject<Utente> = new BehaviorSubject<Utente>({} as Utente);
-
     constructor(private http: HttpClient, private storage: Storage) {
 
         this.storage.get(AUTH_TOKEN).then((token) => {
@@ -61,8 +60,10 @@ export class UtenteService {
         // Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
         // Per gestirlo si dovrebbe fare lato server una blacklist.
     }
-
     getUtente(): BehaviorSubject<Utente> {
+        return this.utente$;
+    }
+    getUtenteBase(): BehaviorSubject<Utente> {
         return this.utente$;
     }
     getAuthToken(): string {
@@ -85,8 +86,4 @@ export class UtenteService {
                  return resp.body;
              }));
      }*/
-
-    getUtenteBase(){
-  
-    }
 }
