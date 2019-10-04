@@ -17,7 +17,7 @@
             <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.pubblicatoDa.nome}}</a>
         </ion-text>
 
-        <ion-item lines="none" (click)="onLike()" class="activated" slot="end">
+        <ion-item lines="none" (click)="onLike(notizia)" class="activated" slot="end">
             <ion-icon color="danger" size="large"
                              [name]="notizia.piace ? 'heart-empty' :'heart'">
         </ion-icon>

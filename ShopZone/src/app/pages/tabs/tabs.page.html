@@ -18,12 +18,12 @@
 
 
 
-        <ion-tab-button tab="preferiti" [hidden]="!(negoziante)">
+        <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="preferiti" [hidden]="!(utente.ruolo === 'negoziante')">
             <ion-icon size="large" name="star-outline"></ion-icon>
             <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="preferiti"  [hidden]="!(negoziante)">
+        <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="preferiti" [hidden]="!(utente.ruolo === 'negoziante')">
             <ion-icon size="large" name="star-outline"></ion-icon>
             <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
         </ion-tab-button>

@@ -3,8 +3,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Notizia} from '../../model/notizia.model';
 import {NotiziaService} from '../../services/notizia.service';
 import {Observable, of} from 'rxjs';
-import {forEach} from '@angular-devkit/schematics';
-import {map} from 'rxjs/operators';
+
 
 @Component({
     selector: 'app-dettaglio',
@@ -12,21 +11,21 @@ import {map} from 'rxjs/operators';
     styleUrls: ['./dettaglio.page.scss'],
 })
 export class DettaglioPage implements OnInit {
-    private notizia$: Observable<Notizia>;
-    visible = false;
-    numeropiace = 324;
+    notizia$: Observable<Notizia>;
     slides: any[];
 
     constructor(private route: ActivatedRoute,
-                private notiziaService: NotiziaService) {
+                private notiziaService: NotiziaService
+    ) {
     }
 
-    onLike() {
-        this.visible = !this.visible;
-        if (!this.visible) {
-            this.numeropiace += 1;
+    onLike(n: Notizia) {
+        if (n.piace) {
+            n.piace = false;
+            n.numeroPiace -= 1;
         } else {
-            this.numeropiace -= 1;
+            n.piace = true;
+            n.numeroPiace += 1;
         }
     }
 
