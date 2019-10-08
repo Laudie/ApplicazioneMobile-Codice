@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://localhost:8080/myunivaq",
+    "target": "http://localhost:8080/shopzoneserver",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
