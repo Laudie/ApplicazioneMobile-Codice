@@ -63,9 +63,6 @@ export class UtenteService {
     getUtente(): BehaviorSubject<Utente> {
         return this.utente$;
     }
-    getUtenteBase(): BehaviorSubject<Utente> {
-        return this.utente$;
-    }
     getAuthToken(): string {
         return this.authToken;
     }

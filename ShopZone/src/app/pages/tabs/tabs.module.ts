@@ -57,10 +57,6 @@ const routes: Routes = [
                     {
                         path: ':id',
                         loadChildren: '../dettaglio-negozio/dettaglio-negozio.module#DettaglioNegozioPageModule'
-                    },
-                    {
-                        path: ':luogo',
-                        loadChildren: '../dummy/dummy.module#DummyPageModule'
                     }
                 ]
             },
