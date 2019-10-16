@@ -8,6 +8,7 @@
   "DELETE_BUTTON": "Delete",
 
   "LOGIN_TITLE": "Login",
+  "REGISTER_TITLE": "Sign in",
   "LOGIN_ERROR_TITLE": "Login error",
   "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",
 
@@ -15,8 +16,12 @@
 
   "USERNAME": "Username",
   "PASSWORD": "Password",
+  "NAME": "Name",
+  "SURNAME": "Surname",
   "USERNAME_REQUIRED": "Username required",
   "PASSWORD_REQUIRED": "Password required",
+  "NAME_REQUIRED": "Name required",
+  "SURNAME_REQUIRED": "Surname required",
 
   "PIANO_STUDI_MENU": "Piano di Studi",
   "TASSE_MENU": "Taxes",

@@ -259,17 +259,17 @@ ion-card {
     }
   }
 
+  .logo {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto 8px;
+    border-radius: 10%;
+    background: url("assets/logo/Immagine.jpg") no-repeat;
+    background-size: 100%;
+  }
+
   .auth-content {
     margin: 0 5%;
-
-    .logo {
-      width: 150px;
-      height: 200px;
-      margin: 20px auto 8px;
-      border-radius: 10%;
-      background: url("assets/images/Immagine.jpg") no-repeat;
-      background-size: 100%;
-    }
 
     .list-form {
       padding: 0;

@@ -19,6 +19,10 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <form [formGroup]="searchform" class="List-form">
+        <ion-searchbar animated showCancelButton="focus" cancelButtonText="Custom Cancel" (ionCancel)="back()" (ionInput)="search()"  formControlName="searchinput">
+        </ion-searchbar>
+    </form>
 </ion-header>
 
 <ion-content *ngIf="vistanotizie === true">

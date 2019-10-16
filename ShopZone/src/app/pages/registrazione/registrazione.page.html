@@ -1,12 +1,71 @@
 <ion-header>
-  <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
-  </ion-buttons>
-  <ion-toolbar>
-    <ion-title>registrazione</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title color="light" text-center>{{ 'REGISTER_TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<h1>registrati</h1>
+
+<ion-content padding class="animated fadeIn login auth-page">
+
+    <div class="ion-padding-horizontal ion-text-center">
+      <div class="logo"></div>
+    </div>
+
+
+  <!--<img src="../../../assets/logo/Immagine.jpg"/>
+     Logo -->
+    <!-- Sign In form -->
+  <form [formGroup]="registrazioneFormModel" class="list-form">
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          {{ 'NAME' | translate }}</ion-label>
+        <ion-input color="secondary" type="string" formControlName="name"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="registrazioneFormModel.get('name').touched && registrazioneFormModel.get('name').invalid">
+        <ion-text color="danger">{{ 'NAME_REQUIRED' | translate }} </ion-text>
+      </p>
+    <ion-item no-padding class="animated fadeInUp">
+      <ion-label position="floating">
+        {{ 'SURNAME' | translate }}</ion-label>
+      <ion-input color="secondary" type="string" formControlName="surname"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="registrazioneFormModel.get('surname').touched && registrazioneFormModel.get('surname').invalid">
+      <ion-text color="danger">{{ 'USERNAME_REQUIRED' | translate }} </ion-text>
+    </p>
+
+    <ion-item no-padding class="animated fadeInUp">
+      <ion-label position="floating">
+       {{ 'USERNAME' | translate }}</ion-label>
+      <ion-input color="secondary" type="email" formControlName="username"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="registrazioneFormModel.get('username').touched && registrazioneFormModel.get('username').invalid">
+      <ion-text color="danger">{{ 'USERNAME_REQUIRED' | translate }} </ion-text>
+    </p>
+
+
+    <ion-item no-padding class="animated fadeInUp">
+      <ion-label position="floating">
+       {{ 'PASSWORD' | translate }}</ion-label>
+      <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="registrazioneFormModel.get('password').touched && registrazioneFormModel.get('password').invalid">
+      <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }} </ion-text>
+    </p>
+
+
+  </form>
+
+  <br>
+  <div margin-top="30px" align="center">
+
+    <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
+      Registrati
+    </ion-button>
+      &nbsp;&nbsp;
+    <ion-button size="medium" shape="round" color="primary" [routerLink]="['/login']" tappable>
+      Annulla
+    </ion-button>
+  </div>
+
 </ion-content>

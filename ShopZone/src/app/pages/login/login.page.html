@@ -5,9 +5,10 @@
 </ion-header>
 
 <ion-content padding class="animated fadeIn login auth-page">
-  <div class="theme-bg"></div>
-  <div class="auth-content">
 
+  <div class="ion-padding-horizontal ion-text-center">
+    <div class="logo"></div>
+  </div>
     <!-- Logo -->
 
 
@@ -15,7 +16,7 @@
     <form [formGroup]="loginFormModel" class="list-form">
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
-          <ion-icon name="contact" item-start></ion-icon>{{ 'USERNAME' | translate }}</ion-label>
+          {{ 'USERNAME' | translate }}</ion-label>
         <ion-input color="secondary" type="email" formControlName="username"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="loginFormModel.get('username').touched && loginFormModel.get('username').invalid">
@@ -23,12 +24,13 @@
       </p>
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
-          <ion-icon name="lock" item-start></ion-icon>{{ 'PASSWORD' | translate }}</ion-label>
+          {{ 'PASSWORD' | translate }}</ion-label>
         <ion-input color="secondary" type="password" formControlName="password"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="loginFormModel.get('password').touched && loginFormModel.get('password').invalid">
         <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }}</ion-text>
       </p>
+      <br>
       <div margin-top="20px">
         <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onLogin()" [disabled]="!loginFormModel.valid" tappable>
           <ion-icon name="log-in"></ion-icon>
@@ -41,5 +43,5 @@
     <ion-button icon-left size="medium" expand="full" shape="round" color="primary"  [routerLink]="['registrazione']">
       Registrati
     </ion-button>
-  </div>
+
 </ion-content>
