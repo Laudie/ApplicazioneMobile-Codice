@@ -18,6 +18,8 @@
   "PASSWORD": "Password",
   "NAME": "Name",
   "SURNAME": "Surname",
+  "EMAIL" : "Email",
+  "EMAIL_REQUIRED": "Email required",
   "USERNAME_REQUIRED": "Username required",
   "PASSWORD_REQUIRED": "Password required",
   "NAME_REQUIRED": "Name required",

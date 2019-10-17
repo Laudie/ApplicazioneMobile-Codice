@@ -12,7 +12,13 @@ export interface Account {
     password: string;
 
 }
-
+export interface NuovoUtente {
+    nome: string;
+    cognome: string;
+    email: string;
+    username: string;
+    password: string;
+}
 @Injectable({
     providedIn: 'root'
 })
@@ -20,6 +26,7 @@ export class UtenteService {
     private authToken: string;
     private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private utente$: BehaviorSubject<Utente> = new BehaviorSubject<Utente>({} as Utente);
+
     constructor(private http: HttpClient, private storage: Storage) {
 
         this.storage.get(AUTH_TOKEN).then((token) => {
@@ -60,9 +67,11 @@ export class UtenteService {
         // Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
         // Per gestirlo si dovrebbe fare lato server una blacklist.
     }
+
     getUtente(): BehaviorSubject<Utente> {
         return this.utente$;
     }
+
     getAuthToken(): string {
         return this.authToken;
     }
@@ -70,7 +79,19 @@ export class UtenteService {
     isLogged(): Observable<boolean> {
         return this.loggedIn$.asObservable();
     }
-
+    nuovoUtente(nuovoUtente: NuovoUtente): void {
+        this.http.post(URL.NUOVO_UTENTE,
+            nuovoUtente)
+            .subscribe(
+        (val) => {console.log('POST call succesfull value returned in body', val);
+        },
+        response => {
+            console.log('POST call in error', response);
+        },
+            () => {
+            console.log('The POST observable is now completed');
+            });
+    }
     /* updateProfilo(nuovoUtente: Utente): Observable<Utente> {
          return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, {observe: 'response'}).pipe(
              map((resp: HttpResponse<Utente>) => {

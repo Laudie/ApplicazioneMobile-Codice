@@ -16,6 +16,8 @@
   "NAME": "Nome",
   "SURNAME": "Cognome",
   "TELEFONO": "Telefono",
+  "EMAIL" : "Email",
+  "EMAIL_REQUIRED": "Email obbligatorio",
   "USERNAME_REQUIRED": "Username obbligatorio",
   "PASSWORD_REQUIRED": "Password obbligatorio",
   "NAME_REQUIRED": "Nome obbligatorio",
