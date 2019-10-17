@@ -4,7 +4,6 @@ import {ModalController, NavParams} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
 import {NuovoUtente, UtenteService} from '../../services/utente.service';
 import {Observable} from 'rxjs';
-import {Utente} from '../../model/utente.model';
 
 @Component({
     selector: 'app-registrazione',
@@ -12,7 +11,6 @@ import {Utente} from '../../model/utente.model';
     styleUrls: ['./registrazione.page.scss'],
 })
 export class RegistrazionePage implements OnInit {
-    private registrazione$: Observable<boolean>;
     private registrazioneFormModel: FormGroup;
 
     constructor(
