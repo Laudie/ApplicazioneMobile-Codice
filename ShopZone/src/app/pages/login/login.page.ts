@@ -26,10 +26,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginFormModel = this.formBuilder.group({
-      username: ['amleto', Validators.compose([
+      username: ['xxxx', Validators.compose([
         Validators.required
       ])],
-      password: ['amleto', Validators.compose([
+      password: ['xxxx', Validators.compose([
         Validators.required
       ])]
     });

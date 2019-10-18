@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {ModalController} from '@ionic/angular';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ModalController, NavController} from '@ionic/angular';
 import {AggiungiNegozioPage} from '../aggiungi-negozio/aggiungi-negozio.page';
 import {UtenteService} from '../../services/utente.service';
+import {BehaviorSubject} from 'rxjs';
+import {Utente} from '../../model/utente.model';
 
 @Component({
   selector: 'app-impostazioni',
@@ -9,11 +11,15 @@ import {UtenteService} from '../../services/utente.service';
   styleUrls: ['./impostazioni.page.scss'],
 })
 export class ImpostazioniPage implements OnInit {
+  private utente$: BehaviorSubject<Utente>;
 
   constructor(private modalController: ModalController,
               private utenteService: UtenteService) { }
 
   ngOnInit() {
+      if (this.utenteService.isLogged()) {
+        this.utente$ = this.utenteService.getUtente();
+      }
   }
   async aggiungiNegozio() {
     const myModal = await this.modalController.create({
@@ -25,4 +31,5 @@ export class ImpostazioniPage implements OnInit {
   logout() {
     this.utenteService.logout();
   }
+
 }
