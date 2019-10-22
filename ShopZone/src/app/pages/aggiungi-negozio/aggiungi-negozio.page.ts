@@ -35,6 +35,9 @@ ngOnInit() {
     ])],
     immagine: ['negozio4.jpg', Validators.compose([
       Validators.required
+    ])],
+    luogo: ['teramo', Validators.compose([
+      Validators.required
     ])]
   });
 }

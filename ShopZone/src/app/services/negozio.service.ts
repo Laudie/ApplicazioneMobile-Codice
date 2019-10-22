@@ -3,10 +3,17 @@ import {HttpClient} from '@angular/common/http';
 import {URL} from '../constants';
 import {Negozio} from '../model/negozio.model';
 import {Observable} from 'rxjs';
+import {strategy} from "@angular-devkit/core/src/experimental/jobs";
 
 export interface NuovoNegozio {
     nome: string;
     descrizione: string;
+    orario: string;
+    categoria: string;
+    giorni: string;
+    piva: string;
+    immagine: string;
+    luogo: string;
 }
 
 @Injectable({
