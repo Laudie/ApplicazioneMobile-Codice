@@ -4,13 +4,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 
 import {AggiungiNegozioPage} from './aggiungi-negozio.page';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
     entryComponents: [AggiungiNegozioPage],
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        IonicModule
+        IonicModule,
+        TranslateModule
     ],
     declarations: [AggiungiNegozioPage]
 })

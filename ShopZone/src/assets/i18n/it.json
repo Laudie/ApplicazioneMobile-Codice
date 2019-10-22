@@ -16,7 +16,7 @@
   "NAME": "Nome",
   "SURNAME": "Cognome",
   "TELEFONO": "Telefono",
-  "EMAIL" : "Email",
+  "EMAIL": "Email",
   "EMAIL_REQUIRED": "Email obbligatorio",
   "USERNAME_REQUIRED": "Username obbligatorio",
   "PASSWORD_REQUIRED": "Password obbligatorio",
@@ -56,5 +56,14 @@
   "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?",
   "PREFERITI_TAB": "Preferiti",
   "IMPOSTAZIONI_TAB": "Impostazioni",
-  "NOTIZIE_TAB": "Notizie"
+  "NOME_NEGOZIO": "Nome Negozio",
+  "DESCRIZIONE_RICHIESTA": "Descrizione Richiesta",
+  "ORARIO_NEGOZIO": "Orario Negozio",
+  "ORARIO_RICHIESTO": "Orario Richiesto",
+  "CATEGORIA_NEGOZIO": "Categoria Negozio",
+  "CATEGORIA_RICHIESTA": "Categoria Richiesta",
+  "GIORNI_NEGOZIO": "Giorni di Apertura",
+  "GIORNI_RICHIESTI": "Giorni Richiesti",
+  "P.IVA_NEGOZIO": "P.Iva Negozio",
+  "P.IVA_RICHIESTA": "P.Iva Richiesta"
 }

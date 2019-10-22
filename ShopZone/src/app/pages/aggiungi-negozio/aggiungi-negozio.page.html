@@ -8,12 +8,61 @@
   <form [formGroup]="negozioFormModel">
     <ion-list no-lines>
       <ion-item class="animated fadeInUp">
-        <ion-label position="floating">Aggiungi Nome</ion-label>
-        <ion-input type="email" formControlName="descrizione"></ion-input>
+        <ion-label position="floating">{{ 'NOME_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="nome"></ion-input>
       </ion-item>
-      <p ion-text class="text08" *ngIf="negozioFormModel.get('nome').touched && negozioFormModel.get('descrizione').invalid">
-        <ion-text color="danger">Nome Richiesto</ion-text>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('nome').touched && negozioFormModel.get('nome').invalid">
+        <ion-text color="danger">{{ 'NAME_REQUIRED' | translate }} </ion-text>
       </p>
+
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">{{ 'DESCRIZIONE_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="descrizione"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('descrizione').touched && negozioFormModel.get('descrizione').invalid">
+        <ion-text color="danger">{{ 'DESCRIZIONE_RICHIESTA' | translate }} </ion-text>
+      </p>
+
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">{{ 'ORARIO_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="orario"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('orario').touched && negozioFormModel.get('orario').invalid">
+        <ion-text color="danger">{{ 'ORARIO_RICHIESTO' | translate }} </ion-text>
+      </p>
+
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">{{ 'CATEGORIA_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="categoria"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('categoria').touched && negozioFormModel.get('categoria').invalid">
+        <ion-text color="danger">{{ 'CATEGORIA_RICHIESTA' | translate }} </ion-text>
+      </p>
+
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">{{ 'GIORNI_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="giorni"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('giorni').touched && negozioFormModel.get('giorni').invalid">
+        <ion-text color="danger">{{ 'GIORNI_RICHIESTI' | translate }} </ion-text>
+      </p>
+
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">{{ 'P.IVA_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="piva"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('piva').touched && negozioFormModel.get('piva').invalid">
+        <ion-text color="danger">{{ 'P.IVA_RICHIESTA' | translate }} </ion-text>
+      </p>
+
+      <ion-item class="animated fadeInUp">
+        <ion-label position="floating">{{ 'IMMAGINE_NEGOZIO' | translate }}</ion-label>
+        <ion-input type="text" formControlName="immagine"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="negozioFormModel.get('immagine').touched && negozioFormModel.get('immagine').invalid">
+        <ion-text color="danger">{{ 'IMMAGINE_RICHIESTA' | translate }} </ion-text>
+      </p>
+
     </ion-list>
     <div margin-top="30px" align="center">
 
