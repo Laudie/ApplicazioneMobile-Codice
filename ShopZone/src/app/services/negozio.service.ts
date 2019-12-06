@@ -41,4 +41,16 @@ export class NegozioService {
                 console.log('The POST observable is now completed');
             });
     }
+    home(): void {
+        this.http.get<string>(URL.PROVA).subscribe(
+            (val) => {
+                console.log('POST call succesfull value returned in body', val);
+            },
+            response => {
+                console.log('POST call in error', response);
+            },
+            () => {
+                console.log('The POST observable is now completed');
+            });
+    }
 }

@@ -8,4 +8,5 @@ export class Negozio {
     propietario: string;
     piva: number;
     immagineprofilo: string;
+    preferito: boolean;
 }

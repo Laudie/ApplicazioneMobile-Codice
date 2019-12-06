@@ -4,9 +4,7 @@ import {Notizia} from '../../model/notizia.model';
 import {NotiziaService} from '../../services/notizia.service';
 import {Negozio} from '../../model/negozio.model';
 import {NavController} from '@ionic/angular';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HttpErrorResponse} from '@angular/common/http';
-import {__await} from 'tslib';
+import {FormBuilder, FormGroup, Validators, FormsModule} from '@angular/forms';
 
 @Component({
     selector: 'app-notizie',
@@ -17,6 +15,7 @@ export class NotiziePage implements OnInit {
     private notizie$: Observable<Notizia[]>;
     private negozi$: Observable<Negozio[]>;
     private searchform: FormGroup;
+    private ricerca: FormsModule;
     private vistanotizie: boolean;
 
     constructor(private notiziaService: NotiziaService,
@@ -33,18 +32,10 @@ export class NotiziePage implements OnInit {
     }
 
     search() {
-        const luogo: string = this.searchform.value;
-        this.vistanotizie = false;
-        this.negozi$ = this.notiziaService.search(luogo);
-        /*.subscribe((negozi$: Negozio[]) => {
-
-
-            },
-            (err: HttpErrorResponse) => {
-                if (err.status === 401) {
-                    console.error('login request error: ' + err.status);
-                }
-            });*/
+            const luogo: string = this.ricerca.toString();
+            this.vistanotizie = false;
+            console.log(luogo);
+            this.negozi$ = this.notiziaService.search(luogo);
     }
     back() {
         this.vistanotizie = true;

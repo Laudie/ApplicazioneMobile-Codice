@@ -10,44 +10,49 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-form{
-  &.modificaPostform{
+form {
+  &.modificaPostform {
     padding: 0 3% 2% 3%;
     height: 90%;
-    ion-grid{
+
+    ion-grid {
       box-shadow: 0 4px 8px rgba(var(--ion-color-dark-rgb), 0.50);
       padding: 2% 2% 2% 2%;
       border-radius: 5%;
       height: 90%;
       border: 1px solid grey;
 
-      .font-6{
+      .font-6 {
         font-family: 'font-6', serif;
       }
 
       ion-row {
-        &.text{
+        &.text {
           padding: 2% 0 2% 0;
           border: 1px solid grey;
-          height:50%;
+          height: 50%;
           margin: 2% 2% 0 2%;
-          ion-col{
-            ion-textarea[type="text"]{
+
+          ion-col {
+            ion-textarea[type="text"] {
               text-align: justify;
             }
           }
         }
-        &.button-bottom{
+
+        &.button-bottom {
           border: none;
           height: 25%;
           padding: 10% 0 2% 0;
           margin: 0 2% 0 2%;
-          ion-button{
-            box-shadow:0 5px 8px rgba(var(--ion-color-dark-rgb), 0.25);
+
+          ion-button {
+            box-shadow: 0 5px 8px rgba(var(--ion-color-dark-rgb), 0.25);
           }
         }
       }
-      ion-row{
+
+      ion-row {
         padding: 2% 0 2% 0;
         margin: 0 2% 0 2%;
         text-align: center;
@@ -60,31 +65,36 @@ form{
 ion-item {
   --ion-item-background: transparent;
 }
-ion-thumbnail{
+
+ion-thumbnail {
   &.ion-radius-circle {
     --border-radius: 100% !important;
     border: 2px solid grey;
     min-width: 5rem;
     min-height: 5rem;
+
     img {
       max-width: 5rem;
       min-width: 5rem;
     }
   }
-  &.ion-radius-squared{
+
+  &.ion-radius-squared {
     border-radius: 10%;
     border: 2px solid grey;
     overflow: hidden;
     min-width: 5rem;
     min-height: 5rem;
+
     img {
       max-width: 5rem;
       min-width: 5rem;
     }
   }
 }
-ion-img{
-  &.ion-border-radius{
+
+ion-img {
+  &.ion-border-radius {
     border-radius: 5%;
     border: 1px solid grey;
     overflow: hidden;
@@ -198,39 +208,67 @@ ion-toolbar {
 // Android card shadow
 ion-card {
   &.sc-ion-card-md-h {
-    box-shadow: 0 4px 8px rgba(var(--ion-color-dark-rgb), 0.50);
-    ion-label{
-      &.text-description{
-        text-align: justify;
-        color: var(--ion-color-primary);
-        padding-left: 5%;
-        padding-right: 5%;
+    box-shadow: none !important;
+
+    ion-label {
+
+
+      div {
+
+
+        h2 {
+          text-decoration: underline;
+          color: #64C7CC;
+        }
+
+        p {
+          display: block; /* or inline-block, at least its a block element */
+          width: 200px; /* or width is certain by parent element */
+          height: auto; /* height cannot be defined */
+          word-break: break-all; /*  */
+          word-wrap: break-word; /* if you want to cut the complete word */
+          white-space: normal;
+          color: black;
+        }
+
+        &.testo {
+          position: absolute;
+          top: 5px;
+          word-wrap: break-word;
+          width: 100px;
+        }
+
+        &.data {
+          position: absolute;
+          top: 10px;
+          right: 0;
+          width: 100px;
+          text-align: right;
+          font-size: small;
+          color: #7d7d7d;
+        }
+
+        &.piace {
+          position: absolute;
+          bottom: 10px;
+          right: 0;
+          text-align: right;
+        }
+
+        ion-icon {
+          font-size: 20px;
+        }
       }
     }
-    ion-item{
-      a{
-        color: #3880ff;
-      }
-      ion-grid, ion-col, ion-row{
-        text-align: center;
-        align-items: center;
-        padding: 0 0 2% 0;
-        &.header-card{
-          padding-top: 0;
-          padding-bottom: 0;
-        }
-        &.icon-heart-card{
-          text-align: right;
-          font-size: 1.6em;
-        }
-        &.icon-setting-card{
-          text-align: left;
-          font-size: 1.6em;
-        }
+
+    ion-item {
+      ion-icon {
+        color: red;
       }
     }
   }
 }
+
 
 // style for auth pages
 .auth-page {
@@ -308,15 +346,17 @@ ion-fab {
   }
 
 }
-#aggiunginegozio, #logout, #login{
+
+#aggiunginegozio, #logout, #login {
   margin-top: 5%;
 }
-#icon-map{
+
+#icon-map {
   padding: 5% 5%;
 }
 
-ion-list{
-  ion-item{
+ion-list {
+  ion-item {
     margin-top: 5%;
     margin-bottom: 5%;
   }
@@ -326,14 +366,36 @@ ion-list{
 ion-header {
   background-color: var(--ion-color-primary);
   border: transparent;
+  ion-buttons{
 
-  ion-searchbar {
-    color: white;
+    top: 0;
+    right: 0;
+    ion-icon{
+      color: white;
+    }
   }
 }
+.pin-icon{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  color: red;
+}
+.searchbar-input {
+  top: 0;
+  left: 15%;
+  border-radius: 30px !important;
 
+  max-width: 250px;
+  font-size: 1.15em !important;
+  border-color: black;
+  box-shadow: none !important;
+  --icon-color: black;
 
-.baseTab{
+}
+
+.baseTab {
   margin-left: 12%;
   margin-right: 12%;
 }
