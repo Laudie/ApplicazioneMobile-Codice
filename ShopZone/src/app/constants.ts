@@ -8,7 +8,8 @@ export const URL = {
     NOTIZIE: URL_BASE + '/notizie',
     NEGOZIO: URL_BASE + '/negozio',
     NUOVO_UTENTE: URL_BASE + '/login/registrazione',
-    NUOVO_NEGOZIO: URL_BASE + '/negozio/nuovo'
+    NUOVO_NEGOZIO: URL_BASE + '/negozio/nuovo',
+    PROVA: URL_BASE + '/negozio/prova'
 };
 
 export const X_AUTH = 'X-Auth';
