@@ -21,7 +21,8 @@ const routes: Routes = [
     {
         path: 'dummy',
         loadChildren: './pages/dummy/dummy.module#DummyPageModule'
-    }
+    },  { path: 'nuovanotizia', loadChildren: './pages/nuovanotizia/nuovanotizia.module#NuovanotiziaPageModule' }
+
 ];
 
 @NgModule({

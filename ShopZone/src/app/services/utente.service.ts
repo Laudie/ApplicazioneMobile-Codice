@@ -63,7 +63,6 @@ export class UtenteService {
         this.loggedIn$.next(false);
         this.storage.remove(AUTH_TOKEN);
         this.storage.remove(UTENTE_STORAGE);
-
         // Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
         // Per gestirlo si dovrebbe fare lato server una blacklist.
     }

@@ -1,24 +1,23 @@
-<ion-header>
+<ion-header *ngIf="(utente$ | async) as utente" >
   <ion-buttons slot="start">
     <ion-back-button></ion-back-button>
   </ion-buttons>
   <ion-toolbar color="primary">
-    <ion-title color="light" align="center">Negozio Freeway "negoziante"</ion-title>
+    <ion-title color="light" align="center"> {{utente.id_negozio.nome}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<div class="bg-light">
+<div class="bg-light"  *ngIf="(utente$ | async) as utente">
 
   <ion-item>
     <ion-thumbnail slot="start" class="ion-radius-circle">
-      <img src="../../../assets/images/Negozio0.jpg">
+      <img src="../../../assets/images/{{utente.id_negozio.immagineprofilo}}">
     </ion-thumbnail>
     <div class="ion-justify-content-center">
       <p class="ion-text-center text-dark">
-        Aperti : Lun-Sab
-        Ore: 9:00-12:00 / 15:00-19:00
-        Email : admin@freeway.com
+        {{utente.id_negozio.giorniapertura}} <br>
+        {{utente.id_negozio.orario}} <br>
       </p>
 
     </div>
@@ -29,8 +28,7 @@
   </ion-item>
   <ion-item >
     <ion-icon name="map" slot="end" size="large" [routerLink]="['/dummy']"></ion-icon>
-    <ion-icon name="call" slot="end" size="large" (click)="call()"></ion-icon>
-    <p>{{number}}</p>
+    <ion-icon name="call" slot="end" size="large" ></ion-icon>
   </ion-item>
 
 </div>
@@ -76,38 +74,7 @@
     </ion-item>
   </ion-card>
 
-  <ion-card class="sc-ion-card-md-h">
-    <ion-item>
-      <ion-grid>
-        <ion-row class="header-card">
-          <ion-col class="icon-setting-card" size="2"> <ion-icon (click)="openModalModifica()" name="more"></ion-icon> </ion-col>
-          <ion-col size="8">
-            <a  [routerLink]="['/tabs/negozio','pagina negozio 1']">
-              <h5>Nome negozio</h5>
-            </a>
-          </ion-col>
-          <ion-col size="2"></ion-col>
-        </ion-row>
 
-        <ion-row >
-          <ion-col size="3">
-            <ion-thumbnail class="ion-radius-squared">
-              <img src="../../../assets/images/Negozio0.jpg">
-            </ion-thumbnail>
-          </ion-col>
-          <ion-col size="8">
-            <ion-label  class="text-description" text-wrap [routerLink]= "['/tabs/notizie','Freeway']">
-              Multi-line text that should wrap when it is too long
-              to fit on one line in the item.
-            </ion-label>
-          </ion-col>
-          <ion-col size="1" class="icon-heart-card">
-            <ion-icon name="heart"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-card>
 
 </ion-content>
 

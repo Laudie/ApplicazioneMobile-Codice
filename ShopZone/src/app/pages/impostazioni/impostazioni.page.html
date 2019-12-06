@@ -4,50 +4,46 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <form [formGroup]="profiloFormModel">
-        <ion-list>
+    <ion-list>
 
 
-            <ion-button size="medium" shape="round"  id="aggiunginegozio"  (click)="aggiungiNegozio()" color="tertiary" expand="block" >
-                <ion-icon slot="start" size="medium" name="add-circle-outline"></ion-icon>
-                <ion-label>Aggiungi Negozio</ion-label>
-            </ion-button>
+        <ion-button *ngIf="(utente$ | async) as utente" [hidden]="(utente.ruolo === 'negoziante')" size="medium" shape="round"  id="aggiunginegozio"  (click)="aggiungiNegozio()" color="tertiary" expand="block" >
+            <ion-icon slot="start" size="medium" name="add-circle-outline"></ion-icon>
+            <ion-label>Aggiungi Negozio</ion-label>
+        </ion-button>
 
-            <ion-button size="medium" shape="round" color="primary" (click)="logout()" id="logout"  [hidden]="!(this.utenteService.isLogged() | async)" expand="block">
-                <ion-icon size="medium" name="logout"></ion-icon>
-                <ion-label>LogOut</ion-label>
-            </ion-button>
-            <p>
-            <ion-button size="medium" shape="round" color="primary"  id="login"     [hidden]="(this.utenteService.isLogged()| async)"  expand="block">
+        <ion-button size="medium" shape="round" color="primary" (click)="logout()" id="logout"  [hidden]="!(this.utenteService.isLogged() | async)" expand="block">
+            <ion-icon size="medium" name="logout"></ion-icon>
+            <ion-label> {{'LOGOUT_MENU' | translate}} </ion-label>
+        </ion-button>
+        <p>
+            <ion-button size="medium" shape="round" color="primary"  id="login"  (click)="login()"   [hidden]="(this.utenteService.isLogged()| async)"  expand="block">
                 <ion-icon size="medium" name="login"></ion-icon>
-                <ion-label>Registrati</ion-label>
+                <ion-label>{{'LOGIN_TITLE' | translate}}</ion-label>
             </ion-button>
-            </p>
-            <!--<ion-button id="logout" (click)="logout()"  size="small" expand="block">
-                <ion-icon size="large" name="log-out"></ion-icon>
-                <ion-label>Logout</ion-label>
-            </ion-button>
-    !-->    <ion-item>
-                <ion-label position="fixed">{{ 'LANGUAGE' | translate }}</ion-label>
-                <ion-select formControlName="linguaPreferita" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
-                    <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta}}</ion-select-option>
-                </ion-select>
-            </ion-item>
+        </p>
+        <!--<ion-button id="logout" (click)="logout()"  size="small" expand="block">
+            <ion-icon size="large" name="log-out"></ion-icon>
+            <ion-label>Logout</ion-label>
+        </ion-button>
+!-->
 
-            <ion-item>
-                <ion-label>Pac-Man</ion-label>
-                <ion-toggle [(ngModel)]="Pac-Man" color="success"></ion-toggle>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Super Mario World</ion-label>
-                <ion-toggle [(ngModel)]="Super_Mario_World" color="success"></ion-toggle>
-            </ion-item>
-            <ion-item>
-                <a [routerLink]="['/tabs/impostazioni/negoziante-home']" >
-                    <ion-label>home page negoziante freeway (prova)</ion-label>
-                </a>
-            </ion-item>
+        <ion-item>
+            <ion-label>The Legend of Zelda</ion-label>
+            <ion-toggle [(ngModel)]="The_Legend_of_Zelda" color="success"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Pac-Man</ion-label>
+            <ion-toggle [(ngModel)]="Pac-Man" color="success"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Super Mario World</ion-label>
+            <ion-toggle [(ngModel)]="Super_Mario_World" color="success"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <a [routerLink]="['/tabs/impostazioni/negoziante-home']" >
+                <ion-label>home page negoziante freeway (prova)</ion-label>
+            </a>
+        </ion-item>
     </ion-list>
-   </form>
 </ion-content>
