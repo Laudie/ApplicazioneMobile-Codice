@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="primary" text-center>
+        <ion-title>{{'NUOVA_NOTIZIA' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+    <ion-content>
+        <form [formGroup]="NuovoFormModel">
+
+            <ion-item no-padding class="animated fadeInUp" >
+                <ion-label position="floating" color="primary">
+                    &nbsp; {{ 'TITLE' | translate }}</ion-label>
+                <ion-input color="secondary" type="string"  formControlName="titolo"> </ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="NuovoFormModel.get('titolo').touched && NuovoFormModel.get('titolo').invalid">
+                &nbsp;  <ion-text color="danger"> {{ 'TITLE_REQUIRED' | translate }} </ion-text>
+            </p>
+
+
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating"color="primary" >
+                  &nbsp; {{ 'NEW' | translate }}</ion-label>
+                <ion-textarea color="secondary" type="string" formControlName="descrizione"> </ion-textarea>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="NuovoFormModel.get('descrizione').touched && NuovoFormModel.get('descrizione').invalid">
+                &nbsp; <ion-text color="danger">{{ 'NEW_REQUIRED' | translate }} </ion-text>
+            </p>
+
+
+        </form>
+        <br>
+        <div margin-top="30px" align="center">
+
+            <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
+                {{ 'CONFIRM' | translate }}
+            </ion-button>
+            &nbsp;&nbsp;
+            <ion-button size="medium" shape="round" color="primary" [routerLink]="['/tabs/notizie']" tappable>
+                {{ 'BACK_BUTTON_TEXT' | translate }}
+            </ion-button>
+        </div>
+    </ion-content>

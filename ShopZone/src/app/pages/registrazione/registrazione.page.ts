@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ModalController, NavParams} from '@ionic/angular';
+import {ModalController, NavController, NavParams} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
 import {NuovoUtente, UtenteService} from '../../services/utente.service';
 import {Observable} from 'rxjs';
@@ -16,6 +16,7 @@ export class RegistrazionePage implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private modalController: ModalController,
+        private navController: NavController,
         private utenteService: UtenteService
     ) {
     }
@@ -44,5 +45,7 @@ export class RegistrazionePage implements OnInit {
         const nuovoUtente: NuovoUtente = this.registrazioneFormModel.value;
         console.log(nuovoUtente);
         this.utenteService.nuovoUtente(nuovoUtente);
+        this.registrazioneFormModel.reset();
+        this.navController.navigateRoot('login');
     }
 }

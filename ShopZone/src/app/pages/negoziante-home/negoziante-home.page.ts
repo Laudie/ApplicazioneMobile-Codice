@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {ModificaPostModalPagePage} from '../modifica-post-modal-page/modifica-post-modal-page.page';
+import {Observable} from 'rxjs';
+import {Utente} from '../../model/utente.model';
+import {UtenteService} from '../../services/utente.service';
+import {ActivatedRoute, ParamMap} from "@angular/router";
 
 
 @Component({
@@ -9,8 +13,11 @@ import {ModificaPostModalPagePage} from '../modifica-post-modal-page/modifica-po
   styleUrls: ['./negoziante-home.page.scss'],
 })
 export class NegozianteHomePage implements OnInit {
+    private utente$: Observable<Utente>;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,
+              private utenteService: UtenteService,
+              private route: ActivatedRoute) { }
 
   async openModalModifica() {
      const myModal = await this.modalController.create({
@@ -29,6 +36,11 @@ export class NegozianteHomePage implements OnInit {
     return await modal.present();
   }
 */
-  ngOnInit() {}
+  ngOnInit() {
+      this.route.paramMap.subscribe((params: ParamMap) => {
+          this.utente$ = this.utenteService.getUtente();
+      });
+      console.log(this.utente$);
+  }
 
 }

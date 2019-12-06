@@ -7,7 +7,7 @@ export class Notizia {
     immagine: string;
     descrizione: string;
     dataPubblicazione: string;
-    pubblicatoDa: Negozio;
+    id_negozio: number;
     piace: boolean;
     numeroPiace: number;
 }

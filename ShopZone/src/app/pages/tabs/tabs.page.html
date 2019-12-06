@@ -1,9 +1,10 @@
 <ion-content>
-    <ion-tabs >
+    <ion-tabs>
+
         <ion-tab-bar slot="bottom" color="primary">
-            <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="negoziante-home" [hidden]="!(utente.ruolo === 'negoziante')">
-                <ion-icon size="large" name="home"></ion-icon>
-                <ion-label>{{'PROFILO_TAB' | translate}}</ion-label>
+            <ion-tab-button *ngIf="(utente$ | async) as utente" tab="home" [hidden]="!(utente.ruolo === 'negoziante')">
+                <ion-icon size="large" name="md-home"></ion-icon>
+                <ion-label>{{'HOME_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
             <ion-tab-button tab="preferiti">
@@ -11,12 +12,13 @@
                 <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
-            <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="aggiungi-notizia" [hidden]="!(utente.ruolo === 'negoziante')">
-                <ion-icon size="large" name="add"></ion-icon>
+            <ion-tab-button *ngIf="(utente$ | async) as utente" tab="aggiungi" [hidden]="!(utente.ruolo === 'negoziante')">
+                <ion-icon size="large" name="md-add-circle"></ion-icon>
                 <ion-label>{{'AGGIUNGI_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
-            <ion-tab-button tab="notizie">
+
+            <ion-tab-button tab="notizie" >
                 <ion-icon size="large" name="search"></ion-icon>
                 <ion-label>{{'NOTIZIE_TAB' | translate}}</ion-label>
             </ion-tab-button>
@@ -25,6 +27,7 @@
                 <ion-icon size="large" name="settings"></ion-icon>
                 <ion-label>{{'IMPOSTAZIONI_TAB' | translate}}</ion-label>
             </ion-tab-button>
+
 
         </ion-tab-bar>
     </ion-tabs>

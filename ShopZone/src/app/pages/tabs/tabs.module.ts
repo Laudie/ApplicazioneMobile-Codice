@@ -44,10 +44,6 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: '../impostazioni/impostazioni.module#ImpostazioniPageModule'
-                    },
-                    {
-                        path: 'negoziante-home',
-                        loadChildren: '../negoziante-home/negoziante-home.module#NegozianteHomePageModule'
                     }
                 ]
             },
@@ -58,7 +54,28 @@ const routes: Routes = [
                         path: ':id',
                         loadChildren: '../dettaglio-negozio/dettaglio-negozio.module#DettaglioNegozioPageModule'
                     }
-                ]
+                ],
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'aggiungi',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: '../nuovanotizia/nuovanotizia.module#NuovanotiziaPageModule'
+                    }
+                ],
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'home',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: '../negoziante-home/negoziante-home.module#NegozianteHomePageModule'
+                    }
+                ],
+                canActivate: [AuthGuard]
             },
             {
                 path: '',
