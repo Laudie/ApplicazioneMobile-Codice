@@ -35,6 +35,8 @@
   "QUESTIONARIO_MENU": "Questionnaire",
 
   "PROFILO_MENU": "Profile",
+  "PROFILO_TAB": "Home",
+  "AGGIUNGI_TAB": "Add",
   "LOGOUT_MENU": "Logout",
   "NOTIZIE_TAB": "News",
   "ORARIO_TAB": "Calendar",

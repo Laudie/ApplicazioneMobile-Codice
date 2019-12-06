@@ -1,9 +1,19 @@
 <ion-content>
     <ion-tabs >
         <ion-tab-bar slot="bottom" color="primary">
+            <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="negoziante-home" [hidden]="!(utente.ruolo === 'negoziante')">
+                <ion-icon size="large" name="home"></ion-icon>
+                <ion-label>{{'PROFILO_TAB' | translate}}</ion-label>
+            </ion-tab-button>
+
             <ion-tab-button tab="preferiti">
                 <ion-icon size="large" name="star-outline"></ion-icon>
                 <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="aggiungi-notizia" [hidden]="!(utente.ruolo === 'negoziante')">
+                <ion-icon size="large" name="add"></ion-icon>
+                <ion-label>{{'AGGIUNGI_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
             <ion-tab-button tab="notizie">
@@ -16,17 +26,6 @@
                 <ion-label>{{'IMPOSTAZIONI_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
-
-
-        <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="preferiti" [hidden]="!(utente.ruolo === 'negoziante')">
-            <ion-icon size="large" name="star-outline"></ion-icon>
-            <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button *ngIf = "(utente$ | async) as utente" tab="preferiti" [hidden]="!(utente.ruolo === 'negoziante')">
-            <ion-icon size="large" name="star-outline"></ion-icon>
-            <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
-        </ion-tab-button>
         </ion-tab-bar>
     </ion-tabs>
 
