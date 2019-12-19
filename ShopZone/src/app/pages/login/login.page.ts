@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, NavController} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
 import {Account, UtenteService} from '../../services/utente.service';
-import {HttpErrorResponse} from '@angular/common/http';
 import {Utente} from '../../model/utente.model';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -26,10 +26,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginFormModel = this.formBuilder.group({
-      username: ['xxxx', Validators.compose([
+      username: ['stefano', Validators.compose([
         Validators.required
       ])],
-      password: ['xxxx', Validators.compose([
+      password: ['stefano', Validators.compose([
         Validators.required
       ])]
     });

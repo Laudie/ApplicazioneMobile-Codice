@@ -17,7 +17,7 @@ export class NotiziePage implements OnInit {
     private searchform: FormGroup;
     private ricerca: FormsModule;
     private vistanotizie: boolean;
-
+    private luogo: string;
     constructor(private notiziaService: NotiziaService,
                 private navController: NavController,
                 private formbuilder: FormBuilder) {
@@ -28,16 +28,16 @@ export class NotiziePage implements OnInit {
             searchinput: ['', Validators.required]
         });
         this.vistanotizie = true;
+        this.luogo = '';
         this.notizie$ = this.notiziaService.list();
     }
 
-    search() {
-            const luogo: string = this.ricerca.toString();
+    cerca() {
+          this.luogo = this.ricerca.toString();
             this.vistanotizie = false;
-            console.log(luogo);
-            this.negozi$ = this.notiziaService.search(luogo);
+            this.negozi$ = this.notiziaService.search(this.luogo);
     }
-    back() {
+    indietro() {
         this.vistanotizie = true;
     }
 }

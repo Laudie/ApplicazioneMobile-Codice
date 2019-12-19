@@ -12,6 +12,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader' ;
 import {IonicStorageModule} from '@ionic/storage';
+import {httpInterceptorProviders} from './interceptors';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -40,6 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
+    httpInterceptorProviders,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]

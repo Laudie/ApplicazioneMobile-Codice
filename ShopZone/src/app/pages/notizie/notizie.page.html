@@ -3,51 +3,58 @@
         <ion-title>ShopZone</ion-title>
     </ion-toolbar>
 
-                <ion-searchbar [(ngModel)]="ricerca" (keyup.enter)="search()" (keyup.backspace)="back()" class="searchbar-input" ></ion-searchbar>
+    <ion-searchbar [(ngModel)]="ricerca" (keyup.enter)="cerca()" (keyup.backspace)="indietro()" (ionClear)="indietro()"
+                   class="searchbar-input"></ion-searchbar>
 
 
 </ion-header>
 
 <ion-content *ngIf="vistanotizie === true">
-    <ion-card *ngFor="let notizia of notizie$ | async" class="sc-ion-card-md-h" [routerLink]= "['/tabs/notizie', notizia.id]" >
-<ion-item slot="start" class="ion-no-padding">
-        <ion-thumbnail class="ion-radius-squared" slot="start">
+    <ion-card *ngFor="let notizia of notizie$ | async" class="sc-ion-card-md-h"
+              [routerLink]="['/tabs/notizie', notizia.id]">
+        <ion-item slot="start" class="ion-no-padding">
+            <ion-thumbnail class="ion-radius-squared" slot="start">
                 <img src="../../../assets/images/{{notizia.immagine}}" alt="immagine">
             </ion-thumbnail>
-    <ion-label>
-        <div class="data">
-            {{notizia.dataPubblicazione}}
-        </div>
-          <div class="piace">  <ion-icon [name]="notizia.piace ? 'heart-empty' :'heart'"   ></ion-icon>
-          </div>
-<div><h2 > <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa.nome}}</h2>
-    <p>  {{notizia.titolo}}</p></div>
+            <ion-label>
+                <div class="data">
+                    {{notizia.dataPubblicazione}}
+                </div>
+                <div class="piace">
+                    <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
+                </div>
+                <div><h2>
+                    <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa.nome}}</h2>
+                    <p>  {{notizia.titolo}}</p></div>
 
-    </ion-label>
+            </ion-label>
 
 
-
-</ion-item>
+        </ion-item>
     </ion-card>
 </ion-content>
 <ion-content *ngIf="vistanotizie === false">
+    <ion-card class="titolo">
+        <ion-item lines="none">
+            <ion-label floating>Risultati per:</ion-label>
+            <ion-icon name="pin"></ion-icon>
+            <ion-label color="#666666">{{this.luogo}}</ion-label>
+        </ion-item>
+    </ion-card>
+
     <ion-card *ngFor="let negozio of negozi$ | async" class="sc-ion-card-md-h">
-        <ion-item>
-            <ion-item slot="start" class="ion-no-padding">
-                <ion-thumbnail class="ion-radius-squared" slot="start">
+            <ion-item slot="start" class="ion-no-padding preferito">
+                <ion-thumbnail class="ion-radius-circle" slot="start">
                     <img src="../../../assets/images/{{negozio.immagineprofilo}}" alt="immagine">
                 </ion-thumbnail>
                 <ion-label>
-                    <div class="piace">  <ion-icon [name]="negozio.preferito ? 'heart-empty' :'heart'"   ></ion-icon>
+                    <div class="preferito">
+                        <ion-icon class="yellow" [name]="negozio.preferito ? 'star' :'star-outline'"></ion-icon>
                     </div>
-                    <div><h2 > <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{negozio.nome}}</h2>
-                        <p>  {{negozio.nome}}</p></div>
+                    <div><h2> {{negozio.nome}}</h2>
+                        <p>  {{negozio.descrizione}}</p></div>
 
                 </ion-label>
-
-
-
-            </ion-item>
         </ion-item>
     </ion-card>
 </ion-content>

@@ -1,11 +1,10 @@
-import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest, HttpEvent} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {UtenteService} from '../services/utente.service';
 import {X_AUTH} from '../constants';
 import {AlertController, NavController} from '@ionic/angular';
 import {catchError} from 'rxjs/operators';
-import {EMPTY} from 'rxjs';
-
+import {EMPTY, Observable} from 'rxjs';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -15,11 +14,11 @@ export class TokenInterceptor implements HttpInterceptor {
                 private utenteService: UtenteService) {
     }
 
-    intercept(req: HttpRequest<any>, next: HttpHandler) {
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>  {
         // Get the auth token from the service.
         const authToken = this.utenteService.getAuthToken();
-        if (authToken !== null && authToken !== undefined && authToken !== '') {
-            console.log('adding token into header');
+        if (!!authToken) {
+            console.log('Adding token into header');
             // Clone the request and replace the original headers with
             // cloned headers, updated with the authorization.
             const authReq = req.clone({

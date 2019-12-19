@@ -45,7 +45,7 @@
     <ion-item>
       <ion-grid>
         <ion-row class="header-card">
-          <ion-col class="icon-setting-card" size="2"> <ion-icon (click)="openModalModifica()" name="more"></ion-icon> </ion-col>
+
           <ion-col size="8">
             <a  [routerLink]="['/tabs/negozio','pagina negozio 1']">
               <h5>Nome negozio</h5>
@@ -73,7 +73,29 @@
       </ion-grid>
     </ion-item>
   </ion-card>
+  <ion-card
+            [routerLink]="['/tabs/notizie', notizia.id]">
+    <ion-col class="icon-setting-card" size="2"> <ion-icon (click)="openModalModifica()" name="more"></ion-icon> </ion-col>
+    <ion-item slot="start" class="ion-no-padding">
+      <ion-thumbnail class="ion-radius-squared" slot="start">
+        <img src="../../../assets/images/{{notizia.immagine}}" alt="immagine">
+      </ion-thumbnail>
+      <ion-label>
+        <div class="data">
+          {{notizia.dataPubblicazione}}
+        </div>
+        <div class="piace">
+          <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
+        </div>
+        <div><h2>
+          <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa.nome}}</h2>
+          <p>  {{notizia.titolo}}</p></div>
 
+      </ion-label>
+
+
+    </ion-item>
+  </ion-card>
 
 
 </ion-content>

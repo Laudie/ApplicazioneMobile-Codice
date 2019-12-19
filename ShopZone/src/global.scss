@@ -207,6 +207,13 @@ ion-toolbar {
 
 // Android card shadow
 ion-card {
+  &.titolo{
+    background: #efefef;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+  }
   &.sc-ion-card-md-h {
     box-shadow: none !important;
 
@@ -254,6 +261,12 @@ ion-card {
           right: 0;
           text-align: right;
         }
+        &.preferito {
+          position: absolute;
+          top: 10px;
+          right: 0;
+          text-align: right;
+        }
 
         ion-icon {
           font-size: 20px;
@@ -263,8 +276,14 @@ ion-card {
 
     ion-item {
       ion-icon {
-        color: red;
+        &.red{
+          color: red;
+        }
+        &.yellow{
+          color: darkgoldenrod;
+        }
       }
+
     }
   }
 }
