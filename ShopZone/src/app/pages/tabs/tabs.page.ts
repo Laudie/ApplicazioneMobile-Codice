@@ -15,8 +15,6 @@ export class TabsPage implements OnInit {
     }
 
     ngOnInit() {
-        if (this.utenteService.isLogged()) {
             this.utente$ = this.utenteService.getUtente();
-        }
     }
 }

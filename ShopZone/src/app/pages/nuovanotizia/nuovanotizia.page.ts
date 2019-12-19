@@ -27,13 +27,6 @@ export class NuovanotiziaPage implements OnInit {
     }
 
     ngOnInit() {
-        this.notiziaService.getidNegozio().subscribe(res => {
-                this.idNegozio = res;
-                console.log(this.idNegozio);
-            }
-        );
-        /*this.idNegozio$ = this.notiziaService.getidNegozio();*/
-        console.log(this.idNegozio);
         this.NuovoFormModel = this.formBuilder.group({
             titolo: ['', Validators.compose([Validators.required
             ])],
@@ -44,7 +37,7 @@ export class NuovanotiziaPage implements OnInit {
     }
 
     onSubmit() {
-        //console.log(this.notizia.toString());
+        // console.log(this.notizia.toString());
         // this.NuovoFormModel.patchValue({id_negozio: this.notizia.toString()});
         const nuovaNotizia: NuovaNotizia = this.NuovoFormModel.value;
         console.log(nuovaNotizia);
@@ -53,3 +46,4 @@ export class NuovanotiziaPage implements OnInit {
         this.navController.navigateRoot('tabs/notizie');
     }
 }
+

@@ -1,4 +1,3 @@
-
 import {Injectable} from '@angular/core';
 
 
@@ -28,9 +27,11 @@ export class NotiziaService {
     list(): Observable<Notizia[]> {
         return this.http.get<Notizia[]>(URL.NOTIZIE);
     }
+
     preferiti(): Observable<Notizia[]> {
         return this.http.get<Notizia[]>(URL.PREFERITI);
     }
+
     findById(notiziaId: number): Observable<Notizia> {
         const apiURL = `${URL.NOTIZIE}/${notiziaId}`;
         return this.http.get<Notizia>(apiURL);
@@ -39,23 +40,17 @@ export class NotiziaService {
     search(luogo: string): Observable<Negozio[]> {
         return this.http.post<Negozio[]>(URL.NOTIZIE, luogo);
     }
-    nuovaNotizia(nuovaNotizia: NuovaNotizia): void {
-          this.http.post(URL.NUOVA_NOTIZIA,
-              nuovaNotizia)
-              .subscribe(
-                  (val) => {console.log('POST call succesfull value returned in body', val);
-                  },
-                  response => {
-                      console.log('POST call in error', response);
-                  },
-                  () => {
-                      console.log('The POST observable is now completed');
-                  });
-      }
+
+    nuovaNotizia(nuovaNotizia: NuovaNotizia) {
+        this.http.post<Notizia[]>(URL.NUOVA_NOTIZIA,
+            nuovaNotizia);
+    }
+
     getidNegozio(): Observable<number> {
         console.log('eccomi');
         return this.http.get<number>(URL.NUOVA_NOTIZIA);
     }
+
     /* createAppello(appello: Appello) {
          return this.http.post<Appello>(URL.APPELLI, appello);
      }*/

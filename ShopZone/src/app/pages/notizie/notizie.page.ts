@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {Notizia} from '../../model/notizia.model';
 import {NotiziaService} from '../../services/notizia.service';
 import {Negozio} from '../../model/negozio.model';
-import {NavController} from '@ionic/angular';
+import {Events, NavController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators, FormsModule} from '@angular/forms';
 
 @Component({
@@ -31,7 +31,10 @@ export class NotiziePage implements OnInit {
         this.luogo = '';
         this.notizie$ = this.notiziaService.list();
     }
-
+    ionViewWillEnter(): void {
+        console.log('hi');
+        this.notizie$ = this.notiziaService.list();
+    }
     cerca() {
           this.luogo = this.ricerca.toString();
             this.vistanotizie = false;
