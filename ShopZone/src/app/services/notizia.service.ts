@@ -28,9 +28,6 @@ export class NotiziaService {
         return this.http.get<Notizia[]>(URL.NOTIZIE);
     }
 
-    preferiti(): Observable<Notizia[]> {
-        return this.http.get<Notizia[]>(URL.PREFERITI);
-    }
 
     findById(notiziaId: number): Observable<Notizia> {
         const apiURL = `${URL.NOTIZIE}/${notiziaId}`;

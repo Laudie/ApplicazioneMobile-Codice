@@ -12,7 +12,7 @@ export const URL = {
     NUOVA_NOTIZIA: URL_BASE + '/notizie/aggiungi',
     PROVA: URL_BASE + '/negozio/prova',
     HOME: URL_BASE + '/home',
-    PREFERITI: URL_BASE + '/preferiti'
+    PREFERITI: URL_BASE + '/negozio/preferiti'
 };
 
 export const X_AUTH = 'X-Auth';

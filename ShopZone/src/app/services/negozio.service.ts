@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {URL} from '../constants';
 import {Negozio} from '../model/negozio.model';
 import {Observable} from 'rxjs';
-import {strategy} from "@angular-devkit/core/src/experimental/jobs";
+import {strategy} from '@angular-devkit/core/src/experimental/jobs';
+import {Notizia} from '../model/notizia.model';
 
 export interface NuovoNegozio {
     nome: string;
@@ -29,6 +30,10 @@ export class NegozioService {
         return this.http.get<Negozio>(apiURL);
     }
 
+    preferiti(): Observable<Negozio[]> {
+        return this.http.get<Negozio[]>(URL.PREFERITI);
+    }
+
     nuovoNegozio(nuovoNegozio: NuovoNegozio): void {
         this.http.post(URL.NUOVO_NEGOZIO, nuovoNegozio).subscribe(
             (val) => {
@@ -41,6 +46,7 @@ export class NegozioService {
                 console.log('The POST observable is now completed');
             });
     }
+
     home(): void {
         this.http.get<string>(URL.PROVA).subscribe(
             (val) => {

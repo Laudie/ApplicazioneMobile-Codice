@@ -21,10 +21,10 @@
                     {{notizia.dataPubblicazione}}
                 </div>
                 <div class="piace">
-                    <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
+                   {{notizia.numeroPiace}} <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
                 </div>
                 <div><h2>
-                    <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa.nome}}</h2>
+                    <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa}}</h2>
                     <p>  {{notizia.titolo}}</p></div>
 
             </ion-label>

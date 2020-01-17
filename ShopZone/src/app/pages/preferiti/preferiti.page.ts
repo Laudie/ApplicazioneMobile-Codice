@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Notizia} from '../../model/notizia.model';
-import {NotiziaService} from '../../services/notizia.service';
 import {NavController} from '@ionic/angular';
+import {Negozio} from '../../model/negozio.model';
+import {NegozioService} from '../../services/negozio.service';
 
 @Component({
     selector: 'app-preferiti',
@@ -10,14 +10,14 @@ import {NavController} from '@ionic/angular';
     styleUrls: ['./preferiti.page.scss'],
 })
 export class PreferitiPage implements OnInit {
-    private notizie$: Observable<Notizia[]>;
+    private negozi$: Observable<Negozio[]>;
 
-    constructor(private notiziaService: NotiziaService,
+    constructor(private negozioService: NegozioService,
                 private navController: NavController) {
     }
 
     ngOnInit() {
-        this.notizie$ = this.notiziaService.preferiti();
+        this.negozi$ = this.negozioService.preferiti();
     }
 
 }

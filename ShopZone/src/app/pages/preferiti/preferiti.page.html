@@ -5,22 +5,22 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngFor="let notizia of notizie$ | async" class="sc-ion-card-md-h"
-              [routerLink]="['/tabs/notizie', notizia.id]">
+    <ion-card *ngFor="let negozio of negozi$ | async" class="sc-ion-card-md-h"
+              [routerLink]="['/tabs/notizie', negozio.id]">
         <ion-item slot="start" class="ion-no-padding">
             <ion-thumbnail class="ion-radius-squared" slot="start">
-                <img src="../../../assets/images/{{notizia.immagine}}" alt="immagine">
+                <img src="../../../assets/images/{{negozio.immagineprofilo}}" alt="immagine">
             </ion-thumbnail>
             <ion-label>
                 <div class="data">
-                    {{notizia.dataPubblicazione}}
                 </div>
                 <div class="piace">
-                    <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
+                    <ion-icon class="red" [name]="negozio.preferito ? 'star' :'star-outline'"></ion-icon>
                 </div>
-                <div><h2>
-                    <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa.nome}}</h2>
-                    <p>  {{notizia.titolo}}</p></div>
+                <div>
+                    <h2>
+                        <p>  {{negozio.nome}}</p></h2>
+                </div>
 
             </ion-label>
 
