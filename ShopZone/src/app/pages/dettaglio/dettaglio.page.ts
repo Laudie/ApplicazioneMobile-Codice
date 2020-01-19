@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Notizia} from '../../model/notizia.model';
 import {NotiziaService} from '../../services/notizia.service';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -12,20 +12,21 @@ import {Observable, of} from 'rxjs';
 })
 export class DettaglioPage implements OnInit {
     notizia$: Observable<Notizia>;
-    slides: any[];
 
     constructor(private route: ActivatedRoute,
                 private notiziaService: NotiziaService
     ) {
     }
 
-    onLike(n: Notizia) {
-        if (n.piace) {
-            n.piace = false;
-            n.numeroPiace -= 1;
+    miPiace(notizia: Notizia) {
+        if (notizia.piace) {
+            notizia.piace = false;
+            notizia.numeroPiace -= 1;
+            this.notiziaService.miPiace(notizia.id, 0);
         } else {
-            n.piace = true;
-            n.numeroPiace += 1;
+            notizia.piace = true;
+            notizia.numeroPiace += 1;
+            this.notiziaService.miPiace(notizia.id, 1);
         }
     }
 

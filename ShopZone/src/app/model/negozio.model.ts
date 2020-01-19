@@ -2,11 +2,8 @@ export class Negozio {
     id: number;
     nome: string;
     descrizione: string;
-    orario: string;
-    categoria: string;
-    giorniapertura: string;
-    propietario: string;
-    piva: number;
+    citta: string;
+    via: string;
     immagineprofilo: string;
     preferito: boolean;
 }

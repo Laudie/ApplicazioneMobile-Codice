@@ -30,13 +30,13 @@ const routes: Routes = [
             },
             {
                 path: 'preferiti',
+                canActivate: [AuthGuard],
                 children: [
                     {
                         path: '',
                         loadChildren: '../preferiti/preferiti.module#PreferitiPageModule'
                     }
-                ],
-                canActivateChild: [AuthGuard]
+                ]
             },
             {
                 path: 'impostazioni',

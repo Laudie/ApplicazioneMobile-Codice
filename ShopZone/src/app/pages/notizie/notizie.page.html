@@ -14,7 +14,7 @@
               [routerLink]="['/tabs/notizie', notizia.id]">
         <ion-item slot="start" class="ion-no-padding">
             <ion-thumbnail class="ion-radius-squared" slot="start">
-                <img src="../../../assets/images/{{notizia.immagine}}" alt="immagine">
+                <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%" alt="Image" />
             </ion-thumbnail>
             <ion-label>
                 <div class="data">
@@ -23,8 +23,7 @@
                 <div class="piace">
                    {{notizia.numeroPiace}} <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
                 </div>
-                <div><h2>
-                    <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa}}</h2>
+                <div><h2>{{notizia.nomeNegozio}}</h2>
                     <p>  {{notizia.titolo}}</p></div>
 
             </ion-label>
@@ -38,14 +37,14 @@
         <ion-item lines="none">
             <ion-label floating>Risultati per:</ion-label>
             <ion-icon name="pin"></ion-icon>
-            <ion-label color="#666666">{{this.luogo}}</ion-label>
+            <ion-label color="#666666">{{this.citta}}</ion-label>
         </ion-item>
     </ion-card>
 
     <ion-card *ngFor="let negozio of negozi$ | async" class="sc-ion-card-md-h">
             <ion-item slot="start" class="ion-no-padding preferito">
                 <ion-thumbnail class="ion-radius-circle" slot="start">
-                    <img src="../../../assets/images/{{negozio.immagineprofilo}}" alt="immagine">
+                    <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
                 </ion-thumbnail>
                 <ion-label>
                     <div class="preferito">

@@ -4,7 +4,7 @@ import {ModificaPostModalPagePage} from '../modifica-post-modal-page/modifica-po
 import {Observable} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 
 @Component({

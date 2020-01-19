@@ -5,7 +5,7 @@ import {URL} from '../constants';
 import {Notizia} from '../model/notizia.model';
 import {Observable} from 'rxjs';
 import {Negozio} from '../model/negozio.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 export interface NuovaNotizia {
     titolo: string;
@@ -34,8 +34,29 @@ export class NotiziaService {
         return this.http.get<Notizia>(apiURL);
     }
 
-    search(luogo: string): Observable<Negozio[]> {
-        return this.http.post<Negozio[]>(URL.NOTIZIE, luogo);
+    search(citta: string): Observable<Negozio[]> {
+        return this.http.get<Negozio[]>(URL.NEGOZIO, {
+            params: {
+                citta
+            }
+        });
+    }
+
+    miPiace(idNotizia: number, piace: number) {
+        const apiURL = `${URL.NOTIZIE}/${idNotizia}/${piace}`;
+        this.http.put(apiURL, {
+            param: {
+                piace
+            }}).subscribe(
+            (val) => {
+                console.log('POST call succesfull value returned in body', val);
+            },
+            response => {
+                console.log('POST call in error', response);
+            },
+            () => {
+                console.log('The POST observable is now completed');
+            });
     }
 
     nuovaNotizia(nuovaNotizia: NuovaNotizia) {
@@ -43,12 +64,4 @@ export class NotiziaService {
             nuovaNotizia);
     }
 
-    getidNegozio(): Observable<number> {
-        console.log('eccomi');
-        return this.http.get<number>(URL.NUOVA_NOTIZIA);
-    }
-
-    /* createAppello(appello: Appello) {
-         return this.http.post<Appello>(URL.APPELLI, appello);
-     }*/
 }

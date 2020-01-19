@@ -11,34 +11,33 @@
     <ion-item lines="none">
 
         <ion-thumbnail class="ion-radius-circle" slot="start">
-            <ion-img src="../../../assets/images/{{notizia.pubblicatoDa.immagineprofilo}}"></ion-img>
+            <img [src]="'data:image/png;base64,' + notizia.immagineNegozio " width="100%" height="100%" alt="Image"/>
         </ion-thumbnail>
         <ion-text class="text12 text-dark font-6">
-            <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.pubblicatoDa.nome}}</a>
+            <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.nomeNegozio}}</a>
         </ion-text>
 
-        <ion-item lines="none" (click)="onLike(notizia)" class="activated" slot="end">
-            <ion-icon color="danger" size="large"
-                             [name]="notizia.piace ? 'heart' :'heart-empty'">
-        </ion-icon>
+        <ion-item lines="none" (click)="miPiace(notizia)" class="activated" slot="end">
             <ion-text>   {{notizia.numeroPiace }} </ion-text>
+            <ion-icon color="danger" size="large"
+                      [name]="notizia.piace ? 'heart' :'heart-empty'">
+            </ion-icon>
+
         </ion-item>
     </ion-item>
 
     <ion-slides>
         <ion-slide>
-            <img src="../../../assets/images/{{notizia.immagine}}">
+            <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%" alt="Image"/>
         </ion-slide>
     </ion-slides>
 
 
-
-
     <ion-item lines="none">
-    <ion-text class="text1 text-dark" >
+        <ion-text class="text1 text-dark">
 
-        <h5><strong>{{notizia.pubblicatoDa.nome}}</strong> {{notizia.titolo}}</h5>
-        <h5 class="text08 text-secondary">{{notizia.descrizione}}</h5>
-    </ion-text>
+            <h5><strong>{{notizia.nomeNegozio}}</strong> {{notizia.titolo}}</h5>
+            <h5 class="text08 text-secondary">{{notizia.descrizione}}</h5>
+        </ion-text>
     </ion-item>
 </ion-content>

@@ -1,7 +1,5 @@
 <ion-header *ngIf="(utente$ | async) as utente" >
-  <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
-  </ion-buttons>
+
   <ion-toolbar color="primary">
     <ion-title color="light" align="center"> {{utente.id_negozio.nome}}</ion-title>
   </ion-toolbar>
@@ -16,8 +14,8 @@
     </ion-thumbnail>
     <div class="ion-justify-content-center">
       <p class="ion-text-center text-dark">
-        {{utente.id_negozio.giorniapertura}} <br>
-        {{utente.id_negozio.orario}} <br>
+        {{}} <br>
+        {{}} <br>
       </p>
 
     </div>

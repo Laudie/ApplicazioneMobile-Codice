@@ -9,7 +9,8 @@
               [routerLink]="['/tabs/notizie', negozio.id]">
         <ion-item slot="start" class="ion-no-padding">
             <ion-thumbnail class="ion-radius-squared" slot="start">
-                <img src="../../../assets/images/{{negozio.immagineprofilo}}" alt="immagine">
+                <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
+
             </ion-thumbnail>
             <ion-label>
                 <div class="data">
