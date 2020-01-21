@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ModalController, NavController, NavParams} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
-import { UtenteService} from '../../services/utente.service';
+import {NuovoUtente, UtenteService} from '../../services/utente.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -42,9 +42,9 @@ export class RegistrazionePage implements OnInit {
     }
 
     onSubmit() {
-        // const nuovoUtente: NuovoUtente = this.registrazioneFormModel.value;
-       // console.log(nuovoUtente);
-        // this.utenteService.nuovoUtente(nuovoUtente);
+        const nuovoUtente: NuovoUtente = this.registrazioneFormModel.value;
+        console.log(nuovoUtente);
+        this.utenteService.nuovoUtente(nuovoUtente);
         this.registrazioneFormModel.reset();
         this.navController.navigateRoot('login');
     }
