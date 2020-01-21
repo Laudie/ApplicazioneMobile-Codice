@@ -25,9 +25,13 @@
                 &nbsp; <ion-text color="danger">{{ 'NEW_REQUIRED' | translate }} </ion-text>
             </p>
 
-
+            <p><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center>
+            <ion-input type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
+                       (change)="handleFileInput($event.target.files)" formControlName="immagine" text-center></ion-input>
+            </p>
         </form>
         <br>
+
         <div margin-top="30px" align="center">
 
             <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
