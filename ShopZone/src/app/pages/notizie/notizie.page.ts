@@ -5,6 +5,7 @@ import {NotiziaService} from '../../services/notizia.service';
 import {Negozio} from '../../model/negozio.model';
 import {Events, NavController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators, FormsModule} from '@angular/forms';
+import {NegozioService} from '../../services/negozio.service';
 
 @Component({
     selector: 'app-notizie',
@@ -20,6 +21,7 @@ export class NotiziePage implements OnInit {
     private citta: string;
 
     constructor(private notiziaService: NotiziaService,
+                private negozioService: NegozioService,
                 private navController: NavController,
                 private formbuilder: FormBuilder) {
     }
@@ -41,7 +43,7 @@ export class NotiziePage implements OnInit {
     cerca() {
         this.citta = this.ricerca.toString();
         this.vistanotizie = false;
-        this.negozi$ = this.notiziaService.search(this.citta);
+        this.negozi$ = this.negozioService.search(this.citta);
     }
 
     indietro() {

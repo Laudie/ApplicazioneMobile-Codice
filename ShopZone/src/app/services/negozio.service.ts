@@ -3,8 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {URL} from '../constants';
 import {Negozio} from '../model/negozio.model';
 import {Observable} from 'rxjs';
-import {strategy} from '@angular-devkit/core/src/experimental/jobs';
-import {Notizia} from '../model/notizia.model';
 
 export interface NuovoNegozio {
     nome: string;
@@ -30,6 +28,14 @@ export class NegozioService {
         return this.http.get<Negozio>(apiURL);
     }
 
+    search(citta: string): Observable<Negozio[]> {
+        return this.http.get<Negozio[]>(URL.NEGOZIO, {
+            params: {
+                citta
+            }
+        });
+    }
+
     preferiti(): Observable<Negozio[]> {
         return this.http.get<Negozio[]>(URL.PREFERITI);
     }
@@ -47,16 +53,7 @@ export class NegozioService {
             });
     }
 
-    home(): void {
-        this.http.get<string>(URL.PROVA).subscribe(
-            (val) => {
-                console.log('POST call succesfull value returned in body', val);
-            },
-            response => {
-                console.log('POST call in error', response);
-            },
-            () => {
-                console.log('The POST observable is now completed');
-            });
+    home(): Observable<Negozio> {
+        return this.http.get<Negozio>(URL.HOME);
     }
 }

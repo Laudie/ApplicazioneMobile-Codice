@@ -34,11 +34,12 @@ export class NuovanotiziaPage implements OnInit {
         });
     }
 
-     onSubmit() {
+     pubblica() {
         this.NuovoFormModel.get('immagine').setValue(this.imageUrl.substring(this.imageUrl.indexOf(',') + 1));
         const nuovaNotizia: NuovaNotizia = this.NuovoFormModel.value;
         this.notiziaService.nuovaNotizia(nuovaNotizia);
         this.NuovoFormModel.reset();
+        this.imageUrl = '../../../assets/logo/default.jpg';
         this.navController.navigateRoot('tabs/notizie');
     }
 
@@ -50,6 +51,11 @@ export class NuovanotiziaPage implements OnInit {
             this.imageUrl = event.target.result;
         };
         reader.readAsDataURL(this.filetoUpload);
+    }
+
+    indietro() {
+        this.imageUrl = '../../../assets/logo/default.jpg';
+        this.NuovoFormModel.reset();
     }
 }
 

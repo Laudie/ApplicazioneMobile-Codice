@@ -1,100 +1,47 @@
-<ion-header *ngIf="(utente$ | async) as utente" >
 
+<ion-header >
   <ion-toolbar color="primary">
-    <ion-title color="light" align="center"> {{utente.id_negozio.nome}}</ion-title>
+    <ion-title color="light" align="center"> Home </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content *ngIf="(negozio$ | async) as negozio">
+    <ion-card class="sc-ion-card-md-h">
+        <ion-card-title slot="center" text-center color="primary">
+            <i>{{negozio.nome}}</i>
+        </ion-card-title>
 
-<div class="bg-light"  *ngIf="(utente$ | async) as utente">
-
-  <ion-item>
-    <ion-thumbnail slot="start" class="ion-radius-circle">
-      <img src="../../../assets/images/{{utente.id_negozio.immagineprofilo}}">
-    </ion-thumbnail>
-    <div class="ion-justify-content-center">
-      <p class="ion-text-center text-dark">
-        {{}} <br>
-        {{}} <br>
-      </p>
-
-    </div>
-    <a [routerLink]="['/login']" slot="end">
-      <ion-icon size="large" slot="top" name="star-outline"></ion-icon>
-    </a>
-
-  </ion-item>
-  <ion-item >
-    <ion-icon name="map" slot="end" size="large" [routerLink]="['/dummy']"></ion-icon>
-    <ion-icon name="call" slot="end" size="large" ></ion-icon>
-  </ion-item>
-
-</div>
-
-
-<ion-item>
-  <ion-icon name="more" slot="start" size="large" ></ion-icon>
-  <ion-icon name="grid" slot="end" size="large"></ion-icon>
-
-</ion-item>
-
-<ion-content>
-  <ion-card class="sc-ion-card-md-h">
-    <ion-item>
-      <ion-grid>
-        <ion-row class="header-card">
-
-          <ion-col size="8">
-            <a  [routerLink]="['/tabs/negozio','pagina negozio 1']">
-              <h5>Nome negozio</h5>
-            </a>
-          </ion-col>
-          <ion-col size="2"></ion-col>
-        </ion-row>
-
-        <ion-row >
-          <ion-col size="3">
-            <ion-thumbnail class="ion-radius-squared">
-              <img src="../../../assets/images/Immagine.jpg">
+        <ion-item lines="none" slot="start" class="ion-no-padding preferito">
+            <ion-thumbnail class="ion-radius-circle-big" slot="start">
+                <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
             </ion-thumbnail>
-          </ion-col>
-          <ion-col size="8">
-            <ion-label  class="text-description" text-wrap [routerLink]= "['/tabs/notizie','555']">
-              Multi-line text that should wrap when it is too long
-              to fit on one line in the item.
-            </ion-label>
-          </ion-col>
-          <ion-col size="1" class="icon-heart-card">
-            <ion-icon name="heart"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-card>
-  <ion-card
-            [routerLink]="['/tabs/notizie', notizia.id]">
-    <ion-col class="icon-setting-card" size="2"> <ion-icon (click)="openModalModifica()" name="more"></ion-icon> </ion-col>
-    <ion-item slot="start" class="ion-no-padding">
-      <ion-thumbnail class="ion-radius-squared" slot="start">
-        <img src="../../../assets/images/{{notizia.immagine}}" alt="immagine">
-      </ion-thumbnail>
-      <ion-label>
-        <div class="data">
-          {{notizia.dataPubblicazione}}
-        </div>
-        <div class="piace">
-          <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
-        </div>
-        <div><h2>
-          <!--[routerLink]="['/tabs/negozio', notizia.pubblicatoDa.id]" -->   {{notizia.pubblicatoDa.nome}}</h2>
-          <p>  {{notizia.titolo}}</p></div>
+            <ion-card>
+                <div class="preferito" >
+                   {{negozio.preferenze}}
+               <ion-icon class="yellow" name ="star"></ion-icon></div>
+                <div>
+                    <p>  {{negozio.descrizione}}</p></div>
 
-      </ion-label>
+            </ion-card>
+        </ion-item>
+    </ion-card>
 
 
-    </ion-item>
-  </ion-card>
 
+  <ion-segment color="primary">
+    <ion-segment-button value="posts" selected>
+      <ion-icon name="apps"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="tagged">
+      <ion-icon name="reorder"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
+  <ion-grid class="image-grid">
+    <ion-row class="single-row">
+      <ion-col class="single-image">
+        <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " slot="start" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-

@@ -5,5 +5,6 @@ export class Negozio {
     citta: string;
     via: string;
     immagineprofilo: string;
+    preferenze: number;
     preferito: boolean;
 }

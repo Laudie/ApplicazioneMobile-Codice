@@ -34,11 +34,11 @@
 
         <div margin-top="30px" align="center">
 
-            <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
+            <ion-button size="medium" shape="round" color="primary" (click)="pubblica()" [disabled]="! NuovoFormModel.valid" tappable>
                 {{ 'CONFIRM' | translate }}
             </ion-button>
             &nbsp;&nbsp;
-            <ion-button size="medium" shape="round" color="primary" [routerLink]="['/tabs/notizie']" tappable>
+            <ion-button size="medium" shape="round" color="primary" (click)="indietro()" [routerLink]="['/tabs/notizie']" tappable>
                 {{ 'BACK_BUTTON_TEXT' | translate }}
             </ion-button>
         </div>

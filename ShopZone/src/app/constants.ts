@@ -11,7 +11,7 @@ export const URL = {
     NUOVO_NEGOZIO: URL_BASE + '/negozio/nuovo',
     NUOVA_NOTIZIA: URL_BASE + '/notizie/aggiungi',
     PROVA: URL_BASE + '/negozio/prova',
-    HOME: URL_BASE + '/home',
+    HOME: URL_BASE + '/negozio/home',
     PREFERITI: URL_BASE + '/negozio/preferiti'
 };
 

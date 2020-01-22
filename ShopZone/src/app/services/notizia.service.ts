@@ -32,13 +32,7 @@ export class NotiziaService {
         return this.http.get<Notizia>(apiURL);
     }
 
-    search(citta: string): Observable<Negozio[]> {
-        return this.http.get<Negozio[]>(URL.NEGOZIO, {
-            params: {
-                citta
-            }
-        });
-    }
+
 
     miPiace(idNotizia: number, piace: number) {
         const apiURL = `${URL.NOTIZIE}/${idNotizia}/${piace}`;
