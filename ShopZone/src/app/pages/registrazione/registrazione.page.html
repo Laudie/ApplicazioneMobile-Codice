@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title color="light" text-center>{{ 'REGISTRAZIONE_TITOLO' | translate }}</ion-title>
+    <ion-title color="light" text-center>{{ 'REGISTER_TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,19 +18,19 @@
 
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
-          {{ 'NOME' | translate }}</ion-label>
+          {{ 'NAME' | translate }}</ion-label>
         <ion-input color="secondary" type="string" formControlName="nome"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="registrazioneFormModel.get('nome').touched && registrazioneFormModel.get('nome').invalid">
-        <ion-text color="danger">{{ 'NOME_RICHIESTO' | translate }} </ion-text>
+        <ion-text color="danger">{{ 'NAME_REQUIRED' | translate }} </ion-text>
       </p>
     <ion-item no-padding class="animated fadeInUp">
       <ion-label position="floating">
-        {{ 'COGNOME' | translate }}</ion-label>
+        {{ 'SURNAME' | translate }}</ion-label>
       <ion-input color="secondary" type="string" formControlName="cognome"></ion-input>
     </ion-item>
     <p ion-text class="text08" *ngIf="registrazioneFormModel.get('cognome').touched && registrazioneFormModel.get('cognome').invalid">
-      <ion-text color="danger">{{ 'COGNOME_RICHIESTO' | translate }} </ion-text>
+      <ion-text color="danger">{{ 'USERNAME_REQUIRED' | translate }} </ion-text>
     </p>
 
 
@@ -40,7 +40,7 @@
           <ion-input color="secondary" type="email" formControlName="email"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="registrazioneFormModel.get('email').touched && registrazioneFormModel.get('email').invalid">
-          <ion-text color="danger">{{ 'EMAIL_RICHIESTA' | translate }} </ion-text>
+          <ion-text color="danger">{{ 'EMAIL_REQUIRED' | translate }} </ion-text>
       </p>
 
 
@@ -50,7 +50,7 @@
       <ion-input color="secondary" type="string" formControlName="username"></ion-input>
     </ion-item>
     <p ion-text class="text08" *ngIf="registrazioneFormModel.get('username').touched && registrazioneFormModel.get('username').invalid">
-      <ion-text color="danger">{{ 'USERNAME_RICHIESTO' | translate }} </ion-text>
+      <ion-text color="danger">{{ 'USERNAME_REQUIRED' | translate }} </ion-text>
     </p>
 
 
@@ -60,7 +60,7 @@
       <ion-input color="secondary" type="password" formControlName="password"></ion-input>
     </ion-item>
     <p ion-text class="text08" *ngIf="registrazioneFormModel.get('password').touched && registrazioneFormModel.get('password').invalid">
-      <ion-text color="danger">{{ 'PASSWORD_RICHIESTA' | translate }} </ion-text>
+      <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }} </ion-text>
     </p>
 
 
@@ -70,11 +70,11 @@
   <div margin-top="30px" align="center">
 
     <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
-        {{ 'REGISTRATI' | translate }}
+        {{ 'SIGN IN' | translate }}
     </ion-button>
       &nbsp;&nbsp;
     <ion-button size="medium" shape="round" color="primary" [routerLink]="['/login']" tappable>
-        {{ 'BOTTONE_INDIETRO' | translate }}
+        {{ 'BACK_BUTTON_TEXT' | translate }}
     </ion-button>
   </div>
 

@@ -1,6 +1,6 @@
 <ion-header class="headerNotizia">
     <ion-toolbar color="primary" text-center>
-        <ion-title>{{'SHOP_ZONE' | translate}}</ion-title>
+        <ion-title>ShopZone</ion-title>
     </ion-toolbar>
 
     <ion-searchbar [(ngModel)]="ricerca" (keyup.enter)="cerca()" (keyup.backspace)="indietro()" (ionClear)="indietro()"
@@ -35,7 +35,7 @@
 <ion-content *ngIf="vistanotizie === false">
     <ion-card class="titolo">
         <ion-item lines="none">
-            <ion-label floating>{{'RISULTATI' | translate}}</ion-label>
+            <ion-label floating>Risultati per:</ion-label>
             <ion-icon name="pin"></ion-icon>
             <ion-label color="#666666">{{this.citta}}</ion-label>
         </ion-item>

@@ -5,8 +5,8 @@
 </ion-header>
 <ion-content>
 
-    <h4 text-center>{{'LINGUA' | translate}}</h4>
-    <ion-select color="black" placeholder="{{ 'SELEZIONA_LINGUA' | translate}}" (ionChange)="changeLanguage($event)">
+    <h3 text-md-center="center">{{'LINGUA' | translate}}</h3>
+    <ion-select placeholder="Seleziona lingua" (ionChange)="changeLanguage($event)">
         <ion-select-option value="it">Italiano</ion-select-option>
         <ion-select-option value="en">English</ion-select-option>
     </ion-select>
@@ -17,19 +17,19 @@
         <ion-button *ngIf="(utente$ | async) as utente" [hidden]="(utente.ruolo === 'negoziante')" size="medium"
                     shape="round" id="aggiunginegozio" (click)="aggiungiNegozio()" color="tertiary" expand="block">
             <ion-icon slot="start" size="medium" name="add-circle-outline"></ion-icon>
-            <ion-label>{{'AGGIUNGI_NEGOZIO' | translate}}</ion-label>
+            <ion-label>{{'ADD_MARKET' | translate}}</ion-label>
         </ion-button>
 
         <ion-button size="medium" shape="round" color="primary" (click)="logout()" id="logout"
                     [hidden]="!(this.utenteService.isLogged() | async)" expand="block">
             <ion-icon size="medium" name="logout"></ion-icon>
-            <ion-label> {{'ESCI' | translate}} </ion-label>
+            <ion-label> {{'LOGOUT_MENU' | translate}} </ion-label>
         </ion-button>
         <p>
             <ion-button size="medium" shape="round" color="primary" id="login" (click)="login()"
                         [hidden]="(this.utenteService.isLogged()| async)" expand="block">
                 <ion-icon size="medium" name="login"></ion-icon>
-                <ion-label>{{'ACCEDI' | translate}}</ion-label>
+                <ion-label>{{'LOGIN_TITLE' | translate}}</ion-label>
             </ion-button>
         </p>
 

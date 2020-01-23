@@ -8,21 +8,21 @@
 
             <ion-item no-padding class="animated fadeInUp" >
                 <ion-label position="floating" color="primary">
-                    &nbsp; {{ 'TITOLO' | translate }}</ion-label>
+                    &nbsp; {{ 'TITLE' | translate }}</ion-label>
                 <ion-input color="secondary" type="string"  formControlName="titolo"> </ion-input>
             </ion-item>
             <p ion-text class="text08" *ngIf="NuovoFormModel.get('titolo').touched && NuovoFormModel.get('titolo').invalid">
-                &nbsp;  <ion-text color="danger"> {{ 'TITOLO_RICHIESTO' | translate }} </ion-text>
+                &nbsp;  <ion-text color="danger"> {{ 'TITLE_REQUIRED' | translate }} </ion-text>
             </p>
 
 
             <ion-item no-padding class="animated fadeInUp">
                 <ion-label position="floating"color="primary" >
-                  &nbsp; {{ 'TESTO' | translate }}</ion-label>
+                  &nbsp; {{ 'NEW' | translate }}</ion-label>
                 <ion-textarea color="secondary" type="string" formControlName="descrizione"> </ion-textarea>
             </ion-item>
             <p ion-text class="text08" *ngIf="NuovoFormModel.get('descrizione').touched && NuovoFormModel.get('descrizione').invalid">
-                &nbsp; <ion-text color="danger">{{ 'TESTO_RICHIESTO' | translate }} </ion-text>
+                &nbsp; <ion-text color="danger">{{ 'NEW_REQUIRED' | translate }} </ion-text>
             </p>
 
             <p><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center>
@@ -35,11 +35,11 @@
         <div margin-top="30px" align="center">
 
             <ion-button size="medium" shape="round" color="primary" (click)="pubblica()" [disabled]="! NuovoFormModel.valid" tappable>
-                {{ 'CONFERMA' | translate }}
+                {{ 'CONFIRM' | translate }}
             </ion-button>
             &nbsp;&nbsp;
             <ion-button size="medium" shape="round" color="primary" (click)="indietro()" [routerLink]="['/tabs/notizie']" tappable>
-                {{ 'BOTTONE_INDIETRO' | translate }}
+                {{ 'BACK_BUTTON_TEXT' | translate }}
             </ion-button>
         </div>
     </ion-content>

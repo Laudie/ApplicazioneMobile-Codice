@@ -1,71 +1,51 @@
 {
-  // AGGIUNGI NEGOZIO
-  "AGGIUNGI_NEGOZIO": "Add Shop",
-  "NOME_NEGOZIO" : "Name Shop",
-  "DESCRIZIONE_NEGOZIO" : "Description",
-  "DESCRIZIONE_RICHIESTA" : "Description required",
-  "CITTA_NEGOZIO" : "City",
-  "CITTA_RICHIESTA" : "City required",
-  "VIA_NEGOZIO" : "Street",
-  "VIA_RICHIESTA" : "Street required",
-  "IMMAGINE_RICHIESTA" : "image required",
-  "BOTTONE_AGGIUNGI" : "Add",
-  "BOTTONE_INDIETRO" : "Back",
-
-  //IMPOSTAZIONI
-  "LINGUA" : "Language",
-  "ESCI" : "Log Out",
-  "SELEZIONA_LINGUA" : "Select language",
-
-  // LOGIN
-  "LOGIN_TITOLO" : "Login",
-  "LOGIN_ERRORE_TITOLO": "Login error",
-  "LOGIN_ERRORE_SOTTO_TITOLO": "Username and/or password Wrong!",
-  "USERNAME": "Username",
-  "PASSWORD": "Password",
-  "USERNAME_RICHIESTO": "Username required",
-  "PASSWORD_RICHIESTA": "Password required",
-  "ACCEDI" : "Enter",
-  "REGISTRATI" : "Sign In",
-
-  // NOTIZIE
-  "SHOP_ZONE" : "ShopZone",
-  "RISULTATI" : "Result for :",
-
-  //nuova notizia
-  "NUOVA_NOTIZIA" : "New",
-  "TITOLO": "Title",
-  "TITOLO_RICHIESTO": "Title required ",
-  "TESTO": "Insert text here",
-  "TESTO_RICHIESTO": "Text required",
-  "CONFERMA" : "Confirm",
-
-  //Registrazione
-  "REGISTRAZIONE_TITOLO": "Sign In",
-  "NOME": "Name",
-  "NOME_RICHIESTO": "Name required",
-  "COGNOME": "Surname",
-  "COGNOME_RICHIESTO": "Surname required",
-  "EMAIL": "Email",
-  "EMAIL_RICHIESTA": "Email required",
-
-
-  //TAB
-  "HOME_TAB" : "Home",
-  "PREFERITI_TAB" : "Favorites",
-  "AGGIUNGI_TAB" : "Add",
-  "NOTIZIE_TAB": "News",
-  "IMPOSTAZIONI_TAB" :"Settings",
-
   "BACK_BUTTON_TEXT": "Back",
 
-
+  "LOGIN_BUTTON": "Enter",
   "DONE_BUTTON": "Done",
   "SAVE_BUTTON": "Save",
   "CANCEL_BUTTON": "Cancel",
   "DELETE_BUTTON": "Delete",
 
+  "LOGIN_TITLE": "Login",
+  "REGISTER_TITLE": "Sign in",
+  "LOGIN_ERROR_TITLE": "Login error",
+  "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",
+
   "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
 
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "EMAIL" : "Email",
+  "SIGN IN": "Sign In",
+  "EMAIL_REQUIRED": "Email required",
+  "USERNAME_REQUIRED": "Username required",
+  "PASSWORD_REQUIRED": "Password required",
+  "NAME_REQUIRED": "Name required",
+  "SURNAME_REQUIRED": "Surname required",
+
+  "PROFILO_MENU": "Profile",
+  "LOGOUT_MENU": "Logout",
+  "NOTIZIE_TAB": "News",
+  "HOME_TAB": "Home",
+  "AGGIUNGI_TAB": "New",
+
+  "EMAIL": "Email",
+  "LANGUAGE": "Language",
+  "EMAIL_REQUIRED": "Email mandatory",
+
+  "DETTAGLIO_NOTIZIA_TITOLO": "News Detail",
+
+  "PREFERITI_TAB": "Favorite",
+  "IMPOSTAZIONI_TAB": "Settings",
+  "NOTIZIE_TAB": "News",
+  "NUOVA_NOTIZIA": "New Post",
+  "NEW": "Insert text",
+  "NEW_REQUIRED": "Text required",
+  "CONFIRM": "Post",
+  "TITLE_REQUIRED" : "Title required",
+  "TITLE": "Title"
 
 }

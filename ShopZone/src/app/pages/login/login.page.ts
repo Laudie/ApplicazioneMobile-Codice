@@ -62,10 +62,10 @@ export class LoginPage implements OnInit {
 
 
   private initTranslate() {
-    this.translateService.get('LOGIN_ERRORE_SOTTO_TITOLO').subscribe((data) => {
+    this.translateService.get('LOGIN_ERROR_SUB_TITLE').subscribe((data) => {
       this.loginSubTitle = data;
     });
-    this.translateService.get('LOGIN_ERRORE_TITOLO').subscribe((data) => {
+    this.translateService.get('LOGIN_ERROR_TITLE').subscribe((data) => {
       this.loginTitle = data;
     });
   }
