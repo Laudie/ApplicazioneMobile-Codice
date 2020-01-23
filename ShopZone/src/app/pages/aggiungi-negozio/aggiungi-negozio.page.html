@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="primary" text-center>
-        <ion-title>Aggiungi Negozio</ion-title>
+        <ion-title>{{'AGGIUNGI_NEGOZIO' | translate}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
             </ion-item>
             <p ion-text class="text08"
                *ngIf="negozioFormModel.get('nome').touched && negozioFormModel.get('nome').invalid">
-                <ion-text color="danger">{{ 'NAME_REQUIRED' | translate }} </ion-text>
+                <ion-text color="danger">{{ 'NOME_RICHIESTO' | translate }} </ion-text>
             </p>
 
             <ion-item class="animated fadeInUp">
@@ -55,13 +55,13 @@
         <div margin-top="30px" align="center">
 
             <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" tappable>
-                Aggiungi
+                {{ 'BOTTONE_AGGIUNGI' | translate }}
             </ion-button>
             <!--<ion-button size="medium" shape="round" color="primary" (click)="homePage()" tappable>
                 Prova
             </ion-button>!-->
             <ion-button size="medium" shape="round" color="primary" (click)="cancel()" tappable>
-                Cancella
+                {{ 'BOTTONE_INDIETRO' | translate }}
             </ion-button>
         </div>
     </form>
