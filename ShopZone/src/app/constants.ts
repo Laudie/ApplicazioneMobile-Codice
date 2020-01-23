@@ -8,7 +8,7 @@ export const URL = {
     NOTIZIE: URL_BASE + '/notizie',
     NEGOZIO: URL_BASE + '/negozio',
     NUOVO_UTENTE: URL_BASE + '/login/registrazione',
-    NUOVO_NEGOZIO: URL_BASE + '/negozio/nuovo',
+    NUOVO_NEGOZIO: URL_BASE + '/negozio/aggiungi',
     NUOVA_NOTIZIA: URL_BASE + '/notizie/aggiungi',
     PROVA: URL_BASE + '/negozio/prova',
     HOME: URL_BASE + '/negozio/home',

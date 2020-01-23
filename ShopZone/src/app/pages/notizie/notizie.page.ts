@@ -36,7 +36,6 @@ export class NotiziePage implements OnInit {
     }
 
     ionViewWillEnter(): void {
-        console.log('hi');
         this.notizie$ = this.notiziaService.list();
     }
 
