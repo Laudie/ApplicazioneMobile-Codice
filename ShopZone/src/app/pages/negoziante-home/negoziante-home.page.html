@@ -1,8 +1,7 @@
-
-<ion-header >
-  <ion-toolbar color="primary">
-    <ion-title color="light" align="center"> Home </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title color="light" align="center"> Home</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="(negozio$ | async) as negozio">
@@ -13,12 +12,14 @@
 
         <ion-item lines="none" slot="start" class="ion-no-padding preferito">
             <ion-thumbnail class="ion-radius-circle-big" slot="start">
-                <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
+                <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%"
+                     alt="Image"/>
             </ion-thumbnail>
             <ion-card>
-                <div class="preferito" >
-                   {{negozio.preferenze}}
-               <ion-icon class="yellow" name ="star"></ion-icon></div>
+                <div class="preferito">
+                    {{negozio.preferenze}}
+                    <ion-icon class="yellow" name="star"></ion-icon>
+                </div>
                 <div>
                     <p>  {{negozio.descrizione}}</p></div>
 
@@ -26,22 +27,25 @@
         </ion-item>
     </ion-card>
 
+    <ion-segment (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="posts" selected>
+            <ion-icon name="apps"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="tagged">
+            <ion-icon name="reorder"></ion-icon>
+        </ion-segment-button>
+    </ion-segment>
 
-
-  <ion-segment color="primary">
-    <ion-segment-button value="posts" selected>
-      <ion-icon name="apps"></ion-icon>
-    </ion-segment-button>
-    <ion-segment-button value="tagged">
-      <ion-icon name="reorder"></ion-icon>
-    </ion-segment-button>
-  </ion-segment>
-
-  <ion-grid class="image-grid">
-    <ion-row class="single-row">
-      <ion-col class="single-image">
-        <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " slot="start" />
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item *ngFor="let notizia of notizie$ | async"
+                          [routerLink]="['/tabs/notizie', notizia.id]">
+                    <ion-thumbnail>
+                        <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%" alt="Image" />
+                    </ion-thumbnail>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

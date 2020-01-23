@@ -70,7 +70,7 @@ export class UtenteService {
     }
 
     getUtente(): BehaviorSubject<Utente> {
-        return this.utente$;
+     return this.utente$;
     }
 
     getAuthToken(): string {

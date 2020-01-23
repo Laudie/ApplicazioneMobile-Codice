@@ -32,14 +32,18 @@ export class NotiziaService {
         return this.http.get<Notizia>(apiURL);
     }
 
-
+    listaNotizie(negozioId: number): Observable<Notizia[]> {
+        const apiURL = `${URL.NEGOZIO}/${negozioId}/notizie`;
+        return this.http.get<Notizia[]>(apiURL);
+    }
 
     miPiace(idNotizia: number, piace: number) {
         const apiURL = `${URL.NOTIZIE}/${idNotizia}/${piace}`;
         this.http.put(apiURL, {
             param: {
                 piace
-            }}).subscribe(
+            }
+        }).subscribe(
             (val) => {
                 console.log('POST call succesfull value returned in body', val);
             },
@@ -64,6 +68,7 @@ export class NotiziaService {
                 console.log('The POST observable is now completed');
             });
     }
+
     /*nuovaNotizia(titolo: string, descrizione: string, fileToUpload: File) {
         const formData: FormData = new FormData();
         formData.append('immagine', fileToUpload, fileToUpload.name);

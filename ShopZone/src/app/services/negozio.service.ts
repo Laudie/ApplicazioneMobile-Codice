@@ -52,8 +52,4 @@ export class NegozioService {
                 console.log('The POST observable is now completed');
             });
     }
-
-    home(): Observable<Negozio> {
-        return this.http.get<Negozio>(URL.HOME);
-    }
 }

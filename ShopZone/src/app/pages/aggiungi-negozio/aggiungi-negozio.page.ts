@@ -46,9 +46,7 @@ ngOnInit() {
     console.log(nuovoNegozio);
     this.negozioService.nuovoNegozio(nuovoNegozio);
   }
-  homePage() {
-    this.negozioService.home();
-  }
+
   async cancel() {
     await this.modalController.dismiss();
   }

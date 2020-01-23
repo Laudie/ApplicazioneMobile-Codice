@@ -66,17 +66,8 @@ const routes: Routes = [
                     }
                 ],
                 canActivate: [AuthGuard]
-            },
-            {
-                path: 'home',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: '../negoziante-home/negoziante-home.module#NegozianteHomePageModule'
-                    }
-                ],
-                canActivate: [AuthGuard]
-            },
+            }
+            ,
             {
                 path: '',
                 loadChildren: '../notizie/notizie.module#NotiziePageModule',

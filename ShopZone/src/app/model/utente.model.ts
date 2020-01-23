@@ -8,6 +8,5 @@ export class Utente {
     email: string;
     ruolo: string;
     password: string;
-    // tslint:disable-next-line:variable-name
-    id_negozio: Negozio;
+    idNegozio: number;
 }

@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Negozio} from '../../model/negozio.model';
 import {NegozioService} from '../../services/negozio.service';
+import {Notizia} from '../../model/notizia.model';
+import {NotiziaService} from '../../services/notizia.service';
 
 
 @Component({
@@ -13,9 +15,12 @@ import {NegozioService} from '../../services/negozio.service';
 })
 export class NegozianteHomePage implements OnInit {
     private negozio$: Observable<Negozio>;
-
+    private idNegozio: number;
+    private notizie$: Observable<Notizia[]>;
+    private vistaGriglia: boolean;
   constructor(private modalController: ModalController,
               private negozioService: NegozioService,
+              private notiziaService: NotiziaService,
               private route: ActivatedRoute) { }
 
   /*async openModalModifica() {
@@ -36,7 +41,17 @@ export class NegozianteHomePage implements OnInit {
   }
 */
   ngOnInit() {
-      this.negozio$ = this.negozioService.home();
-  }
+      this.route.paramMap.subscribe((params: ParamMap) => {
+          this.vistaGriglia = true;
+          this.idNegozio = parseInt(params.get('id'), 0);
+          this.listaNotizie();
+      });
 
+  }
+    listaNotizie() {
+        this.notizie$ = this.notiziaService.listaNotizie(this.idNegozio);
+    }
+    segmentChanged($event: CustomEvent<any>) {
+        this.vistaGriglia = ! this.vistaGriglia ;
+    }
 }
