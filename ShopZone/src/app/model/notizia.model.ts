@@ -8,5 +8,5 @@ export class Notizia {
     dataPubblicazione: string;
     numeroPiace: number;
     piace: boolean;
-    negozio: Negozio;
+    negozioResponse: Negozio;
 }
