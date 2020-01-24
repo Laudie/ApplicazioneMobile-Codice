@@ -3,7 +3,7 @@
     <ion-tabs>
 
         <ion-tab-bar slot="bottom" color="primary">
-            <ion-tab-button *ngIf="(utente$ | async) as utente" tab="negozio/{{utente.idNegozio}}" [hidden]="!(utente.ruolo === 'negoziante')">
+            <ion-tab-button *ngIf="(utente$ | async) as utente" tab="negozio/{{utente.negozio.id}}" [hidden]="!(utente.ruolo === 'negoziante')">
                 <ion-icon size="large" name="md-home"></ion-icon>
                 <ion-label>{{'HOME_TAB' | translate}}</ion-label>
             </ion-tab-button>

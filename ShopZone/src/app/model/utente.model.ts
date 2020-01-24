@@ -8,5 +8,5 @@ export class Utente {
     email: string;
     ruolo: string;
     password: string;
-    idNegozio: number;
+    negozio: Negozio;
 }

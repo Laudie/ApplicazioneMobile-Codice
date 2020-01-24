@@ -5,27 +5,19 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngFor="let negozio of negozi$ | async" class="sc-ion-card-md-h"
-              [routerLink]="['/tabs/notizie', negozio.id]">
-        <ion-item slot="start" class="ion-no-padding">
-            <ion-thumbnail class="ion-radius-squared" slot="start">
+    <ion-card *ngFor="let negozio of negozi$ | async" class="sc-ion-card-md-h">
+        <ion-item slot="start" class="ion-no-padding preferito">
+            <ion-thumbnail class="ion-radius-circle" slot="start">
                 <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
-
             </ion-thumbnail>
             <ion-label>
-                <div class="data">
+                <div class="preferito">
+                    <ion-icon class="yellow" [name]="negozio.preferito ? 'star' :'star-outline'"></ion-icon>
                 </div>
-                <div class="piace">
-                    <ion-icon class="red" [name]="negozio.preferito ? 'star' :'star-outline'"></ion-icon>
-                </div>
-                <div>
-                    <h2>
-                        <p>  {{negozio.nome}}</p></h2>
-                </div>
+                <div><h2> {{negozio.nome}}</h2>
+                    <p>  {{negozio.descrizione}}</p></div>
 
             </ion-label>
-
-
         </ion-item>
     </ion-card>
 </ion-content>

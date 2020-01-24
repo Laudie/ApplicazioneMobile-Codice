@@ -1,6 +1,6 @@
 <ion-header class="headerNotizia">
     <ion-toolbar color="primary" text-center>
-        <ion-title>{{'SHOP_ZONE' | translate}}</ion-title>
+        <ion-title>ShopZone</ion-title>
     </ion-toolbar>
 
     <ion-searchbar [(ngModel)]="ricerca" (keyup.enter)="cerca()" (keyup.backspace)="indietro()" (ionClear)="indietro()"
@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content *ngIf="vistanotizie === true">
-    <ion-card *ngFor="let notizia of notizie$ | async" class="sc-ion-card-md-h"
+    <ion-card *ngFor="let notizia of (notizie$ | async)" class="sc-ion-card-md-h"
               [routerLink]="['/tabs/notizie', notizia.id]">
         <ion-item slot="start" class="ion-no-padding">
             <ion-thumbnail class="ion-radius-squared" slot="start">
@@ -21,9 +21,9 @@
                     {{notizia.dataPubblicazione}}
                 </div>
                 <div class="piace">
-                   {{notizia.numeroPiace}} <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
+                    {{notizia.numeroPiace}} <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
                 </div>
-                <div><h2>{{notizia.nomeNegozio}}</h2>
+                <div><h2>{{notizia.negozio.nome}}</h2>
                     <p>  {{notizia.titolo}}</p></div>
 
             </ion-label>
@@ -35,25 +35,25 @@
 <ion-content *ngIf="vistanotizie === false">
     <ion-card class="titolo">
         <ion-item lines="none">
-            <ion-label floating>{{'RISULTATI' | translate}}</ion-label>
+            <ion-label floating>Risultati per:</ion-label>
             <ion-icon name="pin"></ion-icon>
             <ion-label color="#666666">{{this.citta}}</ion-label>
         </ion-item>
     </ion-card>
 
     <ion-card *ngFor="let negozio of negozi$ | async" class="sc-ion-card-md-h">
-            <ion-item slot="start" class="ion-no-padding preferito">
-                <ion-thumbnail class="ion-radius-circle" slot="start">
-                    <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
-                </ion-thumbnail>
-                <ion-label>
-                    <div class="preferito">
-                        <ion-icon class="yellow" [name]="negozio.preferito ? 'star' :'star-outline'"></ion-icon>
-                    </div>
-                    <div><h2> {{negozio.nome}}</h2>
-                        <p>  {{negozio.descrizione}}</p></div>
+        <ion-item slot="start" class="ion-no-padding preferito">
+            <ion-thumbnail class="ion-radius-circle" slot="start">
+                <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
+            </ion-thumbnail>
+            <ion-label>
+                <div class="preferito">
+                    <ion-icon class="yellow" [name]="negozio.preferito ? 'star' :'star-outline'"></ion-icon>
+                </div>
+                <div><h2> {{negozio.nome}}</h2>
+                    <p>  {{negozio.descrizione}}</p></div>
 
-                </ion-label>
+            </ion-label>
         </ion-item>
     </ion-card>
 </ion-content>

@@ -9,11 +9,11 @@
 <ion-content *ngIf="(notizia$ | async) as notizia">
     <ion-item lines="none">
 
-    <ion-thumbnail class="ion-radius-circle" slot="start">
-        <img [src]="'data:image/png;base64,' + notizia.immagineNegozio " width="100%" height="100%" alt="Image"/>
+    <ion-thumbnail  [routerLink]="['/tabs/negozio',notizia.negozio.id]" class="ion-radius-circle" slot="start">
+        <img [src]="'data:image/png;base64,' + notizia?.negozio.immagineprofilo " width="100%" height="100%" alt="Image"/>
     </ion-thumbnail>
     <ion-text class="text12 text-dark font-6">
-        <a [routerLink]="['/tabs/negozio','Freeway']">{{notizia.nomeNegozio}}</a>
+        <a  [routerLink]="['/tabs/negozio',notizia.negozio.id]">{{notizia.negozio.nome}}</a>
     </ion-text>
 
     <ion-item lines="none" (click)="miPiace(notizia)" class="activated" slot="end">
@@ -35,7 +35,7 @@
     <ion-item lines="none">
         <ion-text class="text1 text-dark">
 
-            <h5><strong>{{notizia.nomeNegozio}}</strong> {{notizia.titolo}}</h5>
+            <h5><strong>{{notizia.negozio?.nome}}</strong> {{notizia.titolo}}</h5>
             <h5 class="text08 text-secondary">{{notizia.descrizione}}</h5>
         </ion-text>
     </ion-item>

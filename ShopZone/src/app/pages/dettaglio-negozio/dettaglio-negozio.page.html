@@ -10,57 +10,71 @@
             <i>{{negozio.nome}}</i>
         </ion-card-title>
 
-        <ion-item lines="none" slot="start" class="ion-no-padding preferito">
-            <ion-thumbnail class="ion-radius-circle-big" slot="start">
-                <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%"
-                     alt="Image"/>
-            </ion-thumbnail>
-            <ion-card>
-                <div class="preferito">
-                   <p> {{negozio.preferenze}}
-                       <ion-icon class="yellow" name="star"></ion-icon></p>
-                </div>
-                <div>
-                    <p>  {{negozio.descrizione}}</p></div>
 
-            </ion-card>
-        </ion-item>
+
+        <ion-grid fixed="true">
+            <ion-row >
+                <ion-col size="6">
+                    <ion-item lines="none"><ion-thumbnail class="ion-radius-circle-big" slot="start">
+                        <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%"
+                             alt="Image"/>
+                    </ion-thumbnail></ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-button *ngIf="(utente$ | async)?.negozio.id === negozio.id "  float-right>
+                        <ion-icon name="md-create"></ion-icon>
+                    </ion-button>
+                    <div >
+                        <p>  {{negozio.preferenze}}
+                            <ion-icon class="yellow" name="star"></ion-icon>
+                        </p>
+                        <p>  {{negozio.descrizione}}</p></div>
+
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </ion-card>
 
     <ion-segment (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="posts" selected>
+        <ion-segment-button value="posts" checked="true">
             <ion-icon name="apps"></ion-icon>
         </ion-segment-button>
         <ion-segment-button value="tagged">
             <ion-icon name="reorder"></ion-icon>
         </ion-segment-button>
     </ion-segment>
-    <ion-content *ngIf="vistaGriglia === true">
-        <ion-grid >
+    <div *ngIf="vistaGriglia === true">
+        <ion-grid>
             <ion-row>
-                <ion-col align-self-start size="4"  class="frame-square" *ngFor=" let notizia of notizie$ | async "[routerLink]="['/tabs/notizie', notizia.id]">
-                    <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%" alt="Image" />
+                <ion-col align-self-start size="4" class="frame-square"
+                         *ngFor=" let notizia of notizie$ | async "
+                         [routerLink]="['/tabs/notizie', notizia.id]">
+                    <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%"
+                         alt="Image"/>
                 </ion-col>
             </ion-row>
         </ion-grid>
 
-</ion-content>
+    </div>
 
-    <ion-content *ngIf="vistaGriglia === false">
+    <div *ngIf="vistaGriglia === false">
         <ion-card *ngFor="let notizia of notizie$ | async" class="sc-ion-card-md-h"
                   [routerLink]="['/tabs/notizie', notizia.id]">
             <ion-item slot="start" class="ion-no-padding">
                 <ion-thumbnail class="ion-radius-squared" slot="start">
-                    <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%" alt="Image" />
+                    <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%"
+                         alt="Image"/>
                 </ion-thumbnail>
                 <ion-label>
                     <div class="data">
                         {{notizia.dataPubblicazione}}
                     </div>
                     <div class="piace">
-                        {{notizia.numeroPiace}} <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
+                        {{notizia.numeroPiace}}
+                        <ion-icon class="red" [name]="notizia.piace ? 'heart' :'heart-empty'"></ion-icon>
                     </div>
-                    <div><h2>{{notizia.nomeNegozio}}</h2>
+                    <div><h2>{{notizia.negozio.nome}}</h2>
                         <p>  {{notizia.titolo}}</p></div>
 
                 </ion-label>
@@ -68,6 +82,6 @@
 
             </ion-item>
         </ion-card>
-    </ion-content>
+    </div>
 
 </ion-content>
