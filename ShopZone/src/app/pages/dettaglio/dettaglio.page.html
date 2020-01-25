@@ -9,22 +9,30 @@
 <ion-content *ngIf="(notizia$ | async) as notizia">
     <ion-item lines="none">
 
-    <ion-thumbnail  [routerLink]="['/tabs/negozio',notizia.negozioResponse.id]" class="ion-radius-circle" slot="start">
-        <img [src]="'data:image/png;base64,' + notizia.negozioResponse.immagineprofilo " width="100%" height="100%" alt="Image"/>
-    </ion-thumbnail>
-    <ion-text class="text12 text-dark font-6">
-        <a  [routerLink]="['/tabs/negozio',notizia.negozioResponse.id]">{{notizia.negozioResponse.nome}}</a>
-    </ion-text>
+        <ion-thumbnail [routerLink]="['/tabs/negozio',notizia.negozioResponse.id]" class="ion-radius-circle"
+                       slot="start">
+            <img [src]="'data:image/png;base64,' + notizia.negozioResponse.immagineprofilo " width="100%" height="100%"
+                 alt="Image"/>
+        </ion-thumbnail>
+        <ion-text class="text12 text-dark font-6">
+            <a [routerLink]="['/tabs/negozio',notizia.negozioResponse.id]">{{notizia.negozioResponse.nome}}</a>
+        </ion-text>
 
-    <ion-item lines="none" (click)="miPiace(notizia)" class="activated" slot="end">
-        <ion-text>   {{notizia.numeroPiace }} </ion-text>
-        <ion-icon color="danger" size="large"
-                  [name]="notizia.piace ? 'heart' :'heart-empty'">
-        </ion-icon>
+        <ion-item lines="none" (click)="miPiace(notizia)" class="activated" slot="end">
+            <ion-text>   {{notizia.numeroPiace }} </ion-text>
+            <ion-icon color="danger" size="large"
+                      [name]="notizia.piace ? 'heart' :'heart-empty'">
+            </ion-icon>
+
+        </ion-item>
 
     </ion-item>
-</ion-item>
-
+    <!--<ion-item>
+        <ion-button *ngIf="(utente$ | async)?.negozio.id === notizia.negozioResponse.id "
+                    (click)="modificaNotizia(notizia)" float-right>
+            <ion-icon name="md-create"></ion-icon>
+        </ion-button>
+    </ion-item> !-->
     <ion-slides>
         <ion-slide>
             <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%" alt="Image"/>

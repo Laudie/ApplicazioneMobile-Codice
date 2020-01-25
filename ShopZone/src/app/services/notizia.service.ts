@@ -7,11 +7,6 @@ import {Observable} from 'rxjs';
 import {Negozio} from '../model/negozio.model';
 import {HttpClient, HttpParams} from '@angular/common/http';
 
-export interface NuovaNotizia {
-    titolo: string;
-    descrizione: string;
-    immagine: File;
-}
 
 @Injectable({
     providedIn: 'root'
@@ -55,28 +50,15 @@ export class NotiziaService {
             });
     }
 
-    nuovaNotizia(nuovaNotizia: NuovaNotizia) {
-        return this.http.post<Notizia[]>(URL.NUOVA_NOTIZIA,
-            nuovaNotizia).subscribe(
-            (val) => {
-                console.log('POST call succesfull value returned in body', val);
-            },
-            response => {
-                console.log('POST call in error', response);
-            },
-            () => {
-                console.log('The POST observable is now completed');
-            });
+    nuovaNotizia(nuovaNotizia: Notizia) {
+        return this.http.post<Notizia[]>(URL.NUOVA_NOTIZIA, nuovaNotizia);
     }
 
-    /*nuovaNotizia(titolo: string, descrizione: string, fileToUpload: File) {
-        const formData: FormData = new FormData();
-        formData.append('immagine', fileToUpload, fileToUpload.name);
-        formData.append('titolo', titolo);
-        formData.append('descrizione', descrizione);
-        return this.http.post<Notizia[]>(URL.NUOVA_NOTIZIA,
-            formData);
-    }*/
+
+    modificaNotizia(notizia: Notizia , notiziaId: number) {
+        const apiURL = `${URL.NUOVA_NOTIZIA}/${notiziaId}`;
+        return this.http.put<Notizia>(apiURL, notizia);
+    }
 
 
 }

@@ -4,16 +4,6 @@ import {URL} from '../constants';
 import {Negozio} from '../model/negozio.model';
 import {Observable} from 'rxjs';
 
-export interface NuovoNegozio {
-    nome: string;
-    descrizione: string;
-    orario: string;
-    categoria: string;
-    giorni: string;
-    piva: string;
-    immagine: string;
-    luogo: string;
-}
 
 @Injectable({
     providedIn: 'root'
@@ -40,16 +30,12 @@ export class NegozioService {
         return this.http.get<Negozio[]>(URL.PREFERITI);
     }
 
-    nuovoNegozio(nuovoNegozio: NuovoNegozio): void {
-        this.http.post(URL.NUOVO_NEGOZIO, nuovoNegozio).subscribe(
-            (val) => {
-                console.log('POST call succesfull value returned in body', val);
-            },
-            response => {
-                console.log('POST call in error', response);
-            },
-            () => {
-                console.log('The POST observable is now completed');
-            });
+    nuovoNegozio(nuovoNegozio: Negozio) {
+        return this.http.post<Negozio>(URL.NUOVO_NEGOZIO, nuovoNegozio);
+    }
+
+    modificaNegozio(negozio: Negozio , negozioId: number) {
+        const apiURL = `${URL.NUOVO_NEGOZIO}/${negozioId}`;
+        return this.http.put<Negozio>(apiURL, negozio);
     }
 }

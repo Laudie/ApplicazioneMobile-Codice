@@ -21,7 +21,11 @@ const routes: Routes = [
     {
         path: 'dummy',
         loadChildren: './pages/dummy/dummy.module#DummyPageModule'
-    },  { path: 'nuovanotizia', loadChildren: './pages/nuovanotizia/nuovanotizia.module#NuovanotiziaPageModule' }
+    },
+    {
+        path: 'nuovanotizia',
+        loadChildren: './pages/nuovanotizia/nuovanotizia.module#NuovanotiziaPageModule',
+    }
 
 ];
 
@@ -29,7 +33,7 @@ const routes: Routes = [
     imports: [
         RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 export class AppRoutingModule {
 }

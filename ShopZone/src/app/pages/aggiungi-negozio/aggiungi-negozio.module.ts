@@ -4,7 +4,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 
 import {AggiungiNegozioPage} from './aggiungi-negozio.page';
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     entryComponents: [AggiungiNegozioPage],
@@ -12,7 +12,7 @@ import {TranslateModule} from "@ngx-translate/core";
         CommonModule,
         ReactiveFormsModule,
         IonicModule,
-        TranslateModule
+        TranslateModule.forChild(),
     ],
     declarations: [AggiungiNegozioPage]
 })

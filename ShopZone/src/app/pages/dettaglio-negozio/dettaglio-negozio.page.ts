@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Negozio} from '../../model/negozio.model';
 import {NegozioService} from '../../services/negozio.service';
 import {BehaviorSubject, Observable} from 'rxjs';
@@ -8,6 +8,8 @@ import {ModalController} from '@ionic/angular';
 import {NotiziaService} from '../../services/notizia.service';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
+import {AggiungiNegozioPage} from '../aggiungi-negozio/aggiungi-negozio.page';
+import {OverlayEventDetail} from '@ionic/core';
 @Component({
     selector: 'app-dettaglio-negozio',
     templateUrl: './dettaglio-negozio.page.html',
@@ -25,23 +27,24 @@ export class DettaglioNegozioPage implements OnInit {
                 private notiziaService: NotiziaService,
                 private route: ActivatedRoute) { }
 
-    /*async openModalModifica() {
-       const myModal = await this.modalController.create({
-        component: ModificaPostModalPagePage
-       });
-       await myModal.present();
-    }*/
-    /*
-      async presentModal({
+
+    async modificaNegozio(negozio: Negozio) {
         const modal = await this.modalController.create({
-          component: ModificaPostModalPagePage,
-          componentProps:{
-            value:123
-          }
+            component: AggiungiNegozioPage,
+            componentProps: {appParam: negozio}
+        });
+        modal.onDidDismiss().then((detail: OverlayEventDetail) => {
+            if (detail !== null && detail.data !== undefined) {
+                this.negozioService.modificaNegozio(detail.data, negozio.id).subscribe(() => {
+                   this.ngOnInit();
+                });
+            } else {
+                console.log('cancel button pressed');
+            }
         });
         return await modal.present();
-      }
-    */
+    }
+
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
             this.vistaGriglia = false;

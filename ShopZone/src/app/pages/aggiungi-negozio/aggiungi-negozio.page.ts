@@ -1,91 +1,104 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController, NavController} from '@ionic/angular';
+import {ModalController, NavController, NavParams} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {NuovoNegozio, NegozioService} from '../../services/negozio.service';
-import { ToastController } from '@ionic/angular';
+import {NegozioService} from '../../services/negozio.service';
+import {ToastController} from '@ionic/angular';
+import {Negozio} from '../../model/negozio.model';
 
 @Component({
-  selector: 'app-aggiungi-negozio',
-  templateUrl: './aggiungi-negozio.page.html',
-  styleUrls: ['./aggiungi-negozio.page.scss'],
+    selector: 'app-aggiungi-negozio',
+    templateUrl: './aggiungi-negozio.page.html',
+    styleUrls: ['./aggiungi-negozio.page.scss'],
 })
 export class AggiungiNegozioPage implements OnInit {
 
-  private imageUrl: string;
-  private negozioFormModel: FormGroup;
-  filetoUpload: File = null;
-  toast: any;
-  constructor(private modalController: ModalController,
-              private formBuilder: FormBuilder,
-              private negozioService: NegozioService,
-              private navController: NavController,
-              private toastController: ToastController,
-  ) {
-  }
+    private imageUrl: string;
+    private negozioFormModel: FormGroup;
+    filetoUpload: File = null;
+    toast: any;
+    private negozio: Negozio;
 
-  ngOnInit() {
-    this.imageUrl = '../../../assets/logo/default.jpg';
-    this.negozioFormModel = this.formBuilder.group({
-      nome: ['prova', Validators.compose([Validators.required
-      ])],
-      descrizione: ['prova', Validators.compose([
-        Validators.required
-      ])],
-      citta: ['prova', Validators.compose([
-        Validators.required
-      ])],
-      via: ['prova', Validators.compose([
-        Validators.required
-      ])],
-      immagineprofilo: ['', Validators.compose([
-        Validators.required
-      ])]
-    });
-  }
+    constructor(private modalController: ModalController,
+                private formBuilder: FormBuilder,
+                private negozioService: NegozioService,
+                private navController: NavController,
+                private toastController: ToastController,
+                private navParams: NavParams,
+    ) {
+    }
+    ngOnInit() {
+        this.negozio = this.navParams.data.appParam;
+        if (this.negozio.immagineprofilo != null) {
+            this.imageUrl = 'data:image/png;base64,' + this.negozio.immagineprofilo;
+        } else {
+            this.imageUrl = '../../../assets/logo/default.jpg';
+        }
+        this.negozioFormModel = this.formBuilder.group({
+            nome: [this.negozio.nome, Validators.compose([Validators.required
+            ])],
+            descrizione: [this.negozio.descrizione, Validators.compose([
+                Validators.required
+            ])],
+            citta: [this.negozio.citta, Validators.compose([
+                Validators.required
+            ])],
+            via: [this.negozio.via, Validators.compose([
+                Validators.required
+            ])],
+            immagineprofilo: [ this.imageUrl , Validators.compose([
+                Validators.required
+            ])]
+        });
+    }
 
-  onSubmit() {
-    this.negozioFormModel.get('immagineprofilo').setValue(this.imageUrl.substring(this.imageUrl.indexOf(',') + 1));
-    const nuovoNegozio: NuovoNegozio = this.negozioFormModel.value;
-    console.log(nuovoNegozio);
-    this.negozioService.nuovoNegozio(nuovoNegozio);
-    this.imageUrl = '../../../assets/logo/default.jpg';
-    this.showtoast();
-    this.HideToast();
-  }
 
-  showtoast() {
-    this.toast = this.toastController.create({
-      message: 'Accedi per continuare',
-      showCloseButton: true,
-      position: 'middle',
-      closeButtonText: 'Ok'
-    }).then((toastData) => {
-      console.log(toastData);
-      toastData.present();
-    });
-  }
-  HideToast() {
-    this.modalController.dismiss()
-    this.toast = this.toastController.dismiss();
-    this.navController.navigateRoot('login') ;
-  }
+    async onSubmit() {
+        /* // this.showtoast();
+         // this.HideToast(); */
 
-  async cancel() {
-    // Reset immagine
-    this.imageUrl = '../../../assets/logo/default.jpg';
-    await this.modalController.dismiss();
-  }
+        this.negozio.nome = this.negozioFormModel.value.nome;
+        this.negozio.descrizione = this.negozioFormModel.value.descrizione;
+        this.negozio.via = this.negozioFormModel.value.via;
+        this.negozio.citta = this.negozioFormModel.value.citta;
+        this.negozioFormModel.get('immagineprofilo').setValue(this.imageUrl.substring(this.imageUrl.indexOf(',') + 1));
+        this.negozio.immagineprofilo = this.negozioFormModel.value.immagineprofilo;
+        await this.modalController.dismiss(this.negozio);
+    }
 
-  handleFileInput(file: FileList) {
-    this.filetoUpload = file.item(0);
-    // SHow image preview
-    const reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
+    showtoast() {
+        this.toast = this.toastController.create({
+            message: 'Accedi per continuare',
+            showCloseButton: true,
+            position: 'middle',
+            closeButtonText: 'Ok'
+        }).then((toastData) => {
+            console.log(toastData);
+            toastData.present();
+        });
+    }
 
-      console.log(this.imageUrl);
-    };
-    reader.readAsDataURL(this.filetoUpload);
-  }
+    HideToast() {
+        this.modalController.dismiss();
+        this.toast = this.toastController.dismiss();
+        this.navController.navigateRoot('login');
+    }
+
+    async indietro() {
+        // Reset immagine
+        this.imageUrl = '../../../assets/logo/default.jpg';
+        await this.modalController.dismiss();
+    }
+
+    handleFileInput(file: FileList) {
+        this.filetoUpload = file.item(0);
+        // SHow image preview
+        const reader = new FileReader();
+        reader.onload = (event: any) => {
+            this.imageUrl = event.target.result;
+
+            console.log(this.imageUrl);
+        };
+        reader.readAsDataURL(this.filetoUpload);
+    }
 
 }

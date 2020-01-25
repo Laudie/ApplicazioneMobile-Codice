@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
 import { NuovanotiziaPage } from './nuovanotizia.page';
 import {TranslateModule} from '@ngx-translate/core';
@@ -24,6 +24,6 @@ const routes: Routes = [
     TranslateModule,
     ReactiveFormsModule
   ],
-  declarations: [NuovanotiziaPage]
+  declarations: [NuovanotiziaPage],
 })
 export class NuovanotiziaPageModule {}

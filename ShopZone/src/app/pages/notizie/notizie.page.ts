@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {Notizia} from '../../model/notizia.model';
 import {NotiziaService} from '../../services/notizia.service';
 import {Negozio} from '../../model/negozio.model';
-import {Events, NavController} from '@ionic/angular';
+import {NavController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators, FormsModule} from '@angular/forms';
 import {NegozioService} from '../../services/negozio.service';
 
@@ -27,16 +27,15 @@ export class NotiziePage implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    ionViewWillEnter() {
+        this.notizie$ = this.notiziaService.list();
         this.searchform = this.formbuilder.group({
             searchinput: ['', Validators.required]
         });
         this.vistanotizie = true;
         this.citta = '';
-        this.notizie$ = this.notiziaService.list();
-    }
-
-    ionViewWillEnter(): void {
-        this.notizie$ = this.notiziaService.list();
     }
 
     cerca() {

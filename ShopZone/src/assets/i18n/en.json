@@ -54,7 +54,9 @@
   "PREFERITI_TAB" : "Favorites",
   "AGGIUNGI_TAB" : "Add",
   "NOTIZIE_TAB": "News",
-  "IMPOSTAZIONI_TAB" :"Settings"
+  "IMPOSTAZIONI_TAB" :"Settings",
+
+  "NEGOZIO": "Shop"
 
 
 }

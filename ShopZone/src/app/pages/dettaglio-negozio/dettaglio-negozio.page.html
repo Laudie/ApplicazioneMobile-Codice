@@ -1,6 +1,7 @@
-<ion-header>
+<ion-header *ngIf="(negozio$ | async) as negozio">
     <ion-toolbar color="primary">
-        <ion-title color="light" align="center"> {{"HOME_TAB" | translate}}</ion-title>
+        <ion-title color="light" align="center" *ngIf="(utente$ | async)?.negozio.id === negozio.id  ; else elseBlock" > {{'HOME_TAB' | translate}}</ion-title>
+        <ng-template #elseBlock><ion-title color="light" align="center">{{'NEGOZIO' | translate}}</ion-title></ng-template>
     </ion-toolbar>
 </ion-header>
 
@@ -21,7 +22,7 @@
                     </ion-thumbnail></ion-item>
                 </ion-col>
                 <ion-col>
-                    <ion-button *ngIf="(utente$ | async)?.negozio.id === negozio.id "  float-right>
+                    <ion-button *ngIf="(utente$ | async)?.negozio.id === negozio.id " (click)="modificaNegozio(negozio)" float-right >
                         <ion-icon name="md-create"></ion-icon>
                     </ion-button>
                     <div >

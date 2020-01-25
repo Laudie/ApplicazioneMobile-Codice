@@ -4,14 +4,14 @@
     </ion-toolbar>
 </ion-header>
     <ion-content>
-        <form [formGroup]="NuovoFormModel">
+        <form [formGroup]="notiziaFormModel">
 
             <ion-item no-padding class="animated fadeInUp" >
                 <ion-label position="floating" color="primary">
                     &nbsp; {{ 'TITOLO' | translate }}</ion-label>
                 <ion-input color="secondary" type="string"  formControlName="titolo"> </ion-input>
             </ion-item>
-            <p ion-text class="text08" *ngIf="NuovoFormModel.get('titolo').touched && NuovoFormModel.get('titolo').invalid">
+            <p ion-text class="text08" *ngIf="notiziaFormModel.get('titolo').touched && notiziaFormModel.get('titolo').invalid">
                 &nbsp;  <ion-text color="danger"> {{ 'TITOLO_RICHIESTO' | translate }} </ion-text>
             </p>
 
@@ -21,7 +21,7 @@
                   &nbsp; {{ 'TESTO' | translate }}</ion-label>
                 <ion-textarea color="secondary" type="string" formControlName="descrizione"> </ion-textarea>
             </ion-item>
-            <p ion-text class="text08" *ngIf="NuovoFormModel.get('descrizione').touched && NuovoFormModel.get('descrizione').invalid">
+            <p ion-text class="text08" *ngIf="notiziaFormModel.get('descrizione').touched && notiziaFormModel.get('descrizione').invalid">
                 &nbsp; <ion-text color="danger">{{ 'TESTO_RICHIESTO' | translate }} </ion-text>
             </p>
 
@@ -34,7 +34,7 @@
 
         <div margin-top="30px" align="center">
 
-            <ion-button size="medium" shape="round" color="primary" (click)="pubblica()" [disabled]="! NuovoFormModel.valid" tappable>
+            <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" [disabled]="! notiziaFormModel.valid" tappable>
                 {{ 'CONFERMA' | translate }}
             </ion-button>
             &nbsp;&nbsp;

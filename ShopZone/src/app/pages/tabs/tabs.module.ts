@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {TabsPage} from './tabs.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {AuthGuard} from '../../guard/auth.guard';
+import {NuovanotiziaPageModule} from '../nuovanotizia/nuovanotizia.module';
 
 const routes: Routes = [
     {
@@ -56,16 +57,6 @@ const routes: Routes = [
                     }
                 ],
                 canActivate: [AuthGuard]
-            },
-            {
-                path: 'aggiungi',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: '../nuovanotizia/nuovanotizia.module#NuovanotiziaPageModule'
-                    }
-                ],
-                canActivate: [AuthGuard]
             }
             ,
             {
@@ -84,6 +75,7 @@ const routes: Routes = [
         CommonModule,
         FormsModule,
         IonicModule,
+        NuovanotiziaPageModule,
         TranslateModule.forChild(),
         RouterModule.forChild(routes)
     ],

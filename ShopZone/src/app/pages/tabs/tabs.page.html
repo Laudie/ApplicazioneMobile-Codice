@@ -3,7 +3,7 @@
     <ion-tabs>
 
         <ion-tab-bar slot="bottom" color="primary">
-            <ion-tab-button *ngIf="(utente$ | async) as utente" tab="negozio/{{utente.negozio.id}}" [hidden]="!(utente.ruolo === 'negoziante')">
+            <ion-tab-button *ngIf="(utente$ | async) && utente$.getValue().ruolo === 'negoziante'"  [hidden]="!(utente$.getValue().ruolo === 'negoziante')" tab="negozio/{{utente$.getValue().negozio.id}}">
                 <ion-icon size="large" name="md-home"></ion-icon>
                 <ion-label>{{'HOME_TAB' | translate}}</ion-label>
             </ion-tab-button>
@@ -13,7 +13,7 @@
                 <ion-label>{{'PREFERITI_TAB' | translate}}</ion-label>
             </ion-tab-button>
 
-            <ion-tab-button *ngIf="(utente$ | async) as utente" tab="aggiungi" [hidden]="!(utente.ruolo === 'negoziante')">
+            <ion-tab-button *ngIf="(utente$ | async) as utente" (click)="aggiungiNotizia()" [hidden]="!(utente?.ruolo === 'negoziante')">
                 <ion-icon size="large" name="md-add-circle"></ion-icon>
                 <ion-label>{{'AGGIUNGI_TAB' | translate}}</ion-label>
             </ion-tab-button>

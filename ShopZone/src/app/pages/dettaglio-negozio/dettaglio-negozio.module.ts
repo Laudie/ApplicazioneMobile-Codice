@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { DettaglioNegozioPage } from './dettaglio-negozio.page';
 import {TranslateModule} from '@ngx-translate/core';
+import {AggiungiNegozioPageModule} from '../aggiungi-negozio/aggiungi-negozio.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
+    AggiungiNegozioPageModule,
     RouterModule.forChild(routes)
   ],
   declarations: [DettaglioNegozioPage]

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ModalController, NavController} from '@ionic/angular';
-import {NotiziaService, NuovaNotizia} from '../../services/notizia.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ModalController, NavController, NavParams} from '@ionic/angular';
+import {NotiziaService} from '../../services/notizia.service';
+import {Notizia} from '../../model/notizia.model';
 
 @Component({
     selector: 'app-nuovanotizia',
@@ -11,38 +11,48 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class NuovanotiziaPage implements OnInit {
     private imageUrl: string;
-    private NuovoFormModel: FormGroup;
+    private notiziaFormModel: FormGroup;
     filetoUpload: File = null;
+    private notizia: Notizia;
 
     constructor(
-        private route: ActivatedRoute,
         private formBuilder: FormBuilder,
         private navController: NavController,
         private notiziaService: NotiziaService,
+        private modalController: ModalController,
+        private navParams: NavParams,
     ) {
     }
 
     ngOnInit() {
-        this.imageUrl = '../../../assets/logo/default.jpg';
-        this.NuovoFormModel = this.formBuilder.group({
-            titolo: ['', Validators.compose([Validators.required
+        this.notizia = this.navParams.data.appParam;
+        if (this.notizia.immagine != null) {
+            this.imageUrl = 'data:image/png;base64,' + this.notizia.immagine;
+        } else {
+            this.imageUrl = '../../../assets/logo/default.jpg';
+        }
+        this.notiziaFormModel = this.formBuilder.group({
+            titolo: [this.notizia.titolo, Validators.compose([Validators.required
             ])],
-            descrizione: ['', Validators.compose([Validators.required
+            descrizione: [this.notizia.descrizione, Validators.compose([Validators.required
             ])],
-            immagine: ['', Validators.compose([Validators.required
+            immagine: [this.imageUrl, Validators.compose([Validators.required
             ])]
         });
     }
 
-     pubblica() {
-        this.NuovoFormModel.get('immagine').setValue(this.imageUrl.substring(this.imageUrl.indexOf(',') + 1));
-        const nuovaNotizia: NuovaNotizia = this.NuovoFormModel.value;
-        this.notiziaService.nuovaNotizia(nuovaNotizia);
-        this.NuovoFormModel.reset();
-        this.imageUrl = '../../../assets/logo/default.jpg';
-        this.navController.navigateRoot('tabs/notizie');
+     async onSubmit() {
+        this.notizia.titolo = this.notiziaFormModel.value.titolo;
+        this.notizia.descrizione = this.notiziaFormModel.value.descrizione;
+        this.notiziaFormModel.get('immagine').setValue(this.imageUrl.substring(this.imageUrl.indexOf(',') + 1));
+        this.notizia.immagine = this.notiziaFormModel.value.immagine;
+        await this.modalController.dismiss(this.notizia);
     }
 
+     async indietro() {
+        this.imageUrl = '../../../assets/logo/default.jpg';
+        await this.modalController.dismiss();
+    }
     handleFileInput(file: FileList) {
         this.filetoUpload = file.item(0);
         // SHow image preview
@@ -51,11 +61,6 @@ export class NuovanotiziaPage implements OnInit {
             this.imageUrl = event.target.result;
         };
         reader.readAsDataURL(this.filetoUpload);
-    }
-
-    indietro() {
-        this.imageUrl = '../../../assets/logo/default.jpg';
-        this.NuovoFormModel.reset();
     }
 }
 
