@@ -72,4 +72,12 @@ export class ImpostazioniPage implements OnInit {
             this.translateService.use('en');
         }
     }
+
+    eliminaNegozio() {
+        this.negozioService.eliminaNegozio(this.utente$.getValue().negozio.id)
+            .subscribe(() => {
+                this.logout();
+                this.login();
+            });
+    }
 }

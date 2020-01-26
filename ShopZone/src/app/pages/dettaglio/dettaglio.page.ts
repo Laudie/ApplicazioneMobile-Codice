@@ -40,11 +40,11 @@ export class DettaglioPage implements OnInit {
 
      ngOnInit() {
          this.route.paramMap.subscribe((params: ParamMap) => {
-             // this.utente$ = this.utenteService.getUtente();
+             this.utente$ = this.utenteService.getUtente();
              this.notizia$ = this.notiziaService.findById(parseInt(params.get('id'), 0));
          });
      }
-    /*async modificaNotizia(notizia: Notizia) {
+    async modificaNotizia(notizia: Notizia) {
         const modal = await this.modalController.create({
             component: NuovanotiziaPage,
             componentProps: {appParam: notizia}
@@ -59,5 +59,5 @@ export class DettaglioPage implements OnInit {
             }
         });
         return await modal.present();
-    }*/
+    }
 }

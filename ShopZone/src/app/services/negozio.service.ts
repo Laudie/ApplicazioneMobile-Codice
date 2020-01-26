@@ -38,4 +38,8 @@ export class NegozioService {
         const apiURL = `${URL.NUOVO_NEGOZIO}/${negozioId}`;
         return this.http.put<Negozio>(apiURL, negozio);
     }
+    eliminaNegozio(negozioId: number) {
+        const apiURL = `${URL.NEGOZIO}/${negozioId}`;
+        return this.http.delete(apiURL);
+    }
 }
