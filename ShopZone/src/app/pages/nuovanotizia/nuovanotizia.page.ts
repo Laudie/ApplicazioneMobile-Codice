@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ModalController, NavController, NavParams} from '@ionic/angular';
 import {NotiziaService} from '../../services/notizia.service';
 import {Notizia} from '../../model/notizia.model';
+import {BehaviorSubject} from 'rxjs';
+import {Utente} from '../../model/utente.model';
 
 @Component({
     selector: 'app-nuovanotizia',
@@ -14,6 +16,7 @@ export class NuovanotiziaPage implements OnInit {
     private notiziaFormModel: FormGroup;
     filetoUpload: File = null;
     private notizia: Notizia;
+    private utente$: BehaviorSubject<Utente>;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -61,6 +64,12 @@ export class NuovanotiziaPage implements OnInit {
             this.imageUrl = event.target.result;
         };
         reader.readAsDataURL(this.filetoUpload);
+    }
+
+     eliminaNotizia() {
+        this.notiziaService.eliminaNotizia(this.notizia.id).subscribe(() => {
+        this.modalController.dismiss();
+        this.navController.navigateRoot(['tabs/notizie']); });
     }
 }
 

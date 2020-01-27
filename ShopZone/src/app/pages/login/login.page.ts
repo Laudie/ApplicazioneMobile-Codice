@@ -70,4 +70,7 @@ export class LoginPage implements OnInit {
     });
   }
 
+   indietro() {
+    this.navController.navigateRoot('tabs/notizie');
+  }
 }

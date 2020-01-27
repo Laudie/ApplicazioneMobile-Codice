@@ -34,12 +34,23 @@ export class NegozioService {
         return this.http.post<Negozio>(URL.NUOVO_NEGOZIO, nuovoNegozio);
     }
 
-    modificaNegozio(negozio: Negozio , negozioId: number) {
-        const apiURL = `${URL.NUOVO_NEGOZIO}/${negozioId}`;
+    modificaNegozio(negozio: Negozio, negozioId: number) {
+        const apiURL = `${URL.NEGOZIO}/${negozioId}`;
         return this.http.put<Negozio>(apiURL, negozio);
     }
+
     eliminaNegozio(negozioId: number) {
         const apiURL = `${URL.NEGOZIO}/${negozioId}`;
+        return this.http.delete(apiURL);
+    }
+
+    aggiungiPreferito(negozioId: number): Observable<Negozio> {
+        const apiURL = `${URL.NEGOZIO}/${negozioId}/preferito`;
+        return this.http.post<Negozio>(apiURL, null);
+    }
+
+    rimuoviPreferito(negozioId: number) {
+        const apiURL = `${URL.NEGOZIO}/${negozioId}/preferito`;
         return this.http.delete(apiURL);
     }
 }

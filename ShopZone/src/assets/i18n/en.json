@@ -1,6 +1,6 @@
 {
-
   "AGGIUNGI_NEGOZIO": "Add Shop",
+  "MODIFICA_NEGOZIO" : "Edit Shop",
   "NOME_NEGOZIO" : "Name Shop",
   "DESCRIZIONE_NEGOZIO" : "Description",
   "DESCRIZIONE_RICHIESTA" : "Description required",
@@ -11,6 +11,9 @@
   "IMMAGINE_RICHIESTA" : "image required",
   "BOTTONE_AGGIUNGI" : "Add",
   "BOTTONE_INDIETRO" : "Back",
+  "NEGOZIO_AGGIUNTO_CON_SUCCESSO": "shop successfully added",
+  "NEGOZIO_ELIMINATO_CON_SUCCESSO": "shop successfully deleted",
+  "ACCEDI_PER_CONTINUARE": "Log In to continued",
 
   "LINGUA" : "Language",
   "ESCI" : "Log Out",
@@ -33,12 +36,14 @@
   "RISULTATI" : "Result for :",
 
 
-  "NUOVA_NOTIZIA" : "New",
+  "NUOVA_NOTIZIA" : "New news",
+  "MODIFICA_NOTIZIA" : "Edit news",
   "TITOLO": "Title",
   "TITOLO_RICHIESTO": "Title required ",
   "TESTO": "Insert text here",
   "TESTO_RICHIESTO": "Text required",
   "CONFERMA" : "Confirm",
+  "ELIMINA": "Delete",
 
 
   "REGISTRAZIONE_TITOLO": "Sign In",
@@ -58,6 +63,4 @@
 
   "NEGOZIO": "Shop",
   "ELIMINA_NEGOZIO": "Delete Shop"
-
-
 }

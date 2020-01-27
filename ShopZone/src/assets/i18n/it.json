@@ -1,7 +1,6 @@
 {
-
-
   "AGGIUNGI_NEGOZIO": "Aggiungi negozio",
+  "MODIFICA_NEGOZIO" : "Modifica negozio",
   "NOME_NEGOZIO" : "Nome negozio",
   "DESCRIZIONE_NEGOZIO" : "Descrizione negozio",
   "DESCRIZIONE_RICHIESTA" : "Descrizione richiesta",
@@ -12,6 +11,9 @@
   "IMMAGINE_RICHIESTA" : "Immagine profilo richiesta",
   "BOTTONE_AGGIUNGI" : "Aggiungi",
   "BOTTONE_INDIETRO" : "Indietro",
+  "NEGOZIO_AGGIUNTO_CON_SUCCESSO": "Negozio aggiunto con successo",
+  "NEGOZIO_ELIMINATO_CON_SUCCESSO": "Negozio eliminato con successo",
+  "ACCEDI_PER_CONTINUARE": "Accedi per continuare",
 
 
   "LINGUA" : "Lingua",
@@ -35,11 +37,13 @@
 
 
   "NUOVA_NOTIZIA" : "Nuova notizia",
+  "MODIFICA_NOTIZIA" : "Modifica notizia",
   "TITOLO": "Titolo",
   "TITOLO_RICHIESTO": "Titolo obbligatorio ",
   "TESTO": "Inserisci il testo qui",
   "TESTO_RICHIESTO": "Testo obbligatorio",
   "CONFERMA" : "Conferma",
+  "ELIMINA": "Elimina",
 
 
   "REGISTRAZIONE_TITOLO": "Registrazione",

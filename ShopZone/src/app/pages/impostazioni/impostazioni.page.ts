@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController, NavController} from '@ionic/angular';
+import {AlertController, ModalController, NavController} from '@ionic/angular';
 import {AggiungiNegozioPage} from '../aggiungi-negozio/aggiungi-negozio.page';
 import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject} from 'rxjs';
@@ -19,6 +19,9 @@ import {NegozioService} from '../../services/negozio.service';
 export class ImpostazioniPage implements OnInit {
     private utente$: BehaviorSubject<Utente>;
     private lingue: Lingua[];
+    private negozioAggiuntoOk: string;
+    private messaggio: string;
+    private negozioEliminatoOk: string;
 
     constructor(private modalController: ModalController,
                 private utenteService: UtenteService,
@@ -26,6 +29,7 @@ export class ImpostazioniPage implements OnInit {
                 private translateService: TranslateService,
                 private linguaService: LinguaService,
                 private formBuilder: FormBuilder,
+                private alertController: AlertController,
                 private navController: NavController) {
     }
 
@@ -34,6 +38,19 @@ export class ImpostazioniPage implements OnInit {
         if (this.utenteService.isLogged()) {
             this.utente$ = this.utenteService.getUtente();
         }
+        this.initTranslate();
+    }
+
+    private initTranslate() {
+        this.translateService.get('NEGOZIO_AGGIUNTO_CON_SUCCESSO').subscribe((data) => {
+            this.negozioAggiuntoOk = data;
+        });
+        this.translateService.get('ACCEDI_PER_CONTINUARE').subscribe((data) => {
+            this.messaggio = data;
+        });
+        this.translateService.get('NEGOZIO_ELIMINATO_CON_SUCCESSO').subscribe((data) => {
+            this.negozioEliminatoOk = data;
+        });
     }
 
     async aggiungiNegozio() {
@@ -46,12 +63,41 @@ export class ImpostazioniPage implements OnInit {
             if (detail !== null && detail.data !== undefined) {
                 this.negozioService.nuovoNegozio(detail.data).subscribe(() => {
                     this.login();
+                    this.negozioAggiunto();
                 });
             } else {
                 console.log('cancel button pressed');
             }
         });
         return await modal.present();
+    }
+
+    async negozioAggiunto() {
+        const alert = await this.alertController.create({
+            header: this.negozioAggiuntoOk,
+            message: this.messaggio,
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
+    eliminaNegozio() {
+        this.negozioService.eliminaNegozio(this.utente$.getValue().negozio.id)
+            .subscribe(() => {
+                this.login();
+                this.negozioEliminato();
+            });
+    }
+
+    async negozioEliminato() {
+        const alert = await this.alertController.create({
+            header: this.negozioEliminatoOk,
+            message: this.messaggio,
+            buttons: ['OK']
+        });
+
+        await alert.present();
     }
 
     logout() {
@@ -73,11 +119,4 @@ export class ImpostazioniPage implements OnInit {
         }
     }
 
-    eliminaNegozio() {
-        this.negozioService.eliminaNegozio(this.utente$.getValue().negozio.id)
-            .subscribe(() => {
-                this.logout();
-                this.login();
-            });
-    }
 }

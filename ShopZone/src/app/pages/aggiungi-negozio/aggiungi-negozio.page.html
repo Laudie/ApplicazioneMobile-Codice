@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar color="primary" text-center>
-        <ion-title>{{'AGGIUNGI_NEGOZIO' | translate}}</ion-title>
+        <ion-title *ngIf="utente$.getValue().negozio?.id != null ; else aggiungiNegozio">{{'MODIFICA_NEGOZIO' | translate}}</ion-title>
+        <ng-template #aggiungiNegozio>
+            <ion-title>{{'AGGIUNGI_NEGOZIO' | translate}}</ion-title>
+        </ng-template>
     </ion-toolbar>
 </ion-header>
 
@@ -43,8 +46,8 @@
                 <ion-text color="danger">{{ 'VIA_RICHIESTA' | translate }} </ion-text>
             </p>
 
-            <p><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center>
-                <ion-input type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
+            <p align="center"><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center>
+                <ion-input align="center" type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
                            (change)="handleFileInput($event.target.files)" formControlName="immagineprofilo" text-center></ion-input>
             </p>
             <p ion-text class="text08"

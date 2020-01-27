@@ -31,34 +31,28 @@ export class NotiziaService {
         const apiURL = `${URL.NEGOZIO}/${negozioId}/notizie`;
         return this.http.get<Notizia[]>(apiURL);
     }
-
-    miPiace(idNotizia: number, piace: number) {
-        const apiURL = `${URL.NOTIZIE}/${idNotizia}/${piace}`;
-        this.http.put(apiURL, {
-            param: {
-                piace
-            }
-        }).subscribe(
-            (val) => {
-                console.log('POST call succesfull value returned in body', val);
-            },
-            response => {
-                console.log('POST call in error', response);
-            },
-            () => {
-                console.log('The POST observable is now completed');
-            });
-    }
-
     nuovaNotizia(nuovaNotizia: Notizia) {
         return this.http.post<Notizia[]>(URL.NUOVA_NOTIZIA, nuovaNotizia);
     }
 
 
     modificaNotizia(notizia: Notizia , notiziaId: number) {
-        const apiURL = `${URL.NUOVA_NOTIZIA}/${notiziaId}`;
+        const apiURL = `${URL.NOTIZIE}/${notiziaId}`;
         return this.http.put<Notizia>(apiURL, notizia);
     }
 
+    eliminaNotizia(notiziaId: number) {
+        const apiURL = `${URL.NOTIZIE}/${notiziaId}`;
+        return this.http.delete<Notizia>(apiURL);
+    }
 
+    rimuoviPiace(notiziaId: number): Observable<Notizia> {
+        const apiURL = `${URL.NOTIZIE}/${notiziaId}/piace`;
+        return this.http.delete<Notizia>(apiURL);
+    }
+
+    miPiace(notiziaId: number): Observable<Notizia> {
+        const apiURL = `${URL.NOTIZIE}/${notiziaId}/piace`;
+        return this.http.post<Notizia>(apiURL, null);
+    }
 }

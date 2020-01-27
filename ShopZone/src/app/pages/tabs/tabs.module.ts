@@ -55,8 +55,7 @@ const routes: Routes = [
                         path: ':id',
                         loadChildren: '../dettaglio-negozio/dettaglio-negozio.module#DettaglioNegozioPageModule'
                     }
-                ],
-                canActivate: [AuthGuard]
+                ]
             }
             ,
             {

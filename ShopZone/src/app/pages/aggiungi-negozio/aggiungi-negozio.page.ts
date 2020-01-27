@@ -4,6 +4,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NegozioService} from '../../services/negozio.service';
 import {ToastController} from '@ionic/angular';
 import {Negozio} from '../../model/negozio.model';
+import {BehaviorSubject} from 'rxjs';
+import {Utente} from '../../model/utente.model';
+import {UtenteService} from '../../services/utente.service';
 
 @Component({
     selector: 'app-aggiungi-negozio',
@@ -17,6 +20,7 @@ export class AggiungiNegozioPage implements OnInit {
     filetoUpload: File = null;
     toast: any;
     private negozio: Negozio;
+    private utente$: BehaviorSubject<Utente>;
 
     constructor(private modalController: ModalController,
                 private formBuilder: FormBuilder,
@@ -24,9 +28,11 @@ export class AggiungiNegozioPage implements OnInit {
                 private navController: NavController,
                 private toastController: ToastController,
                 private navParams: NavParams,
+                private utenteService: UtenteService,
     ) {
     }
     ngOnInit() {
+        this.utente$ = this.utenteService.getUtente();
         this.negozio = this.navParams.data.appParam;
         if (this.negozio.immagineprofilo != null) {
             this.imageUrl = 'data:image/png;base64,' + this.negozio.immagineprofilo;
@@ -53,9 +59,6 @@ export class AggiungiNegozioPage implements OnInit {
 
 
     async onSubmit() {
-        /* // this.showtoast();
-         // this.HideToast(); */
-
         this.negozio.nome = this.negozioFormModel.value.nome;
         this.negozio.descrizione = this.negozioFormModel.value.descrizione;
         this.negozio.via = this.negozioFormModel.value.via;
@@ -64,25 +67,6 @@ export class AggiungiNegozioPage implements OnInit {
         this.negozio.immagineprofilo = this.negozioFormModel.value.immagineprofilo;
         await this.modalController.dismiss(this.negozio);
     }
-
-    showtoast() {
-        this.toast = this.toastController.create({
-            message: 'Accedi per continuare',
-            showCloseButton: true,
-            position: 'middle',
-            closeButtonText: 'Ok'
-        }).then((toastData) => {
-            console.log(toastData);
-            toastData.present();
-        });
-    }
-
-    HideToast() {
-        this.modalController.dismiss();
-        this.toast = this.toastController.dismiss();
-        this.navController.navigateRoot('login');
-    }
-
     async indietro() {
         // Reset immagine
         this.imageUrl = '../../../assets/logo/default.jpg';
@@ -95,8 +79,6 @@ export class AggiungiNegozioPage implements OnInit {
         const reader = new FileReader();
         reader.onload = (event: any) => {
             this.imageUrl = event.target.result;
-
-            console.log(this.imageUrl);
         };
         reader.readAsDataURL(this.filetoUpload);
     }

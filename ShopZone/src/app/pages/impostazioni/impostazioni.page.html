@@ -5,15 +5,13 @@
 </ion-header>
 <ion-content>
 
-    <h3 text-md-center="center">{{'LINGUA' | translate}}</h3>
+    <h3 text-center>{{'LINGUA' | translate}}</h3>
     <ion-select placeholder="{{ 'SELEZIONA_LINGUA' | translate}}" (ionChange)="changeLanguage($event)">
         <ion-select-option value="it">Italiano</ion-select-option>
         <ion-select-option value="en">English</ion-select-option>
     </ion-select>
 
     <ion-list>
-
-
         <ion-button *ngIf="(utente$ | async) as utente" [hidden]="(utente.ruolo === 'negoziante')" size="medium"
                     shape="round" id="aggiunginegozio" (click)="aggiungiNegozio()" color="tertiary" expand="block">
             <ion-icon slot="start" size="medium" name="add-circle-outline"></ion-icon>
@@ -34,7 +32,7 @@
         </p>
         <ion-button *ngIf="(utente$ | async) as utente" [hidden]="!(utente.ruolo === 'negoziante')" size="medium"
                     shape="round" id="eliminanegozio" (click)="eliminaNegozio()" color="tertiary" expand="block">
-            <ion-icon slot="start" size="medium" name="add-circle-outline"></ion-icon>
+            <ion-icon slot="start" size="medium" name="remove-circle-outline"></ion-icon>
             <ion-label>{{'ELIMINA_NEGOZIO' | translate}}</ion-label>
         </ion-button>
 

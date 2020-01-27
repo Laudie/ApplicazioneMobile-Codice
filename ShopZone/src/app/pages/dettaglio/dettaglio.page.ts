@@ -6,7 +6,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {UtenteService} from '../../services/utente.service';
 import {Utente} from '../../model/utente.model';
 import {OverlayEventDetail} from '@ionic/core';
-import {ModalController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 import {NuovanotiziaPage} from '../nuovanotizia/nuovanotizia.page';
 
 
@@ -22,28 +22,38 @@ export class DettaglioPage implements OnInit {
     constructor(private route: ActivatedRoute,
                 private notiziaService: NotiziaService,
                 private modalController: ModalController,
+                private navController: NavController,
                 private utenteService: UtenteService,
     ) {
     }
 
     miPiace(notizia: Notizia) {
-        if (notizia.piace) {
-            notizia.piace = false;
-            notizia.numeroPiace -= 1;
-            this.notiziaService.miPiace(notizia.id, 0);
+        if (this.utenteService.getAuthToken() != null) {
+            if (notizia.piace) {
+                this.notiziaService.rimuoviPiace(notizia.id).subscribe(() => {
+                    notizia.piace = false;
+                    notizia.numeroPiace -= 1;
+                });
+            } else {
+                this.notiziaService.miPiace(notizia.id).subscribe(() => {
+                    notizia.piace = true;
+                    notizia.numeroPiace += 1;
+                });
+            }
         } else {
-            notizia.piace = true;
-            notizia.numeroPiace += 1;
-            this.notiziaService.miPiace(notizia.id, 1);
+            this.navController.navigateRoot('login');
         }
     }
 
-     ngOnInit() {
-         this.route.paramMap.subscribe((params: ParamMap) => {
-             this.utente$ = this.utenteService.getUtente();
-             this.notizia$ = this.notiziaService.findById(parseInt(params.get('id'), 0));
-         });
-     }
+    ngOnInit() {
+        this.route.paramMap.subscribe((params: ParamMap) => {
+            if (this.utenteService.isLogged()) {
+                this.utente$ = this.utenteService.getUtente();
+            }
+            this.notizia$ = this.notiziaService.findById(parseInt(params.get('id'), 0));
+        });
+    }
+
     async modificaNotizia(notizia: Notizia) {
         const modal = await this.modalController.create({
             component: NuovanotiziaPage,

@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar color="primary" text-center>
-        <ion-title>{{'NUOVA_NOTIZIA' | translate}}</ion-title>
+        <ion-title *ngIf="this.notizia.id == null ; else modificaNotizia">{{'NUOVA_NOTIZIA' | translate}}</ion-title>
+        <ng-template #modificaNotizia>
+            <ion-title>{{'MODIFICA_NOTIZIA' | translate}}</ion-title>
+        </ng-template>
     </ion-toolbar>
 </ion-header>
     <ion-content>
@@ -9,7 +12,7 @@
             <ion-item no-padding class="animated fadeInUp" >
                 <ion-label position="floating" color="primary">
                     &nbsp; {{ 'TITOLO' | translate }}</ion-label>
-                <ion-input color="secondary" type="string"  formControlName="titolo"> </ion-input>
+                <ion-input  type="string"  formControlName="titolo"> </ion-input>
             </ion-item>
             <p ion-text class="text08" *ngIf="notiziaFormModel.get('titolo').touched && notiziaFormModel.get('titolo').invalid">
                 &nbsp;  <ion-text color="danger"> {{ 'TITOLO_RICHIESTO' | translate }} </ion-text>
@@ -19,15 +22,17 @@
             <ion-item no-padding class="animated fadeInUp">
                 <ion-label position="floating"color="primary" >
                   &nbsp; {{ 'TESTO' | translate }}</ion-label>
-                <ion-textarea color="secondary" type="string" formControlName="descrizione"> </ion-textarea>
+                <ion-textarea  type="string" formControlName="descrizione"> </ion-textarea>
             </ion-item>
             <p ion-text class="text08" *ngIf="notiziaFormModel.get('descrizione').touched && notiziaFormModel.get('descrizione').invalid">
                 &nbsp; <ion-text color="danger">{{ 'TESTO_RICHIESTO' | translate }} </ion-text>
             </p>
 
-            <p><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center>
-            <ion-input type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
-                       (change)="handleFileInput($event.target.files)" formControlName="immagine" text-center></ion-input>
+            <p align="center"><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center></p>
+            <div class="ion-align-items-center"> <ion-input class="ion-text-center" type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
+                       (change)="handleFileInput($event.target.files)" formControlName="immagine" ></ion-input></div>
+            <p ion-text class="text08" *ngIf="notiziaFormModel.get('immagine').touched && notiziaFormModel.get('immagine').invalid">
+                &nbsp;  <ion-text color="danger"> {{ 'IMMAGINE_RICHIESTA' | translate }} </ion-text>
             </p>
         </form>
         <br>
@@ -40,6 +45,10 @@
             &nbsp;&nbsp;
             <ion-button size="medium" shape="round" color="primary" (click)="indietro()" [routerLink]="['/tabs/notizie']" tappable>
                 {{ 'BOTTONE_INDIETRO' | translate }}
+            </ion-button>
+
+            <ion-button [hidden]="this.notizia.id == null" size="medium" shape="round" name="remove-circle-outline" color="tertiary" (click)="eliminaNotizia(notizia)" tappable>
+                {{ 'ELIMINA' | translate }}
             </ion-button>
         </div>
     </ion-content>

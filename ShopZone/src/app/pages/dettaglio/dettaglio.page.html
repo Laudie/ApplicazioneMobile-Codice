@@ -18,18 +18,17 @@
             <a [routerLink]="['/tabs/negozio',notizia.negozioResponse.id]">{{notizia.negozioResponse.nome}}</a>
         </ion-text>
 
-        <ion-item slot="end" lines="none"
-                  *ngIf="(utente$ | async)?.negozio.id === notizia.negozioResponse.id ; else bottonePiace"
-                  (click)="modificaNotizia(notizia)">
-            <ion-icon name="more"></ion-icon>
+        <ion-item slot="end" lines="none" (click)="miPiace(notizia)" class="activated"
+                  *ngIf="utente$.getValue()?.negozio.id == null ||
+                   utente$.getValue()?.negozio.id != notizia.negozioResponse.id; else modificNotizia">
+            <ion-text>   {{notizia.numeroPiace }} </ion-text>
+            <ion-icon color="danger" size="large"
+                      [name]="notizia.piace ? 'heart' :'heart-empty'">
+            </ion-icon>
         </ion-item>
-        <ng-template #bottonePiace>
-            <ion-item lines="none" (click)="miPiace(notizia)" class="activated" slot="end">
-                <ion-text>   {{notizia.numeroPiace }} </ion-text>
-                <ion-icon color="danger" size="large"
-                          [name]="notizia.piace ? 'heart' :'heart-empty'">
-                </ion-icon>
-
+        <ng-template #modificNotizia>
+            <ion-item slot="end" lines="none" (click)="modificaNotizia(notizia)">
+                <ion-icon name="more"></ion-icon>
             </ion-item>
         </ng-template>
     </ion-item>
