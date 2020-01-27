@@ -3,10 +3,9 @@ import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import {Notizia} from '../../model/notizia.model';
-import {ModalController, NavController} from '@ionic/angular';
+import {ModalController} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {NotiziaService} from '../../services/notizia.service';
-import {FormBuilder} from '@angular/forms';
 import {NuovanotiziaPage} from '../nuovanotizia/nuovanotizia.page';
 @Component({
     selector: 'app-tabs',
@@ -20,9 +19,7 @@ export class TabsPage implements OnInit {
 
     constructor(private utenteService: UtenteService,
                 private modalController: ModalController,
-                private notiziaService: NotiziaService,
-                private formBuilder: FormBuilder,
-                private navController: NavController) {
+                private notiziaService: NotiziaService) {
     }
 
     ngOnInit() {

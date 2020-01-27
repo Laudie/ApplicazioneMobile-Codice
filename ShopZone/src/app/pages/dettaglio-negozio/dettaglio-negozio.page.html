@@ -21,7 +21,7 @@
                               color="primary"><i>{{negozio.nome}}</i></ion-text>
                     <ion-item *ngIf="(utente$ | async)?.negozio.id === negozio.id ; else bottonePreferenza "
                                 (click)="modificaNegozio(negozio)" float-right>
-                        <ion-icon name="more"></ion-icon>
+                        <ion-icon name="more" lines="none"></ion-icon>
                     </ion-item>
                     <ng-template #bottonePreferenza>
                         <ion-item lines="none" (click)="preferito(negozio)" class="activated" float-right>
@@ -38,7 +38,7 @@
             <ion-row>
                 <ion-col size="5">
                     <ion-item lines="none">
-                        <ion-thumbnail class="ion-radius-circle-big">
+                        <ion-thumbnail class="ion-radius-circle">
                             <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%"
                                  alt="Image"/>
                         </ion-thumbnail>
