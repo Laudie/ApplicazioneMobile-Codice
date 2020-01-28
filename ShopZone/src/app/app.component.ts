@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
 import {NavController, Platform} from '@ionic/angular';
-import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {TranslateService} from '@ngx-translate/core';
 import {LinguaService} from './services/lingua.service';
 import {UtenteService} from './services/utente.service';
@@ -13,8 +11,6 @@ import {UtenteService} from './services/utente.service';
 })
 export class AppComponent implements OnInit {
   constructor(private platform: Platform,
-              private splashScreen: SplashScreen,
-              private statusBar: StatusBar,
               private utenteService: UtenteService,
               private translate: TranslateService,
               private navController: NavController,
@@ -31,8 +27,6 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       this.initTranslate();
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
     });
   }
 

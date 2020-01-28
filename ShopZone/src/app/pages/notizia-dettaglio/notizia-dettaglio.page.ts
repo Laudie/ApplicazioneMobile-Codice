@@ -7,23 +7,23 @@ import {UtenteService} from '../../services/utente.service';
 import {Utente} from '../../model/utente.model';
 import {OverlayEventDetail} from '@ionic/core';
 import {ModalController, NavController} from '@ionic/angular';
-import {NuovanotiziaPage} from '../nuovanotizia/nuovanotizia.page';
+import {NotiziaModalPage} from '../notizia-modal/notizia-modal.page';
 
 
 @Component({
-    selector: 'app-dettaglio',
-    templateUrl: './dettaglio.page.html',
-    styleUrls: ['./dettaglio.page.scss'],
+    selector: 'app-notizia-dettaglio',
+    templateUrl: './notizia-dettaglio.page.html',
+    styleUrls: ['./notizia-dettaglio.page.scss'],
 })
-export class DettaglioPage implements OnInit {
+export class NotiziaDettaglioPage implements OnInit {
     notizia$: Observable<Notizia>;
     utente$: BehaviorSubject<Utente>;
 
     constructor(private route: ActivatedRoute,
                 private notiziaService: NotiziaService,
                 private modalController: ModalController,
-                private navController: NavController,
                 private utenteService: UtenteService,
+                private navController: NavController,
     ) {
     }
 
@@ -56,7 +56,7 @@ export class DettaglioPage implements OnInit {
 
     async modificaNotizia(notizia: Notizia) {
         const modal = await this.modalController.create({
-            component: NuovanotiziaPage,
+            component: NotiziaModalPage,
             componentProps: {appParam: notizia}
         });
         modal.onDidDismiss().then((detail: OverlayEventDetail) => {

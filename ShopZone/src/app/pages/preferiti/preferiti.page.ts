@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {NavController} from '@ionic/angular';
 import {Negozio} from '../../model/negozio.model';
 import {NegozioService} from '../../services/negozio.service';
 
@@ -12,8 +11,7 @@ import {NegozioService} from '../../services/negozio.service';
 export class PreferitiPage implements OnInit {
     private negozi$: Observable<Negozio[]>;
 
-    constructor(private negozioService: NegozioService,
-                private navController: NavController) {
+    constructor(private negozioService: NegozioService) {
     }
 
     ngOnInit() {

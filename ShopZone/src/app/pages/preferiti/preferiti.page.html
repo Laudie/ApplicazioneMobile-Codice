@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngFor="let negozio of negozi$ | async"  [routerLink]="['/tabs/negozio',negozio.id]" class="sc-ion-card-md-h">
+    <ion-card  *ngFor="let negozio of negozi$ | async"  [routerLink]="['/tabs/negozio',negozio.id]" class="sc-ion-card-md-h">
         <ion-item slot="start" class="ion-no-padding preferito">
             <ion-thumbnail class="ion-radius-circle" slot="start">
                 <img [src]="'data:image/png;base64,' + negozio.immagineprofilo " width="100%" height="100%" alt="Image" />
@@ -16,9 +16,7 @@
                 </div>
                 <div><h2> {{negozio.nome}}</h2>
                     <p>  {{negozio.descrizione}}</p></div>
-
             </ion-label>
         </ion-item>
     </ion-card>
-
 </ion-content>

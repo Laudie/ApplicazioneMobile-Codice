@@ -17,16 +17,7 @@ const routes: Routes = [
     {
         path: '',
         loadChildren: './pages/tabs/tabs.module#TabsPageModule'
-    },
-    {
-        path: 'dummy',
-        loadChildren: './pages/dummy/dummy.module#DummyPageModule'
-    },
-    {
-        path: 'nuovanotizia',
-        loadChildren: './pages/nuovanotizia/nuovanotizia.module#NuovanotiziaPageModule',
     }
-
 ];
 
 @NgModule({

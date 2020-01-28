@@ -3,8 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
 
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
-import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {WebView} from '@ionic-native/ionic-webview/ngx';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
@@ -42,8 +40,6 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     AppRoutingModule],
   providers: [
-    StatusBar,
-    SplashScreen,
     WebView,
     Base64,
     httpInterceptorProviders,

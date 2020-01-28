@@ -8,7 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {TabsPage} from './tabs.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {AuthGuard} from '../../guard/auth.guard';
-import {NuovanotiziaPageModule} from '../nuovanotizia/nuovanotizia.module';
+import {NotiziaModalPageModule} from '../notizia-modal/notizia-modal.module';
 
 const routes: Routes = [
     {
@@ -20,7 +20,7 @@ const routes: Routes = [
                 children: [
                     {
                         path: ':id',
-                        loadChildren: '../dettaglio/dettaglio.module#DettaglioPageModule'
+                        loadChildren: '../notizia-dettaglio/notizia-dettaglio.module#NotiziaDettaglioPageModule'
                     },
                     {
                         path: '',
@@ -53,7 +53,7 @@ const routes: Routes = [
                 children: [
                     {
                         path: ':id',
-                        loadChildren: '../dettaglio-negozio/dettaglio-negozio.module#DettaglioNegozioPageModule'
+                        loadChildren: '../negozio-dettaglio/negozio-dettaglio.module#NegozioDettaglioPageModule'
                     }
                 ]
             }
@@ -74,7 +74,7 @@ const routes: Routes = [
         CommonModule,
         FormsModule,
         IonicModule,
-        NuovanotiziaPageModule,
+        NotiziaModalPageModule,
         TranslateModule.forChild(),
         RouterModule.forChild(routes)
     ],

@@ -6,7 +6,7 @@ import {Notizia} from '../../model/notizia.model';
 import {ModalController} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {NotiziaService} from '../../services/notizia.service';
-import {NuovanotiziaPage} from '../nuovanotizia/nuovanotizia.page';
+import {NotiziaModalPage} from '../notizia-modal/notizia-modal.page';
 @Component({
     selector: 'app-tabs',
     templateUrl: './tabs.page.html',
@@ -29,7 +29,7 @@ export class TabsPage implements OnInit {
     async aggiungiNotizia() {
         const notizia = new Notizia();
         const modal = await this.modalController.create({
-            component: NuovanotiziaPage,
+            component: NotiziaModalPage,
             componentProps: {appParam: notizia}
         });
         modal.onDidDismiss().then((detail: OverlayEventDetail) => {

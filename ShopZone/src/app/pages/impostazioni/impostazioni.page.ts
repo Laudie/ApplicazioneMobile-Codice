@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AlertController, ModalController, NavController} from '@ionic/angular';
-import {AggiungiNegozioPage} from '../aggiungi-negozio/aggiungi-negozio.page';
+import {NegozioModalPage} from '../negozio-modal/negozio-modal.page';
 import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject} from 'rxjs';
 import {Utente} from '../../model/utente.model';
@@ -56,7 +56,7 @@ export class ImpostazioniPage implements OnInit {
     async aggiungiNegozio() {
         const negozio = new Negozio();
         const modal = await this.modalController.create({
-            component: AggiungiNegozioPage,
+            component: NegozioModalPage,
             componentProps: {appParam: negozio}
         });
         modal.onDidDismiss().then((detail: OverlayEventDetail) => {

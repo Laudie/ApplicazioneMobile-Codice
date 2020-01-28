@@ -2,23 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {ModalController, NavController, NavParams} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NegozioService} from '../../services/negozio.service';
-import {ToastController} from '@ionic/angular';
 import {Negozio} from '../../model/negozio.model';
 import {BehaviorSubject} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
 
 @Component({
-    selector: 'app-aggiungi-negozio',
-    templateUrl: './aggiungi-negozio.page.html',
-    styleUrls: ['./aggiungi-negozio.page.scss'],
+    selector: 'app-negozio-modal',
+    templateUrl: './negozio-modal.page.html',
+    styleUrls: ['./negozio-modal.page.scss'],
 })
-export class AggiungiNegozioPage implements OnInit {
+export class NegozioModalPage implements OnInit {
 
     private imageUrl: string;
     private negozioFormModel: FormGroup;
     filetoUpload: File = null;
-    toast: any;
     private negozio: Negozio;
     private utente$: BehaviorSubject<Utente>;
 
@@ -26,7 +24,6 @@ export class AggiungiNegozioPage implements OnInit {
                 private formBuilder: FormBuilder,
                 private negozioService: NegozioService,
                 private navController: NavController,
-                private toastController: ToastController,
                 private navParams: NavParams,
                 private utenteService: UtenteService,
     ) {

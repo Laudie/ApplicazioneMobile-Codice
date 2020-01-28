@@ -6,12 +6,13 @@ import {Notizia} from '../../model/notizia.model';
 import {BehaviorSubject} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 
+
 @Component({
-    selector: 'app-nuovanotizia',
-    templateUrl: './nuovanotizia.page.html',
-    styleUrls: ['./nuovanotizia.page.scss'],
+    selector: 'app-notizia-modal',
+    templateUrl: './notizia-modal.page.html',
+    styleUrls: ['./notizia-modal.page.scss'],
 })
-export class NuovanotiziaPage implements OnInit {
+export class NotiziaModalPage implements OnInit {
     private imageUrl: string;
     private notiziaFormModel: FormGroup;
     filetoUpload: File = null;

@@ -2,17 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
-import { DettaglioNegozioPage } from './dettaglio-negozio.page';
+import { NegozioDettaglioPage } from './negozio-dettaglio.page';
 import {TranslateModule} from '@ngx-translate/core';
-import {AggiungiNegozioPageModule} from '../aggiungi-negozio/aggiungi-negozio.module';
+import {NegozioModalPageModule} from '../negozio-modal/negozio-modal.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: DettaglioNegozioPage
+    component: NegozioDettaglioPage
   }
 ];
 
@@ -22,9 +20,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    AggiungiNegozioPageModule,
+    NegozioModalPageModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DettaglioNegozioPage]
+  declarations: [NegozioDettaglioPage]
 })
-export class DettaglioNegozioPageModule {}
+export class NegozioDettaglioPageModule {}

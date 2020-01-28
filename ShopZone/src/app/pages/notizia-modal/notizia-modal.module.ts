@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
 
-import { NuovanotiziaPage } from './nuovanotizia.page';
+import { NotiziaModalPage } from './notizia-modal.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
     path: '',
-    component: NuovanotiziaPage
+    component: NotiziaModalPage
   }
 ];
 
@@ -24,6 +24,6 @@ const routes: Routes = [
     TranslateModule,
     ReactiveFormsModule
   ],
-  declarations: [NuovanotiziaPage],
+  declarations: [NotiziaModalPage],
 })
-export class NuovanotiziaPageModule {}
+export class NotiziaModalPageModule {}

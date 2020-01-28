@@ -1,7 +1,7 @@
 <ion-header *ngIf="(negozio$ | async) as negozio">
     <ion-toolbar color="primary" mode="ios">
         <ion-title color="light"
-                   *ngIf="(utente$ | async)?.negozio.id === negozio.id  ; else titoloNegozio"> {{'HOME_TAB' | translate}}</ion-title>
+                   *ngIf="utente$.getValue()?.ruolo == 'negoziante' ; else titoloNegozio"> {{'HOME_TAB' | translate}}</ion-title>
         <ng-template #titoloNegozio>
             <ion-title color="light">{{'NEGOZIO' | translate}}</ion-title>
         </ng-template>
@@ -13,16 +13,16 @@
     <ion-card class="sc-ion-card-md-h">
 
         <ion-grid fixed="true">
-            <ion-row justify-content-center>
-                <ion-col align-self-center justify-content-center text-center>
+            <ion-row class="ion-justify-content-center">
+                <ion-col class="ion-align-self-center ion-justify-content-center ion-text-center">
                     <ion-text class="text17 font-6 " style="padding-left: 15%; vertical-align: middle;"
                               color="primary"><i>{{negozio.nome}}</i></ion-text>
-                    <ion-item lines="none"*ngIf="(utente$ | async)?.negozio.id === negozio.id ; else bottonePreferenza "
-                                (click)="modificaNegozio(negozio)" float-right>
+                    <ion-item lines="none" *ngIf="(utente$ | async)?.negozio == negozio ; else bottonePreferenza "
+                                (click)="modificaNegozio(negozio)" class="ion-float-right">
                         <ion-icon name="more" ></ion-icon>
                     </ion-item>
                     <ng-template #bottonePreferenza>
-                        <ion-item lines="none" (click)="preferito(negozio)" class="activated" float-right>
+                        <ion-item lines="none" (click)="preferito(negozio)" class="activated ion-float-right">
                             <ion-text>   {{negozio.preferenze }} </ion-text>
                             <ion-icon class="yellow" size="large"
                                       [name]="negozio.preferito ? 'star' :'star-outline'">
@@ -42,7 +42,7 @@
                         </ion-thumbnail>
                     </ion-item>
                 </ion-col>
-                <ion-col size="7" align-self-center>
+                <ion-col size="7" class="ion-align-self-center">
                     <ion-text class="text10"><p>  {{negozio.descrizione}}</p>
                         <p>{{negozio.via}}, {{negozio.citta}}</p></ion-text>
 
@@ -62,7 +62,7 @@
     <div *ngIf="vistaGriglia === true">
         <ion-grid>
             <ion-row>
-                <ion-col align-self-start size="4" class="frame-square"
+                <ion-col  size="4" class="frame-square ion-align-self-start"
                          *ngFor=" let notizia of notizie$ | async "
                          [routerLink]="['/tabs/notizie', notizia.id]" routerDirection="forward">
                     <img [src]="'data:image/png;base64,' + notizia.immagine " width="100%" height="100%"

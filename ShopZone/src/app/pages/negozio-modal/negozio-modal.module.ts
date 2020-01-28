@@ -3,18 +3,18 @@ import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 
-import {AggiungiNegozioPage} from './aggiungi-negozio.page';
+import {NegozioModalPage} from './negozio-modal.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
-    entryComponents: [AggiungiNegozioPage],
+    entryComponents: [NegozioModalPage],
     imports: [
         CommonModule,
         ReactiveFormsModule,
         IonicModule,
         TranslateModule.forChild(),
     ],
-    declarations: [AggiungiNegozioPage]
+    declarations: [NegozioModalPage]
 })
-export class AggiungiNegozioPageModule {
+export class NegozioModalPageModule {
 }

@@ -4,8 +4,7 @@ import {Injectable} from '@angular/core';
 import {URL} from '../constants';
 import {Notizia} from '../model/notizia.model';
 import {Observable} from 'rxjs';
-import {Negozio} from '../model/negozio.model';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable({
