@@ -51,7 +51,7 @@ export class DettaglioNegozioPage implements OnInit {
 
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
-            this.vistaGriglia = false;
+            this.vistaGriglia = true;
             this.idNegozio = parseInt(params.get('id'), 0);
             this.negozio$ = this.negozioService.findById(this.idNegozio);
             this.listaNotizie();

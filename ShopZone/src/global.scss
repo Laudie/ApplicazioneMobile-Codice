@@ -96,8 +96,8 @@ ion-thumbnail {
     overflow: hidden;
     --border-radius: 100% !important;
     border: 2px solid grey;
-    min-width: 7rem;
-    min-height: 7rem;
+    min-width: 6rem;
+    min-height: 6rem;
   }
 
   &.ion-radius-squared {
@@ -436,7 +436,7 @@ ion-header {
 }
 .searchbar-input {
   top: 0;
-  left: 15%;
+  margin: 0 auto;
   border-radius: 30px !important;
 
   max-width: 250px;
