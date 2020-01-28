@@ -1,10 +1,13 @@
 <ion-header *ngIf="(negozio$ | async) as negozio">
     <ion-toolbar color="primary" mode="ios">
-        <ion-title color="light"
-                   *ngIf="utente$.getValue()?.ruolo == 'negoziante' ; else titoloNegozio"> {{'HOME_TAB' | translate}}</ion-title>
-        <ng-template #titoloNegozio>
-            <ion-title color="light">{{'NEGOZIO' | translate}}</ion-title>
-        </ng-template>
+        <ion-title color="light" *ngIf="(utente$ | async) as utente"
+                   [hidden]="(utente.ruolo === 'base' || utente.negozio.id != negozio.id)">
+            {{'HOME_TAB' | translate}}
+        </ion-title>
+        <ion-title color="light" *ngIf="(utente$ | async) as utente"
+                   [hidden]="(utente.ruolo === 'negoziante' && utente.negozio.id == negozio.id)">
+            {{'NEGOZIO' | translate}}
+        </ion-title>
         <ion-icon slot="start" name="arrow-back" (click)="tornaIndietro()" size="large" color="light"></ion-icon>
     </ion-toolbar>
 </ion-header>
@@ -16,20 +19,19 @@
             <ion-row class="ion-justify-content-center">
                 <ion-col class="ion-align-self-center ion-justify-content-center ion-text-center">
                     <ion-text class="text17 font-6 " style="padding-left: 15%; vertical-align: middle;"
-                              color="primary"><i>{{negozio.nome}}</i></ion-text>
-                    <ion-item lines="none" *ngIf="(utente$ | async)?.negozio == negozio ; else bottonePreferenza "
+                              color="primary"><i>{{negozio.nome}}</i>
+                    </ion-text>
+                    <ion-item lines="none" *ngIf="(utente$ | async) as utente " [hidden]="(utente.ruolo === 'base' || utente?.negozio.id != negozio.id)"
                                 (click)="modificaNegozio(negozio)" class="ion-float-right">
-                        <ion-icon name="more" ></ion-icon>
+                        <ion-icon name="more" size="large"></ion-icon>
                     </ion-item>
-                    <ng-template #bottonePreferenza>
-                        <ion-item lines="none" (click)="preferito(negozio)" class="activated ion-float-right">
+                        <ion-item class="activated ion-float-right" lines="none" *ngIf="(utente$ | async) as utente" (click)="preferito(negozio)" [hidden]="!(utente.ruolo === 'base' || utente?.negozio.id != negozio.id)" >
                             <ion-text>   {{negozio.preferenze }} </ion-text>
                             <ion-icon class="yellow" size="large"
                                       [name]="negozio.preferito ? 'star' :'star-outline'">
                             </ion-icon>
 
                         </ion-item>
-                    </ng-template>
                 </ion-col>
 
             </ion-row>
@@ -53,10 +55,10 @@
 
     <ion-segment>
         <ion-segment-button checked="true" (ionSelect)="cambioVista()">
-            <ion-icon name="apps"></ion-icon>
+            <ion-icon name="reorder"></ion-icon>
         </ion-segment-button>
         <ion-segment-button (ionSelect)="cambioVista()">
-            <ion-icon name="reorder"></ion-icon>
+            <ion-icon name="apps"></ion-icon>
         </ion-segment-button>
     </ion-segment>
     <div *ngIf="vistaGriglia === true">

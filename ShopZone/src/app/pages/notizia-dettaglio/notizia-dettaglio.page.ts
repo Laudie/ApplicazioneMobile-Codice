@@ -26,6 +26,14 @@ export class NotiziaDettaglioPage implements OnInit {
                 private navController: NavController,
     ) {
     }
+    ngOnInit() {
+        this.route.paramMap.subscribe((params: ParamMap) => {
+            if (this.utenteService.isLogged()) {
+                this.utente$ = this.utenteService.getUtente();
+            }
+            this.notizia$ = this.notiziaService.findById(parseInt(params.get('id'), 0));
+        });
+    }
 
     miPiace(notizia: Notizia) {
         if (this.utenteService.getAuthToken() != null) {
@@ -44,16 +52,6 @@ export class NotiziaDettaglioPage implements OnInit {
             this.navController.navigateRoot('login');
         }
     }
-
-    ngOnInit() {
-        this.route.paramMap.subscribe((params: ParamMap) => {
-            if (this.utenteService.isLogged()) {
-                this.utente$ = this.utenteService.getUtente();
-            }
-            this.notizia$ = this.notiziaService.findById(parseInt(params.get('id'), 0));
-        });
-    }
-
     async modificaNotizia(notizia: Notizia) {
         const modal = await this.modalController.create({
             component: NotiziaModalPage,

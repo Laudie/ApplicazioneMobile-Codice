@@ -33,7 +33,7 @@ export class NotiziaModalPage implements OnInit {
         if (this.notizia.immagine != null) {
             this.imageUrl = 'data:image/png;base64,' + this.notizia.immagine;
         } else {
-            this.imageUrl = '../../../assets/logo/default.jpg';
+            this.imageUrl = '../../../assets/logo/upload.jpg';
         }
         this.notiziaFormModel = this.formBuilder.group({
             titolo: [this.notizia.titolo, Validators.compose([Validators.required
@@ -54,7 +54,7 @@ export class NotiziaModalPage implements OnInit {
     }
 
      async indietro() {
-        this.imageUrl = '../../../assets/logo/default.jpg';
+        this.imageUrl = '../../../assets/logo/upload.jpg';
         await this.modalController.dismiss();
     }
     handleFileInput(file: FileList) {

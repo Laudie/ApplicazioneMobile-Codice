@@ -1,54 +1,65 @@
 <ion-header>
-    <ion-toolbar color="primary" text-center>
+    <ion-toolbar color="primary" class="ion-text-center">
         <ion-title *ngIf="this.notizia.id == null ; else modificaNotizia">{{'NUOVA_NOTIZIA' | translate}}</ion-title>
         <ng-template #modificaNotizia>
             <ion-title>{{'MODIFICA_NOTIZIA' | translate}}</ion-title>
         </ng-template>
     </ion-toolbar>
 </ion-header>
-    <ion-content>
-        <form [formGroup]="notiziaFormModel">
 
-            <ion-item no-padding class="animated fadeInUp" >
-                <ion-label position="floating" color="primary">
-                    &nbsp; {{ 'TITOLO' | translate }}</ion-label>
-                <ion-input  type="string"  formControlName="titolo"> </ion-input>
+<ion-content class="ion-padding">
+    <form [formGroup]="notiziaFormModel">
+        <ion-list no-lines>
+            <ion-item class="ion-no-padding animated fadeInUp">
+                <ion-label position="floating">
+                     {{ 'TITOLO' | translate }}</ion-label>
+                <ion-input type="string" formControlName="titolo"></ion-input>
             </ion-item>
-            <p ion-text class="text08" *ngIf="notiziaFormModel.get('titolo').touched && notiziaFormModel.get('titolo').invalid">
-                &nbsp;  <ion-text color="danger"> {{ 'TITOLO_RICHIESTO' | translate }} </ion-text>
+            <p ion-text class="text08"
+               *ngIf="notiziaFormModel.get('titolo').touched && notiziaFormModel.get('titolo').invalid">
+
+                <ion-text color="danger"> {{ 'TITOLO_RICHIESTO' | translate }} </ion-text>
             </p>
 
 
-            <ion-item no-padding class="animated fadeInUp">
-                <ion-label position="floating"color="primary" >
-                  &nbsp; {{ 'TESTO' | translate }}</ion-label>
-                <ion-textarea  type="string" formControlName="descrizione"> </ion-textarea>
+            <ion-item class="ion-no-padding animated fadeInUp">
+                <ion-label position="floating">
+                     {{ 'TESTO' | translate }}</ion-label>
+                <ion-textarea type="string" formControlName="descrizione"></ion-textarea>
             </ion-item>
-            <p ion-text class="text08" *ngIf="notiziaFormModel.get('descrizione').touched && notiziaFormModel.get('descrizione').invalid">
-                &nbsp; <ion-text color="danger">{{ 'TESTO_RICHIESTO' | translate }} </ion-text>
+            <p ion-text class="text08"
+               *ngIf="notiziaFormModel.get('descrizione').touched && notiziaFormModel.get('descrizione').invalid">
+
+                <ion-text color="danger">{{ 'TESTO_RICHIESTO' | translate }} </ion-text>
             </p>
 
-            <p align="center"><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center></p>
-            <div class="ion-align-items-center"> <ion-input class="ion-text-center" type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
-                       (change)="handleFileInput($event.target.files)" formControlName="immagine" ></ion-input></div>
-            <p ion-text class="text08" *ngIf="notiziaFormModel.get('immagine').touched && notiziaFormModel.get('immagine').invalid">
-                &nbsp;  <ion-text color="danger"> {{ 'IMMAGINE_RICHIESTA' | translate }} </ion-text>
+            <p align="center"><img [src]="imageUrl" style="width:200px; height:150px" class="ion-align-items-center"></p>
+            <div class="ion-align-items-center">
+                <ion-input class="ion-text-center" type="file" #Image accept="image/*" size="medium" shape="round"
+                           (change)="handleFileInput($event.target.files)" formControlName="immagine"></ion-input>
+            </div>
+            <p ion-text class="text08"
+               *ngIf="notiziaFormModel.get('immagine').touched && notiziaFormModel.get('immagine').invalid">
+
+                <ion-text color="danger"> {{ 'IMMAGINE_RICHIESTA' | translate }} </ion-text>
             </p>
-        </form>
-        <br>
+        </ion-list>
 
-        <div margin-top="30px" align="center">
+        <div class="ion-margin-top" align="center">
 
-            <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()" [disabled]="! notiziaFormModel.valid" tappable>
+            <ion-button size="medium" shape="round" color="primary" (click)="onSubmit()"
+                        [disabled]="! notiziaFormModel.valid" tappable>
                 {{ 'CONFERMA' | translate }}
             </ion-button>
-            &nbsp;&nbsp;
-            <ion-button size="medium" shape="round" color="primary" (click)="indietro()" [routerLink]="['/tabs/notizie']" tappable>
+            <ion-button size="medium" shape="round" color="primary" (click)="indietro()"
+                        [routerLink]="['/tabs/notizie']" tappable>
                 {{ 'BOTTONE_INDIETRO' | translate }}
             </ion-button>
-
-            <ion-button [hidden]="this.notizia.id == null" size="medium" shape="round" name="remove-circle-outline" color="tertiary" (click)="eliminaNotizia(notizia)" tappable>
+            <br>
+            <ion-button [hidden]="this.notizia.id == null" size="medium" shape="round" name="remove-circle-outline"
+                        color="tertiary" (click)="eliminaNotizia()" tappable>
                 {{ 'ELIMINA' | translate }}
             </ion-button>
         </div>
-    </ion-content>
+    </form>
+</ion-content>

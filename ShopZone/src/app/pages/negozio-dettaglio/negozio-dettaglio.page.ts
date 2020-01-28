@@ -31,6 +31,16 @@ export class NegozioDettaglioPage implements OnInit {
                 private navCtrl: NavController) {
     }
 
+    ngOnInit() {
+        this.route.paramMap.subscribe((params: ParamMap) => {
+            this.vistaGriglia = false;
+            this.idNegozio = parseInt(params.get('id'), 0);
+            this.negozio$ = this.negozioService.findById(this.idNegozio);
+            this.listaNotizie();
+            this.utente$ = this.utenteService.getUtente();
+        });
+
+    }
 
     async modificaNegozio(negozio: Negozio) {
         const modal = await this.modalController.create({
@@ -49,16 +59,6 @@ export class NegozioDettaglioPage implements OnInit {
         return await modal.present();
     }
 
-    ngOnInit() {
-        this.route.paramMap.subscribe((params: ParamMap) => {
-            this.vistaGriglia = true;
-            this.idNegozio = parseInt(params.get('id'), 0);
-            this.negozio$ = this.negozioService.findById(this.idNegozio);
-            this.listaNotizie();
-            this.utente$ = this.utenteService.getUtente();
-        });
-
-    }
 
     listaNotizie() {
         this.notizie$ = this.notiziaService.listaNotizie(this.idNegozio);

@@ -34,7 +34,7 @@ export class NegozioModalPage implements OnInit {
         if (this.negozio.immagineprofilo != null) {
             this.imageUrl = 'data:image/png;base64,' + this.negozio.immagineprofilo;
         } else {
-            this.imageUrl = '../../../assets/logo/default.jpg';
+            this.imageUrl = '../../../assets/logo/upload.jpg';
         }
         this.negozioFormModel = this.formBuilder.group({
             nome: [this.negozio.nome, Validators.compose([Validators.required
@@ -66,7 +66,7 @@ export class NegozioModalPage implements OnInit {
     }
     async indietro() {
         // Reset immagine
-        this.imageUrl = '../../../assets/logo/default.jpg';
+        this.imageUrl = '../../../assets/logo/upload.jpg';
         await this.modalController.dismiss();
     }
 

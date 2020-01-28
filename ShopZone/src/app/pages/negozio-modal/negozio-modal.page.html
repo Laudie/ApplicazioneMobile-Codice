@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary" text-center>
+    <ion-toolbar color="primary" class="ion-text-center">
         <ion-title *ngIf="utente$.getValue().negozio?.id != null ; else aggiungiNegozio">{{'MODIFICA_NEGOZIO' | translate}}</ion-title>
         <ng-template #aggiungiNegozio>
             <ion-title>{{'AGGIUNGI_NEGOZIO' | translate}}</ion-title>
@@ -7,7 +7,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
     <form [formGroup]="negozioFormModel">
         <ion-list no-lines>
             <ion-item class="animated fadeInUp">
@@ -46,23 +46,20 @@
                 <ion-text color="danger">{{ 'VIA_RICHIESTA' | translate }} </ion-text>
             </p>
 
-            <p align="center"><img [src]="imageUrl"  style="width:200px; height:150px" align-items-center>
+            <p align="center"><img [src]="imageUrl"  style="width:200px; height:150px" class="ion-align-items-center">
                 <ion-input align="center" type="file" #Image accept="image/*" size="medium" shape="round" color="primary"
-                           (change)="handleFileInput($event.target.files)" formControlName="immagineprofilo" text-center></ion-input>
+                           (change)="handleFileInput($event.target.files)" formControlName="immagineprofilo"  class="ion-text-center"></ion-input>
             </p>
             <p ion-text class="text08"
                *ngIf="negozioFormModel.get('immagineprofilo').touched && negozioFormModel.get('immagineprofilo').invalid">
                 <ion-text color="danger">{{ 'IMMAGINE_RICHIESTA' | translate }} </ion-text>
             </p>
         </ion-list>
-        <div margin-top="30px" align="center">
+        <div class="ion-margin-top" align="center">
 
             <ion-button size="medium" shape="round" color="primary"  [disabled]="! negozioFormModel.valid" (click)="onSubmit()" tappable>
                 {{ 'BOTTONE_AGGIUNGI' | translate }}
             </ion-button>
-            <!--<ion-button size="medium" shape="round" color="primary" (click)="homePage()" tappable>
-                Prova
-            </ion-button>!-->
             <ion-button size="medium" shape="round" color="primary" (click)="indietro()" tappable>
                 {{ 'BOTTONE_INDIETRO' | translate }}
             </ion-button>

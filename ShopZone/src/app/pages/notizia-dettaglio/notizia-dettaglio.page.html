@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary" text-center>
+    <ion-toolbar color="primary" class="ion-text-center">
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
         </ion-buttons>
@@ -18,19 +18,16 @@
             <a [routerLink]="['/tabs/negozio',notizia.negozioResponse.id]">{{notizia.negozioResponse.nome}}</a>
         </ion-text>
 
-        <ion-item slot="end" lines="none" (click)="miPiace(notizia)" class="activated"
-                  *ngIf="utente$.getValue()?.negozio.id == null ||
-                   utente$.getValue()?.negozio.id != notizia.negozioResponse.id; else modificNotizia">
+        <ion-item slot="end" lines="none" class="activated" (click)="miPiace(notizia)" *ngIf="(utente$ | async) as utente" [hidden]="!(utente.ruolo === 'base' || utente?.negozio.id != notizia.negozioResponse.id)"  >
             <ion-text>   {{notizia.numeroPiace }} </ion-text>
             <ion-icon color="danger" size="large"
                       [name]="notizia.piace ? 'heart' :'heart-empty'">
             </ion-icon>
         </ion-item>
-        <ng-template #modificNotizia>
-            <ion-item slot="end" lines="none" (click)="modificaNotizia(notizia)">
-                <ion-icon name="more"></ion-icon>
+            <ion-item slot="end" lines="none" (click)="modificaNotizia(notizia)" *ngIf="(utente$ | async) as utente" [hidden]="(utente.ruolo === 'base' || utente?.negozio.id != notizia.negozioResponse.id)">
+                <ion-icon name="more" size="large"></ion-icon>
             </ion-item>
-        </ng-template>
+
     </ion-item>
     <ion-slides>
         <ion-slide>

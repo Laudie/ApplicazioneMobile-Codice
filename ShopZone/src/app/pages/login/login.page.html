@@ -1,20 +1,16 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-title color="light" text-center>{{ 'LOGIN_TITOLO' | translate }}</ion-title>
+        <ion-title color="light" class="ion-text-center">{{ 'LOGIN_TITOLO' | translate }}</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding class="animated fadeIn login auth-page">
+<ion-content class="ion-padding animated fadeIn login auth-page">
 
     <div class="ion-padding-horizontal ion-text-center">
         <div class="logo"></div>
     </div>
-    <!-- Logo -->
-
-
-    <!-- Login form -->
     <form [formGroup]="loginFormModel" class="list-form">
-        <ion-item no-padding class="animated fadeInUp">
+        <ion-item class="ion-no-padding animated fadeInUp">
             <ion-label position="floating">
                 {{ 'USERNAME' | translate }}</ion-label>
             <ion-input color="secondary" type="email" formControlName="username"></ion-input>
@@ -23,7 +19,7 @@
            *ngIf="loginFormModel.get('username').touched && loginFormModel.get('username').invalid">
             <ion-text color="danger">{{ 'USERNAME_RICHIESTO' | translate }}</ion-text>
         </p>
-        <ion-item no-padding class="animated fadeInUp">
+        <ion-item  class="ion-no-padding animated fadeInUp">
             <ion-label position="floating">
                 {{ 'PASSWORD' | translate }}</ion-label>
             <ion-input color="secondary" type="password" formControlName="password"></ion-input>
@@ -33,7 +29,7 @@
             <ion-text color="danger">{{ 'PASSWORD_RICHIESTA' | translate }}</ion-text>
         </p>
         <br>
-        <div margin-top="20px">
+        <div class="ion-margin-top 20px">
             <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onLogin()"
                         [disabled]="!loginFormModel.valid" tappable>
                 <ion-icon name="log-in"></ion-icon>
