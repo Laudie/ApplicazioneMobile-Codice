@@ -27,10 +27,8 @@ export class NotiziaDettaglioPage implements OnInit {
     ) {
     }
     ngOnInit() {
+        this.utente$ = this.utenteService.getUtente();
         this.route.paramMap.subscribe((params: ParamMap) => {
-            if (this.utenteService.isLogged()) {
-                this.utente$ = this.utenteService.getUtente();
-            }
             this.notizia$ = this.notiziaService.findById(parseInt(params.get('id'), 0));
         });
     }

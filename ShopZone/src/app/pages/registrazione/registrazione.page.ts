@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ModalController, NavController, NavParams} from '@ionic/angular';
-import {TranslateService} from '@ngx-translate/core';
+import {ModalController, NavController} from '@ionic/angular';
 import {NuovoUtente, UtenteService} from '../../services/utente.service';
-import {Observable} from 'rxjs';
-
 @Component({
     selector: 'app-registrazione',
     templateUrl: './registrazione.page.html',
@@ -24,18 +21,18 @@ export class RegistrazionePage implements OnInit {
     ngOnInit() {
 
         this.registrazioneFormModel = this.formBuilder.group({
-            nome: ['Laura', Validators.compose([Validators.required
+            nome: ['Mario', Validators.compose([Validators.required
             ])],
-            cognome: ['Di Egidio', Validators.compose([
+            cognome: ['Rossi', Validators.compose([
                 Validators.required
             ])],
-            email: ['xxx@xxx.it', Validators.compose([
+            email: ['MarioRossi@gmail.it', Validators.compose([
                 Validators.required
             ])],
-            username: ['Laurett', Validators.compose([
+            username: ['mario', Validators.compose([
                 Validators.required
             ])],
-            password: ['Laura10', Validators.compose([
+            password: ['mario', Validators.compose([
                 Validators.required
             ])]
         });
@@ -43,9 +40,9 @@ export class RegistrazionePage implements OnInit {
 
     onSubmit() {
         const nuovoUtente: NuovoUtente = this.registrazioneFormModel.value;
-        console.log(nuovoUtente);
-        this.utenteService.nuovoUtente(nuovoUtente);
-        this.registrazioneFormModel.reset();
-        this.navController.navigateRoot('login');
+        this.utenteService.nuovoUtente(nuovoUtente).subscribe(() => {
+            this.registrazioneFormModel.reset();
+            this.navController.navigateRoot('login');
+        });
     }
 }

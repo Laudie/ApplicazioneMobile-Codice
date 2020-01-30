@@ -17,6 +17,15 @@ export class PreferitiPage implements OnInit {
     ngOnInit() {
         this.negozi$ = this.negozioService.preferiti();
     }
+
     ionViewWillEnter() {
-        this.negozi$ = this.negozioService.preferiti();  }
+        this.negozi$ = this.negozioService.preferiti();
+    }
+
+    ricarica(event) {
+        this.negozi$ = this.negozioService.preferiti();
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
+    }
 }

@@ -89,4 +89,10 @@ export class NegozioDettaglioPage implements OnInit {
             this.navCtrl.navigateRoot('login');
         }
     }
+    ricarica(event) {
+        this.listaNotizie();
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
+    }
 }

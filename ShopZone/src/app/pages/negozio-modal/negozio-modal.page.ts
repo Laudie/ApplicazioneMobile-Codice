@@ -65,14 +65,12 @@ export class NegozioModalPage implements OnInit {
         await this.modalController.dismiss(this.negozio);
     }
     async indietro() {
-        // Reset immagine
         this.imageUrl = '../../../assets/logo/upload.jpg';
         await this.modalController.dismiss();
     }
 
     handleFileInput(file: FileList) {
         this.filetoUpload = file.item(0);
-        // SHow image preview
         const reader = new FileReader();
         reader.onload = (event: any) => {
             this.imageUrl = event.target.result;

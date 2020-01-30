@@ -13,6 +13,9 @@
 </ion-header>
 
 <ion-content *ngIf="(negozio$ | async) as negozio">
+    <ion-refresher slot="fixed" (ionRefresh)="ricarica($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <ion-card class="sc-ion-card-md-h">
 
         <ion-grid fixed="true">
@@ -54,10 +57,10 @@
     </ion-card>
 
     <ion-segment>
-        <ion-segment-button checked="true" (ionSelect)="cambioVista()">
+        <ion-segment-button checked value="reorder" (ionSelect)="cambioVista()">
             <ion-icon name="reorder"></ion-icon>
         </ion-segment-button>
-        <ion-segment-button (ionSelect)="cambioVista()">
+        <ion-segment-button value="apps" (ionSelect)="cambioVista()">
             <ion-icon name="apps"></ion-icon>
         </ion-segment-button>
     </ion-segment>

@@ -20,13 +20,13 @@
 
         <ion-button size="medium" shape="round" color="primary" (click)="logout()" id="logout"
                     [hidden]="!(this.utenteService.isLogged() | async)" expand="block">
-            <ion-icon size="medium" name="logout"></ion-icon>
+            <ion-icon size="medium" name="log-out"></ion-icon>
             <ion-label> {{'ESCI' | translate}} </ion-label>
         </ion-button>
         <p>
             <ion-button size="medium" shape="round" color="primary" id="login" (click)="login()"
                         [hidden]="(this.utenteService.isLogged()| async)" expand="block">
-                <ion-icon size="medium" name="login"></ion-icon>
+                <ion-icon size="medium" name="log-in"></ion-icon>
                 <ion-label>{{'ACCEDI' | translate}}</ion-label>
             </ion-button>
         </p>

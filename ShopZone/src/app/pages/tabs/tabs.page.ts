@@ -3,7 +3,7 @@ import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import {Notizia} from '../../model/notizia.model';
-import {ModalController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {NotiziaService} from '../../services/notizia.service';
 import {NotiziaModalPage} from '../notizia-modal/notizia-modal.page';
@@ -19,13 +19,18 @@ export class TabsPage implements OnInit {
 
     constructor(private utenteService: UtenteService,
                 private modalController: ModalController,
-                private notiziaService: NotiziaService) {
+                private notiziaService: NotiziaService,
+                private navCtr: NavController,
+                 ) {
     }
 
     ngOnInit() {
+        this.notizie$ = this.notiziaService.list();
         this.utente$ = this.utenteService.getUtente();
     }
-
+    ionViewWillEnter() {
+        this.notizie$ = this.notiziaService.list();
+    }
     async aggiungiNotizia() {
         const notizia = new Notizia();
         const modal = await this.modalController.create({
@@ -35,8 +40,7 @@ export class TabsPage implements OnInit {
         modal.onDidDismiss().then((detail: OverlayEventDetail) => {
             if (detail !== null && detail.data !== undefined) {
                 this.notiziaService.nuovaNotizia(detail.data).subscribe(() => {
-                this.notizie$ = this.notiziaService.list();
-                location.reload();
+                this.navCtr.navigateRoot('tabs/notizie');
                 });
             } else {
                 console.log('cancel button pressed');

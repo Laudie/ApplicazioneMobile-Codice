@@ -27,9 +27,6 @@ export class NotiziePage implements OnInit {
     }
 
     ngOnInit() {
-    }
-
-    ionViewWillEnter() {
         this.notizie$ = this.notiziaService.list();
         this.searchform = this.formbuilder.group({
             searchinput: ['', Validators.required]
@@ -46,5 +43,13 @@ export class NotiziePage implements OnInit {
 
     indietro() {
         this.vistanotizie = true;
+    }
+
+    ricarica(event) {
+        this.notizie$ = this.notiziaService.list();
+
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
     }
 }

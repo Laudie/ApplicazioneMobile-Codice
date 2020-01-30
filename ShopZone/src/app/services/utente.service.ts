@@ -47,10 +47,7 @@ export class UtenteService {
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
                 this.authToken = token;
-                // Utente memorizzato nello storage in modo tale che se si vuole cambiare il
-                // profilo dell'utente stesso non si fa una chiamata REST.
                 this.storage.set(UTENTE_STORAGE, resp.body);
-                // update dell'observable dell'utente
                 this.utente$.next(resp.body);
                 this.loggedIn$.next(true);
                 return resp.body;
@@ -64,8 +61,6 @@ export class UtenteService {
         this.storage.remove(UTENTE_STORAGE).then((utente) => {
             this.utente$.next(utente);
         });
-        // Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
-        // Per gestirlo si dovrebbe fare lato server una blacklist.
     }
 
     getUtente(): BehaviorSubject<Utente> {
@@ -80,30 +75,8 @@ export class UtenteService {
         return this.loggedIn$.asObservable();
     }
 
-    nuovoUtente(nuovoUtente: NuovoUtente): void {
-        this.http.post(URL.NUOVO_UTENTE,
-            nuovoUtente)
-            .subscribe(
-                (val) => {console.log('POST call succesfull value returned in body', val);
-                },
-                response => {
-                    console.log('POST call in error', response);
-                },
-                () => {
-                    console.log('The POST observable is now completed');
-                });
+    nuovoUtente(nuovoUtente: NuovoUtente) {
+        return this.http.post(URL.NUOVO_UTENTE,
+            nuovoUtente);
     }
-    /* updateProfilo(nuovoUtente: Utente): Observable<Utente> {
-         return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, {observe: 'response'}).pipe(
-             map((resp: HttpResponse<Utente>) => {
-                 // Aggiornamento dell'utente nello storage.
-                 // Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
-                 // e se l'utente chiude la app e la riapre i dati sono gia' presenti
-                 this.storage.set(UTENTE_STORAGE, resp.body);
-                 // update dell'observable dell'utente
-                 this.utente$.next(resp.body);
-                 return resp.body;
-             }));
-     }*/
-
 }
